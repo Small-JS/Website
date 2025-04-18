@@ -1,0 +1,14 @@
+*.map
+*.env
+*.lnk
+*.log
+*.cmd
+*.vsix
+~$*
+.DS_Store
+**/node_modules
+**/out
+todo.txt
+web/Examples/*/*
+web/Playground/Playground
+web/Script
