@@ -24,6 +24,40 @@
 
 		<!-- ============================ Latest development -->
 
+		<tr>
+			<td>
+				<p class="newsTitle">Latest development
+					<span class="newsDate">25-OCT-2025</span>
+				</p>
+
+				<p>Working towards <b>SmallJS v2.0</b> (!) that will fully embrace JS promises,<br>
+					enabling use of 'await' for sync execution of methods that return them.<br>
+				</p>
+				<p>Most libraries now using callbacks with 'then:' will be converted to promises.<br>
+					So this is a (very) breaking change, that also has a small trade-off. <br>
+					More info in GitHub
+					<a href="https://github.com/Small-JS/SmallJS/issues/70" target="_blank">issue #70</a>.<br>
+				</p>
+				<p>
+					Note: SmallJS now requires
+					<a href="https://nodejs.org/en/download/current" target="_blank">Node.js v25</a>.<br>
+
+				</p>
+				<p><b>Smalltalk library</b><br>
+					- Core: Promise: New convenience methods for creation.<br>
+					- Core: Promise: Tests for 'async', 'await', 'then', 'catch' and 'finally'.<br>
+					- Core: Web Crypto API implemented with working examples in tests<br>
+					&nbsp for AES, RSA and ECDH. These work in both browsers and Node.<br>
+				</p>
+
+				<p><b>Compiler</b><br>
+					- Fixed code generation for 'await'.<br>
+					- Using 'await' outside an 'async' method now gives an error, conforming to JS.<br>
+				</p>
+
+			</td>
+		</tr>
+
 		<!-- ============================ Release 1.8 -->
 		<tr>
 			<td>
