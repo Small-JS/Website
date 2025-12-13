@@ -1,0 +1,113 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Messages</div>
+<br>
+
+<div class="tutorialText">
+	Smalltalk objects communicate by sending messages to each other.<br>
+	This is equivalent to calling 'functions' or 'methods' in other languages.<br>
+	<br>
+	Sending a message in Smalltalk is done by simply placing it after an object.<br>
+	Example: Evaluating <code>4 squared</code> in the Playground will give <code>16</code>.<br>
+	This sends the message <code>squared</code> to the object <code>4</code>.<br>
+	Then the <code>squared</code> method in the <code>Integer</code> class<br>
+	multiplies itself with itself and returns the resulting <code>Integer</code> object.<br>
+</div>
+<br>
+
+<div class="tutorialHeading1">Message types</div>
+<br>
+<div class="tutorialText">
+	Smalltalk has three message types:
+</div>
+<br>
+
+<div class="tutorialHeading2">1 - Unary messages</div>
+<br>
+<div>
+	The 'unary' message type has no arguments (parameters)<br>
+	it's name starts with a lower case letter.<br>
+	<br>
+	<b>Examples:<br></b>
+	- <code>4 squared</code> returns <code>16</code>.<br>
+	- <code>'ABC' toLowerCase</code> returns <code>'abc'</code>.<br>
+	- <code>true not</code> returns <code>false</code>.<br>
+</div>
+<br>
+
+<div class="tutorialHeading2">2 - Binary messages</div>
+<br>
+<div>
+	The 'binary' message type has <i>one</i> argument<br>
+	it's name consists of one or more symbols.<br>
+	Binary messages mostly implement numerical or logical operations.<br>
+	<br>
+	<b>Examples:<br></b>
+	- <code>2 + 3</code> returns <code>5</code> (addition).<br>
+	- <code>'abc' , 'def'</code> returns <code>'abcdef'</code> (concatenation).<br>
+	- <code>true & false</code> returns <code>false</code> (logic and).<br>
+</div>
+<br>
+
+<div class="tutorialHeading2">3 - Keyword messages</div>
+<br>
+<div>
+	The 'keyword' message type has <i>one or more</i> arguments<br>
+	where each argument is preceded by a keyword.<br>
+	A keyword starts with a lower case letter and end with colon.<br>
+	<br>
+	<b>Examples:<br></b>
+	- <code>6 gcd: 9</code> returns <code>3</code> (greatest common denominator).<br>
+	- <code>'abc' replace: 'b' with: '2'</code> returns <code>'a2c'</code> (find/replace).<br>
+</div>
+<br>
+
+<div class="tutorialHeading1">Message evaluation order</div>
+<br>
+<div class="tutorialHeading2">Left to right evaluation</div>
+<br>
+<div>
+	Message sends of the same type are evaluated left-to-right.<br>
+	<br>
+	<b>Examples:<br></b>
+	- <code>4 squared negated</code> returns <code>-16</code> (first square, then negate).<br>
+	- But <code>4 negated squared</code> returns <code>16</code> (because -4 * -4 = 16).<br>
+	- <code>1 + 2 * 3</code> returns <code>9</code> (not 7, left-to-right evaluation).<br>
+	- <code>( 'abcd' substring: 2 ) repeat: 2</code> returns <code>'cdcd'</code>.<br>
+	&nbsp (subsequent keyword messages need parentheses to separate them)<br>
+</div>
+<br>
+
+<div class="tutorialHeading2">Unary, binary, keyword evaluation</div>
+<br>
+<div>
+	In expressions with different message types, unary messages are evaluated first,<br>
+	then binary messages and lastly keyword messages.<br>
+	<br>
+	<b>Example:<br></b>
+	- <code>9 gcd: 10 - 2 squared</code> returns <code>3</code>.<br>
+	<br>
+	The evaluation order is:<br>
+	First the unary message <code>2 squared</code> is evaluated, returning <code>4</code>.<br>
+	Then the binary message <code>10 - 4</code> is evaluated, returning <code>6</code>.<br>
+	Lastly the keyword message <code>9 gcd: 6</code> is evaluated, returning <code>3</code>.<br>
+</div>
+<br>
+
+<div class="tutorialHeading1">Cascading messages (advanced)</div>
+<br>
+<div>
+	Sometimes multiple messages need to be sent to the same object.<br>
+	In Smalltalk, this can be done by separating the messages with a semicolon.<br>
+	<br>
+	<b>Example:<br></b>
+	- <code>Person new<br>
+		&nbsp firstName: 'Jane' ;<br>
+		&nbsp lastName: 'Doe'</code><br>
+	<br>
+	The evaluation order is:<br>
+	First <code>Person new</code> creates a new person object.<br>
+	Then <code>firstName: 'Jane'</code> sets the first name on that person.<br>
+	Lastly <code>lastName: 'Doe'</code> sets the sets the last on that <b><i>same</i></b> person.<br>
+</div>
+<br>

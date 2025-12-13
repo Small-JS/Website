@@ -1,0 +1,38 @@
+﻿<!-- This is the template for tutorial pages.
+	The website Builder merges this template with the page contents  -->
+
+<!DOCTYPE html>
+
+<html lang="en-GB">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SmallJS - Tutorial</title>
+	<link rel="stylesheet" href="/Tutorial/Tutorial/Tutorial.css" type="text/css" />
+	<script src="/Tutorial/Tutorial/Script/main.js" type="module"></script>
+</head>
+
+<body>
+	<table id="tutorialTable">
+		<div class="vertical-center title">
+			<img id="logoImage" src="/Tutorial/Tutorial/logo.png" height="40"></img>
+			<span id="titleMessage">&nbsp;&nbsp;SmallJS Tutorial</span>
+		</div>
+		<tr>
+			<th>
+				<div id="tutorialIndexDiv">
+					<include src="/Tutorial/Tutorial/Pages/-Index.html"></include>
+				</div>
+			</th>
+			<td>
+				<div id="tutorialPageDiv">
+					<include src="CustomTutorialPage.html"></include>
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>
+

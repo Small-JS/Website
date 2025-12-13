@@ -1,0 +1,65 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Statements & Variables</div>
+<br>
+
+<div class="tutorialHeading1">Statements</div>
+<br>
+<div class="tutorialText">
+	Smalltalk separates expressions into statements with a period.<br>
+	(In most languages the semicolon is used for this)<br>
+	<br>
+	<b>Example:<br></b>
+	<code>1 + 2.</code><br>
+	<code>3 + 4.</code><br>
+	<br>
+	This will return 7, the value of the second statement.<br>
+	Note: Smalltalk is not sensitive to newlines.<br>
+	Putting these statements on a single line will give the same result.<br>
+</div>
+<br>
+
+<div class="tutorialHeading1">Variables</div>
+<br>
+Smalltalk has three types of variables.
+
+<div class="tutorialHeading2">Local variables</div>
+<br>
+<div class="tutorialText">
+	Local variables are declared at the start of a method or block between two vertical bars.<br>
+	The default value of a variable is the <code>nil</code> object.<br>
+	Variables can be assigned to other object with <code>:=</code>.<br>
+	<br>
+	<b>Example:<br></b>
+	<code>| num | num := 7. num := num * 2.</code><br>
+	This will set variable <code>num</code> to 14.
+</div>
+<br>
+
+<div class="tutorialHeading2">Argument variables</div>
+<br>
+<div class="tutorialText">
+	Agrument variables are declared with method declarations.<br>
+	They can then be used only within that method (local scope).<br>
+	<br>
+	<b>Example method:<br></b>
+	<code>isLegalAge: person<br>
+	&nbsp ^ person age >= 18.</code>
+	<br>
+	This method will return <code>true</code> if the argument person is at least 18 years old.<br>
+	Note: Adding methods is not supported in the Playground.<br>
+	We'll come back to this when editing classes later.<br>
+</div>
+<br>
+
+<div class="tutorialHeading2">Global variables</div>
+<br>
+<div class="tutorialText">
+	In SmallJS, the only global variables are singleton class instances,
+	like we saw before, e.g.: <code>Integer</code>, <code>String</code> or <code>Boolean</code>.<br>
+	<br>
+	If you want to store a custom global variable, your can add it as a 'class variable' to a class.<br>
+	More on that later.<br>
+</div>
+<br>
+

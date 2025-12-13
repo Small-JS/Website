@@ -1,0 +1,74 @@
+﻿@import "default.css";
+
+#tutorialTable {
+	width: 100%;
+}
+
+#tutorialTable th {
+	/* Force auto-width */
+	width: 0px;
+	vertical-align: top;
+	text-align: left;
+	font-weight: normal;
+}
+
+#tutorialTable td {
+	vertical-align: top;
+	text-align: left;
+}
+
+/* ==================================== Index */
+
+#tutorialIndexDiv {
+	width: 300px;
+	/* Set height to viewport size minus headers */
+	height: calc(100vh - 40px);
+	overflow-y: scroll;
+	margin: 0;
+	padding: 0;
+}
+
+details > *:not(summary){
+  margin-left: 2em;
+}
+
+/* ==================================== Page */
+
+#tutorialPageDiv {
+	/* Set height to viewport size minus headers */
+	height: calc(100vh - 40px);
+	overflow-y: scroll;
+	padding-left: 8px;
+}
+
+.tutorialTitle {
+	font-size: x-large;
+	font-weight: bold;
+	color: navy;
+}
+
+.tutorialHeading1 {
+	font-size: large;
+	font-weight: bold;
+	color: navy;
+}
+
+.tutorialHeading2 {
+	font-weight: bold;
+	color: navy;
+}
+
+.tutorialParagraph {
+	font-size: normal;
+}
+
+.tutorialNote {
+	font-style: italic;
+}
+
+code {
+	font-family: 'Consolas';
+	background-color: #ededed;
+	padding-left: 6px;
+	padding-right: 6px;
+}
