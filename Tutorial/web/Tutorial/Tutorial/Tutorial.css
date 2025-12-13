@@ -20,9 +20,9 @@
 /* ==================================== Index */
 
 #tutorialIndexDiv {
-	width: 300px;
+	width: 200px;
 	/* Set height to viewport size minus headers */
-	height: calc(100vh - 40px);
+	height: calc(100vh - 60px);
 	overflow-y: scroll;
 	margin: 0;
 	padding: 0;
@@ -36,7 +36,7 @@ details > *:not(summary){
 
 #tutorialPageDiv {
 	/* Set height to viewport size minus headers */
-	height: calc(100vh - 40px);
+	height: calc(100vh - 60px);
 	overflow-y: scroll;
 	padding-left: 8px;
 }
