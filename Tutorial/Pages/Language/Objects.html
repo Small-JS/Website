@@ -1,9 +1,8 @@
 <!-- HTML fragment for the text of this tutorial page -->
 
-<div class="tutorialTitle">Objects & Classes</div>
+<div class="tutorialTitle">Objects</div>
 <br>
 
-<div class="tutorialHeading1">Objects</div>
 <div class="tutorialText">
 	In Smalltalk, <i>every</i> value is an object.<br>
 	And every object is an 'instance' of a class (template).<br>
@@ -20,27 +19,3 @@
 	You can check this by evaluating <code>42 class</code> in the Playground.<br>
 	The result should be <code>class Integer</code>.<br>
 </div>
-<br>
-
-<div class="tutorialHeading1">Classes</div>
-<div class="tutorialText">
-	Smalltalk classes themselves are also ordinary objects.<br>
-	So you can also send messages to them or use them as values.<br>
-	<br>
-	For example: <br>
-	- <code>Integer name</code> returns the string <code>'Integer'</code>.<br>
-	- <code>42 class = Integer</code> returns<code>true</code>.<br>
-</div>
-<br>
-
-<div class="tutorialHeading1">Class instances</div>
-<div class="tutorialText">
-	Class instance objects are most often created with the message <code>new</code>.<br>
-	But other messages are possible too..
-	<br>
-	<b>Examples:</b><br>
-	- <code>Date new</code> returns a date object with the current date</code>.<br>
-	- <code>Date year: 2000 month: 2 day: 3</code> returns the date February 3rd 2000.<br>
-</div>
-<br>
-

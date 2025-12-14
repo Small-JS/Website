@@ -1,0 +1,30 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Returning</div>
+<br>
+
+<div class="tutorialText">
+	Smalltalk has these implicit return values:<br>
+	- Objects 'return' themselves.<br>
+	- Blocks return the result of last expression in them.<br>
+	- Methods return the current object <code>self</code> by default.<br>
+	&nbsp (So not 'null', 'undefined' or 'void' as in other languages)<br>
+	<br>
+	You can explicitly return a value with the caret character: <code>^</code>.<br>
+	An explicit return immediately exits the current <i>method</i>.<br>
+	Even if the return is within a (nested) block it wil still exit the current <i>method</i>.<br>
+	<br>
+	<b>Examples:<br></b>
+	<code>
+		^ 'a'.<br>
+		'b'.<br>
+	</code>
+	This will return <code>'a'</code> since <code>'b'</code> is never reached.<br>
+	<br>
+	<code>
+		1 < 2 ifTrue: [ ^ 'smaller' ].<br>
+		^ 'bigger'<br>
+	</code>
+	This will return <code>'smaller'</code> since <code>'bigger'</code> is never reached.<br>
+</div>
+<br>

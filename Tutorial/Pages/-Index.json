@@ -2,11 +2,13 @@
 	"Home",
 	"Language",
 	[
-		"Objects & Classes",
+		"Objects",
+		"Classes",
 		"Messages",
-		"Statements & Variables",
-		"Arrays",
+		"Statements",
+		"Variables",
 		"Blocks",
+		"Returning",
 		"Arrays"
 	],
 	"Library",
