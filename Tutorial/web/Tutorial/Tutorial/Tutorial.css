@@ -67,7 +67,7 @@ details > *:not(summary){
 }
 
 code {
-	font-family: 'Consolas';
+	font-family: monospace;
 	background-color: #ededed;
 	padding-left: 6px;
 	padding-right: 6px;
