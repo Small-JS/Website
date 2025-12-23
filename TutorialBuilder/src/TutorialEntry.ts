@@ -1,5 +1,6 @@
 
 import * as path from 'path';
+import * as fs from 'fs';
 
 export class TutorialEntry
 {
@@ -16,8 +17,7 @@ export class TutorialEntry
 		let entry: TutorialEntry;
 
 		for( let object of objects ) {
-			if( typeof object === 'string' )
-			{
+			if( typeof object === 'string' ) {
 				entry = new TutorialEntry();
 				entry.title = object;
 				entry.level = level;
@@ -25,7 +25,7 @@ export class TutorialEntry
 				this.entries.push( entry );
 			}
 			if( object instanceof Array ) {
-				let newDir = path.join( dir, entry!.baseName() )
+				let newDir = path.join( dir, entry!.baseName() );
 				entry!.fromObjects( object, level + 1, newDir );
 			}
 		}
@@ -47,6 +47,9 @@ export class TutorialEntry
 
 	entryHtml(): string
 	{
+		if( !fs.existsSync( this.filePath() ) )
+			throw new Error( '-Index.json: Page file not found: ' + this.filePath() );
+
 		let indent = '\t'.repeat( this.level - 1 );
 		return indent + '<a ' +
 			'id="' + this.baseName() + 'Entry" ' +
@@ -60,10 +63,10 @@ export class TutorialEntry
 	{
 		let indent = '\t'.repeat( this.level - 1 );
 		return indent + '<details>\n' +
-				indent + '\t<summary>\n' +
-					'\t\t' + this.entryHtml() +
-				indent + '\t</summary>\n' +
-				this.toHtml() +
+			indent + '\t<summary>\n' +
+			'\t\t' + this.entryHtml() +
+			indent + '\t</summary>\n' +
+			this.toHtml() +
 			indent + '</details>\n';
 	}
 
@@ -82,5 +85,9 @@ export class TutorialEntry
 		return path.posix.join( this.dir, this.fileName() );
 	}
 
+	filePath(): string
+	{
+		return "../Tutorial/Pages/" + this.path();
+	}
 };
 

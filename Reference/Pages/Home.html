@@ -1,0 +1,54 @@
+﻿
+<!-- HTML for the home page of the reference.
+	That is placed at the root of the reference page index tree.
+	It should be kept similar to Template.html -->
+
+<!DOCTYPE html>
+
+<html lang="en-GB">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SmallJS - Reference</title>
+	<link rel="stylesheet" href="/Reference/Reference/Reference.css" type="text/css" />
+	<script src="/Reference/Reference/Script/main.js" type="module"></script>
+</head>
+
+<body>
+	<table id="referenceTable">
+		<div class="vertical-center title">
+			<img id="logoImage" src="/Reference/Reference/Logo.png" height="40"></img>
+			<span id="titleMessage">&nbsp;&nbsp;SmallJS Reference</span>
+		</div>
+		<tr>
+			<th>
+				<div id="referenceIndexDiv">
+					<include src="/Reference/Reference/Pages/Index.html"></include>
+				</div>
+			</th>
+			<td>
+				<div id="referencePageDiv">
+					<div class="referenceTitle">Home</div>
+					<br>
+					<div class="referenceParagraph">
+						Hello there, SmallJS enjoyer!<br>
+						<br>
+						This is the complete class library reference for SmallJS.<br>
+						It contains the classes with their comment and parent class.<br>
+						Plus their methods with comments in categories.<br>
+						The hierarchy is the same as in the /Smalltalk folder in the SmallJS repo,<br>
+						where you can also check out the full method source code, of course :).<br>
+						<br>
+						The search function finds classes or methods by their names.<br>
+						Note: Keyword methods are concatenated, like "at:put:" in class Array.<br>
+						<br>
+						Happy hunting.<br>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "tsc: watch - tsconfig.json",
+			"type": "typescript",
+			"tsconfig": "tsconfig.json",
+			"option": "watch",
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"runOptions": {
+				"runOn": "folderOpen"
+			}
+		},
+		{
+			"label": "Build Site",
+			"type": "shell",
+			"options": {
+				"cwd": "${workspaceFolder}/../ReferenceBuilder"
+			},
+			"command": "node",
+			"args": [
+				"out/main.js"
+			],
+			"dependsOn": "Compile class info"
+		},
+		{
+			"label": "Compile class info",
+			"type": "shell",
+			"command": "node",
+			"args": [ "../Compiler/out/main.js", "-d", "-t", ".", "../../Website/Reference/Pages" ],
+			"options": {
+				"cwd": "${workspaceFolder}/../../SmallJS/Smalltalk"
+			}
+		}
+	]
+}

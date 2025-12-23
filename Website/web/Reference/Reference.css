@@ -1,0 +1,7 @@
+﻿@import "../default.css";
+
+#referenceIframe {
+	width: 100%;
+	height: calc( 100vh - 150px );
+	border: none;
+}

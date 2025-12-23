@@ -1,10 +1,10 @@
 ﻿@import "default.css";
 
-#tutorialTable {
+#referenceTable {
 	width: 100%;
 }
 
-#tutorialTable th {
+#referenceTable th {
 	/* Force auto-width */
 	width: 0px;
 	vertical-align: top;
@@ -12,15 +12,15 @@
 	font-weight: normal;
 }
 
-#tutorialTable td {
+#referenceTable td {
 	vertical-align: top;
 	text-align: left;
 }
 
 /* ==================================== Index */
 
-#tutorialIndexDiv {
-	width: 160px;
+#referenceIndexDiv {
+	width: 320px;
 	/* Set height to viewport size minus headers */
 	height: calc(100vh - 50px);
 	overflow-y: scroll;
@@ -34,42 +34,29 @@ details > *:not(summary){
 
 /* ==================================== Page */
 
-#tutorialPageDiv {
+#referencePageDiv {
 	/* Set height to viewport size minus headers */
 	height: calc(100vh - 50px);
 	overflow-y: scroll;
 	padding-left: 8px;
 }
 
-.tutorialTitle {
-	font-size: x-large;
-	font-weight: bold;
-	color: navy;
+#classTable th {
+	font-weight: 500;
+	padding-right: 10px;
 }
 
-.tutorialHeading1 {
-	font-size: large;
-	font-weight: bold;
-	color: navy;
-}
-
-.tutorialHeading2 {
-	font-weight: bold;
-	color: navy;
-}
-
-.tutorialParagraph {
-	font-size: normal;
-}
-
-.tutorialNote {
+.methodCategoryDiv {
+	font-weight: 500;
 	font-style: italic;
 }
 
 code {
 	font-family: monospace;
-	background-color: #ededed;
-	padding-left: 6px;
-	padding-right: 6px;
+	font-size: 120%;
+	/* font-family: system-ui; */
+	/* background-color: #ededed; */
+	/* padding-left: 6px; */
+	/* padding-right: 6px; */
 }
 

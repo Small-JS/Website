@@ -14,3 +14,4 @@ rm -fr web/Examples/Balls
 rm -fr web/Examples/Benchmark
 rm -fr web/Examples/WebWorkers
 rm -fr web/Tutorial/Pages
+rm -fr web/Reference/Pages

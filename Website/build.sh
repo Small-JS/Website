@@ -13,8 +13,7 @@ echo "==== Website"
 echo "tsc Website"
 tsc
 
-# Copy Tutorial, Playground and Examples
-
+# Copy subsites into this site.
 # This assumes these have been built beforehand.
 # Just copy the generated web apps for use in iframes.
 
@@ -27,6 +26,13 @@ echo "Copying Tutorial"
 
 rm -rf web/Tutorial/Tutorial
 cp -r ../Tutorial/web/Tutorial/Tutorial web/Tutorial/Tutorial
+
+# Reference
+
+echo "Copying Reference"
+
+rm -rf web/Reference/Reference
+cp -r ../Reference/web/Reference/Reference web/Reference/Reference
 
 # Playground
 

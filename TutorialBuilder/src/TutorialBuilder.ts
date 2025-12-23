@@ -15,7 +15,7 @@ export class TutorialBuilder
 		tutorialIndex.save();
 
 		let tutorialPages = new TutorialPages();
-		tutorialPages.convert( tutorialIndex.root );
+		tutorialPages.convert();
 	}
 
 }

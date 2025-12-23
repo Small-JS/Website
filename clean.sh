@@ -8,4 +8,6 @@ cd "$(dirname "$0")"
 
 ./TutorialBuilder/clean.sh
 ./Tutorial/clean.sh
+./ReferenceBuilder/clean.sh
+./Reference/clean.sh
 ./Website/clean.sh

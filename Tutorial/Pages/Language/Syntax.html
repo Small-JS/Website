@@ -1,0 +1,109 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Syntax</div>
+<br>
+
+<div class="tutorialText">
+	Let's start with a syntax overview of all SmallJS language elements.<br>
+	Dont't worry, we'll get into more detail further on in the tutorial.<br>
+	Here's an example SmallJS class declaration using all syntax features:<br>
+	<br>
+	<img id="syntaxImage" src="Syntax.png" alt="Syntax elements"
+		style="width: min( 100%, 600px )"></a><br>
+	<br>
+	Explanation of the syntax elements used in the image above:<br>
+	<br>
+</div>
+
+<div class="tutorialHeading1">File keywords</div>
+<br>
+
+<div class="tutorialText">
+	These uppercase keywords indicate the class and method properties.<br>
+	They are specific for file-based SmallJS, and not part of standard Smalltalk.<br>
+	<br>
+	- <code>CLASS</code> - Is followed by the class name.<br>
+	- <code>EXTENDS</code> - Indicates the base class. <code>Object</code> is the root class.<br>
+	- <code>MODULE</code> - The JS module this class should be put in.<br>
+	- <code>CLASSVARS</code> - Variables of the class itself (not its instances).<br>
+	&nbsp; Like JS static class variables.<br>
+	- <code>VARS</code> - Instance variables of objects created from the class.<br>
+	&nbsp; Like JS class instance variables.<br>
+	- <code>CLASSMETHODS</code> - Methods following this will be added to the (meta)class.<br>
+	&nbsp; Like JS static class methods.<br>
+	- <code>METHODS</code> - Methods following this will be added to class **instances**.<br>
+	&nbsp; Like JS regular class methods.<br>
+	&nbsp; This is the default method type if no method type is specified.<br>
+	- <code>INLINE</code> - Inline JS code, not transpiled.<br>
+	&nbsp; ST variables can be accessed in inline JS, using the same names.<br>
+	- <code>"This is a comment."</code> - ST comments are put in double quotes.<br>
+	&nbsp; (Strings always use single quotes.)<br>
+</div>
+<br>
+
+<div class="tutorialHeading1">Methods</div>
+<br>
+
+<div class="tutorialText">
+	Method types, ordered from highest to lowest evaluation precedence:<br>
+	<br>
+	- <code>method1</code> - Unary method, has no arguments.<br>
+	- <code>++ var</code> - Binary (operator) method, has one argument.<br>
+	- <code>method2Arg1: aVar1 arg2: aVar2</code> - Keyword method, has one or more arguments.<br>
+	<br>
+	Other method elements:<br>
+	<br>
+	- <code>| locVar lv2 lv3 |</code> - Local variables declaration.<br>
+	- <code>var1 := 3</code> - Variable assignment.<br>
+	&nbsp; Note: <code>var1 = 3</code> Tests for equality.<br>
+	- <code>!</code> - End of method indicator.<br>
+</div>
+<br>
+
+<div class="tutorialHeading1">Constants</div>
+<br>
+
+<div class="tutorialText">
+	Constants and their ST class names:<br>
+	<br>
+	- <code>'aaa'</code> - String: Always use single quotes.<br>
+	- <code>$c</code> - Character: Single character, not a string.<br>
+	- <code>123</code> - Integer: Whole number.<br>
+	- <code>3.14</code> - Float: Floating point number.<br>
+	- <code>( 1 / 3 )</code> - Fraction: Exact fractional number.<br>
+	- <code>true</code>, <code>false</code> - Boolean: Boolean values.<br>
+	- <code>nil</code> - Nil: Singelton instance, like JS 'undefined' or 'null'.<br>
+	- <code>#( 'aaa' $c 123 3.14 ( 1 / 3 ) true nil )</code> - Array: Containing all previous values.<br>
+</div>
+<br>
+
+<div class="tutorialHeading1">Blocks & return</div>
+<br>
+
+<div class="tutorialText">
+	- <code>[ 1 + 2 ]</code> - Conditional code block, like JS lambda functions.<br>
+	- <code>[ :n | n squared ]</code> - Block with 1 argument returning squared number.<br>
+	- <code>[ :a :b | a + b ]</code> - Block with 2 arguments returning sum.<br>
+	&nbsp; Note: Blocks may also have more than 2 arguments.<br>
+	- <code>^ 42</code> - Return a value from the current <i>method</i>, even when within a block.<br>
+</div>
+<br>
+
+<div class="tutorialHeading1">Control flow</div>
+<br>
+
+<div class="tutorialText">
+	Control flow statements in ST use methods with blocks:<br>
+	<br>
+	- <code>1 + 2 = 3 ifTrue: [ 'Checks out' ]</code><br>
+	&nbsp; Like JS: if( 1 + 2 == 3 ) { ... }<br>
+	- <code>a > 0 ifTrue: [ 'Positive' ] ifFalse: [ 'Zero or negative' ]</code><br>
+	&nbsp; Like JS: if( a > 0 ) { ... } else { ... }<br>
+	- <code>1 to: 10 do: [ :n | self log: n ]</code><br>
+	&nbsp; Like JS: for( n = 1; n <= 10; ++n ) { ... }<br>
+	- <code>[ a > 0 ] whileTrue: [ self log: a. a decrement ]</code><br>
+	&nbsp; Like JS: while( a > 0 ) { ... }<br>
+	- <code>[ self log: a. a decrement ] doWhile: [ a > 0 ]</code><br>
+	&nbsp; Like JS: do { ... } while( a > 0 )<br>
+</div>
+<br>

@@ -1,0 +1,77 @@
+﻿<!-- This is the template for reference pages.
+	The website Builder merges this template with the page contents.
+	Fields to be merged are inducated with curly braces {}  -->
+
+<!DOCTYPE html>
+
+<html lang="en-GB">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SmallJS - Reference</title>
+	<link rel="stylesheet" href="/Reference/Reference/Reference.css" type="text/css" />
+	<script src="/Reference/Reference/Script/main.js" type="module"></script>
+</head>
+
+<body>
+	<table id="referenceTable">
+		<div class="vertical-center title">
+			<img id="logoImage" src="/Reference/Reference/Logo.png" height="40"></img>
+			<span id="titleMessage">&nbsp;&nbsp;SmallJS Reference</span>
+		</div>
+		<tr>
+			<th>
+				<div id="referenceIndexDiv">
+					<include src="/Reference/Reference/Pages/Index.html"></include>
+				</div>
+			</th>
+			<td>
+				<div id="referencePageDiv">
+					<table id="classTable">
+						<tr>
+							<th>Class</th>
+							<td><code>{class}</code></td>
+						</tr>
+						<tr>
+							<th>Path</th>
+							<td><code>{path}</code></td>
+						</tr>
+						<tr>
+							<th>Module</th>
+							<td><code>{module}</code></td>
+						</tr>
+						<tr>
+						<tr>
+							<th>Superclass</th>
+							<td><code>{superclass}</code></td>
+						</tr>
+						<tr>
+							<th>Class vars</th>
+							<td><code>{classVars}</code></td>
+						</tr>
+						<tr>
+							<th>Vars</th>
+							<td><code>{vars}</code></td>
+						</tr>
+						<tr>
+							<th>Comment</th>
+							<td>{comment}</td>
+						</tr>
+						<tr><td><br></td></tr>
+						<tr>
+							<th>Class methods</th>
+							<td>{classMethods}</td>
+						</tr>
+						<tr>
+							<th>Methods</th>
+							<td>{methods}</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

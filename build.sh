@@ -8,4 +8,6 @@ cd "$(dirname "$0")"
 
 ./TutorialBuilder/build.sh
 ./Tutorial/build.sh
+./ReferenceBuilder/build.sh
+./Reference/build.sh
 ./Website/build.sh

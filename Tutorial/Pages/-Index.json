@@ -2,6 +2,7 @@
 	"Home",
 	"Language",
 	[
+		"Syntax",
 		"Objects",
 		"Classes",
 		"Messages",

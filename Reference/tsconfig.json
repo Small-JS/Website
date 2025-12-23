@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "esNext",
+	"module": "esNext",
+	"outDir": "web/Reference/Reference/Script",
+	"strict": true,
+	"sourceMap": true,
+	"skipLibCheck": true
+  }
+}

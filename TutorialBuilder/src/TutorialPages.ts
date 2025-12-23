@@ -4,40 +4,59 @@ import { TutorialTemplate } from "./TutorialTemplate.js";
 import * as fs from 'fs';
 import * as path from 'path';
 
+// Convert source pages folder to web pages folder hierarchically.
+// Html source files are assumed to need the page template.
+// Other files are just copied.
+
 export class TutorialPages
 {
 	private sourceDir = '../Tutorial/Pages';
 	private destDir = '../Tutorial/web/Tutorial/Tutorial/Pages';
 	private template = new TutorialTemplate();
 
-	convert( root: TutorialEntry )
+	convert()
 	{
 		this.template.load();
 
-		this.convertEntries( root.entries );
+		if( ! fs.existsSync( this.destDir ) )
+			fs.mkdirSync( this.destDir );
+
+		let files = <string[]> fs.readdirSync( this.sourceDir, { recursive: true } );
+		for( let file of files )
+			this.convertFile( file );
 	}
 
-	convertEntries( entries: TutorialEntry[] )
+	convertFile( file: string )
 	{
-		for( let entry of entries )
-			this.convertEntry( entry );
-	}
+		// Skip tempate files
+		if( file.substring( 0 , 1 ) == '-' )
+			return;
 
-	convertEntry( entry: TutorialEntry )
-	{
-		let sourcePath = path.posix.join( this.sourceDir, entry.dir, entry.fileName() );
+		// Standardize on Unix path separators.
+		file = file.replaceAll( '\\', '/' );
+		let sourcePath = path.posix.join( this.sourceDir, file );
+
+		// Create directory if not existing
+		let stat = fs.statSync( sourcePath );
+		if(  stat.isDirectory() ) {
+			let destDir = path.posix.join( this.destDir, file );
+			if( ! fs.existsSync( destDir ) )
+				fs.mkdirSync( destDir );
+			return;
+		}
+
+		let destPath = path.posix.join( this.destDir, file );
+
+		// Just copy non-html files
+		if( ! sourcePath.endsWith( '.html' ) ) {
+			fs.cpSync( sourcePath, destPath )
+			return;
+		}
+
+		// Merge source file with template
 		let pageText = fs.readFileSync( sourcePath ).toString();
-
 		let mergedText = this.template.merge( pageText );
-
-		let destDir = path.join( this.destDir, entry.dir );
-		if( ! fs.existsSync( destDir ) )
-			fs.mkdirSync( destDir );
-
-		let destPath = path.join( destDir, entry.fileName() );
 		fs.writeFileSync( destPath, mergedText );
-
-		this.convertEntries( entry.entries )
 	}
 
 }
