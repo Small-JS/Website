@@ -20,7 +20,7 @@
 /* ==================================== Index */
 
 #referenceIndexDiv {
-	width: 320px;
+	width: 350px;
 	/* Set height to viewport size minus headers */
 	height: calc(100vh - 50px);
 	overflow-y: scroll;
@@ -46,17 +46,22 @@ details > *:not(summary){
 	padding-right: 10px;
 }
 
-.methodCategoryDiv {
-	font-weight: 500;
-	font-style: italic;
-}
-
 code {
 	font-family: monospace;
 	font-size: 120%;
-	/* font-family: system-ui; */
-	/* background-color: #ededed; */
-	/* padding-left: 6px; */
-	/* padding-right: 6px; */
+	background-color: #f0f0f0;
 }
 
+/* ==================================== Methods */
+
+.methodCategoryDiv {
+	font-weight: 500;
+	font-style: italic;
+	margin-top: 10px;
+	margin-bottom: 2px;
+}
+
+.methodComment {
+	margin-left: 20px;
+	margin-bottom: 8px;
+}

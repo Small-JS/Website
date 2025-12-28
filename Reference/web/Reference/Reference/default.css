@@ -13,23 +13,8 @@ body {
 	background-color: #C5ECF9;
 	margin-top: 0px;
 	margin-bottom: 0px;
-}
-
-.horizontal-center {
-	text-align: center;
-}
-
-.horizontal-left {
-	text-align: left;
-}
-
-.bold-horizontal-center {
-	text-align: center;
-	font-weight: bold;
-}
-
-.vertical-center {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+

@@ -10,8 +10,6 @@ import { ReferencePages } from "./ReferencePages.js";
 
 export class ReferenceBuilder
 {
-	private classes: DocumentedClass[] = [];
-
 	build()
 	{
 		let classes = DocumentedClass.load();

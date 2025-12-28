@@ -2,6 +2,7 @@ import { DocumentedClass } from './DocumentedClass.js';
 import { DocumentedMethod } from './DocumentedMethod.js';
 
 import * as fs from 'fs';
+import * as path from 'path';
 
 export class ReferenceTemplate
 {
@@ -16,16 +17,16 @@ export class ReferenceTemplate
 
 	// Replace internal text merged info.
 
-	merge( _class: DocumentedClass ): string
+	merge( _class: DocumentedClass, classes: DocumentedClass[] ): string
 	{
 		this.text = this.templateText;
 		this.replaceField( '{class}', _class.name );
-		this.replaceField( '{superclass}', _class.superclass );
+		this.replaceSuperclass( _class.superclass, classes );
 		this.replaceField( '{module}', _class.module );
 		this.replaceField( '{path}', _class.path );
 		this.replaceField( '{classVars}', _class.classVars );
 		this.replaceField( '{vars}', _class.vars );
-		this.replaceComment( '{comment}', _class.comment );
+		this.replaceComment( _class.comment );
 		this.replaceMethods( '{classMethods}', _class.classMethods );
 		this.replaceMethods( '{methods}', _class.methods );
 
@@ -42,11 +43,29 @@ export class ReferenceTemplate
 			text + this.text.substring( index + fieldName.length );
 	}
 
+	replaceSuperclass( superclassName: string, classes: DocumentedClass[] )
+	{
+		if( superclassName == 'nil' ) {
+			this.replaceField( '{superclass}', superclassName );
+			return;
+		}
+
+		let superclass = classes.find( _class => _class.name == superclassName );
+		if( ! superclass )
+			throw Error( 'Superclass not found: ' + superclassName );
+
+		let url = path.posix.join( '/Reference/Reference/Pages' , path.posix.dirname( superclass.path ) );
+		url = path.posix.join( url, superclass.name + '.html' );
+		let html = '<a href="' + url + '">' + superclass.name + '</a>';
+
+		this.replaceField( '{superclass}', html );
+	}
+
 	// Convert newlines to <br> elements.
-	replaceComment( fieldName: string, comment: string )
+	replaceComment( comment: string )
 	{
 		let htmlComment = this.commentToHtml( comment );
-		this.replaceField( fieldName, htmlComment );
+		this.replaceField( '{comment}', htmlComment );
 	}
 
 	commentToHtml( comment: string ): string
@@ -107,18 +126,15 @@ export class ReferenceTemplate
 		if( methods.length < 1 )
 			return '';
 
-		let table = '<table class="methodTable">\n';
-		for( let method of methods ) {
-			let htmlComment = this.commentToHtml( method.comment );
-			table +=
-				'\t<tr>\n' +
-				'\t\t<th><code>' + method.name + '</code></th>\n' +
-				'\t\t<td>' + htmlComment + '</td>\n' +
-				'\t</tr>\n';
-		}
-		table += '</table>\n<br>\n';
+		let methodsHtml = '';
 
-		return table;
+		for( let method of methods ) {
+			methodsHtml += '<code>' + method.header + '</code></br>\n';
+			let htmlComment = this.commentToHtml( method.comment );
+			methodsHtml += '<div class="methodComment">' + htmlComment + '</div>\n';
+		}
+
+		return methodsHtml;
 	}
 
 }

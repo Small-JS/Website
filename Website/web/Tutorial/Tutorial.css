@@ -1,7 +1,22 @@
 ﻿@import "../default.css";
 
+/* Make extra room for navigation pane */
+
+#formTable {
+	width: 1000px;
+}
+
+/* Unless its a mobile phone viewing */
+
+/* @media (min-width: 800px) {
+	#formTable {
+		width: 800px;
+	}
+} */
+
 #tutorialIframe {
 	width: 100%;
 	height: calc( 100vh - 150px );
 	border: none;
 }
+

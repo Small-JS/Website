@@ -5,6 +5,7 @@
 export class DocumentedMethod
 {
 	name = '';
+	header = '';
 	category = '';
 	comment = '';
 }

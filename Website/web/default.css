@@ -3,25 +3,24 @@ body {
 	margin: 0px;
 	font-family: system-ui;
 	font-size: medium;
-	background-color: #F0F0F0;
+	/* background-color: white; */
 }
 
 #formTable {
 	background-color: white;
 	margin-left: auto;
 	margin-right: auto;
-	border-spacing: 16px;
-	border-radius: 10px;
-	border-color: grey;
+	padding-left: 2px;
+	padding-right: 2px;
+	/* border-spacing: 16px; */
+	/* border-radius: 10px; */
+	/* border-color: grey; */
 	width: 100%;
 }
 
 @media (min-width: 800px) {
 	#formTable {
 		width: 800px;
-		border: solid grey;
-		border-width: 2px;
-		box-shadow: 10px 10px 5px grey;
 	}
 }
 
@@ -31,7 +30,24 @@ body {
 	text-align: center;
 	background-color: #C5ECF9;
 	margin-top: 0px;
+	margin-left: 0px;
+	padding: 4px;
+}
+
+.subTitle {
+	font-size: larger;
+	font-weight: bold;
+	text-align: left;
+	background-color: #C5ECF9;
+	margin-top: 0px;
 	margin-bottom: 0px;
+	padding-top: 2px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	padding-right: 8px;
+	vertical-align: center;
+	/* This is needed to place the contained date field span absolute, bottom, right */
+	position: relative;
 }
 
 .horizontal-center {

@@ -23,7 +23,7 @@ export class ReferencePages
 		this.copyHomePage();
 
 		for( let _class of classes )
-			this.generateClass( _class );
+			this.generateClass( _class, classes );
 	}
 
 	copyHomePage()
@@ -35,13 +35,13 @@ export class ReferencePages
 		fs.cpSync( sourcePath, destPath );
 	}
 
-	generateClass( _class: DocumentedClass )
+	generateClass( _class: DocumentedClass, classes: DocumentedClass[] )
 	{
 		let destDir = path.posix.join( this.destDir, path.posix.dirname( _class.path ) );
 		if( ! fs.existsSync( destDir ) )
 				fs.mkdirSync( destDir, { recursive: true } );
 
-		let mergedText = this.template.merge( _class );
+		let mergedText = this.template.merge( _class, classes );
 
 		let destPath = path.posix.join( destDir, _class.name + ".html" );
 		fs.writeFileSync( destPath, mergedText );

@@ -1,7 +1,22 @@
 ﻿@import "../default.css";
 
+/* Make 400px extra room from navigation */
+
+#formTable {
+	width: 1200px;
+}
+
+/* Unless its a mobile phone */
+
+/* @media (min-width: 800px) {
+	#formTable {
+		width: 800px;
+	}
+} */
+
 #referenceIframe {
 	width: 100%;
-	height: calc( 100vh - 150px );
+	height: calc( 100vh - 90px );
 	border: none;
 }
+

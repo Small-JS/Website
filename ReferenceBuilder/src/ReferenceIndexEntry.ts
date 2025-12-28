@@ -86,7 +86,7 @@ export class ReferenceEntry
 		let indent = '\t'.repeat( this.level - 1 );
 		return indent + '<a ' +
 			'id="' + this.title + 'Entry" ' +
-			'class="fileReferenceIndexEntry" ' +
+			'class="referenceIndexEntry" ' +
 			'href="/Reference/Reference/Pages/' + this.path() + '">' +
 			this.title +
 			'</a><br>\n';
