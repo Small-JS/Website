@@ -1,5 +1,8 @@
 export class Tutorial {
+    menuButton;
     indexDiv;
+    pageDiv;
+    indexPopup = false;
     async start() {
         await this.loadIncludes();
         this.bindElements();
@@ -16,9 +19,16 @@ export class Tutorial {
         }
     }
     bindElements() {
-        this.indexDiv = document.getElementById("tutorialIndexDiv");
+        this.menuButton = document.getElementById("menuButton");
+        if (!this.menuButton)
+            throw new Error("HTML element not found: menuButton");
+        this.menuButton.onclick = event => this.onMenuButton();
+        this.indexDiv = document.getElementById("indexDiv");
         if (!this.indexDiv)
-            throw new Error("HTML element not found: tutorialIndexDiv");
+            throw new Error("HTML element not found: indexDiv");
+        this.pageDiv = document.getElementById("pageDiv");
+        if (!this.pageDiv)
+            throw new Error("HTML element not found: pageDiv");
     }
     // Open the index tree details to show the entry for the current page.
     openIndexForPage() {
@@ -35,6 +45,19 @@ export class Tutorial {
             if (element.nodeName == "DETAILS")
                 element.open = true;
             element = element.parentElement;
+        }
+    }
+    onMenuButton() {
+        // If the index is popup mode, hide it again and show the page
+        if (this.indexPopup) {
+            this.indexDiv.style.display = "none";
+            this.pageDiv.style.display = "block";
+            this.indexPopup = false;
+        }
+        else {
+            this.indexDiv.style.display = "block";
+            this.pageDiv.style.display = "none";
+            this.indexPopup = true;
         }
     }
 }

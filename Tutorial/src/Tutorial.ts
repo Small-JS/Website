@@ -1,7 +1,10 @@
 
 export class Tutorial
 {
+	menuButton!: HTMLButtonElement;
 	indexDiv!: HTMLDivElement;
+	pageDiv!: HTMLDivElement;
+	indexPopup = false;
 
 	async start()
 	{
@@ -25,9 +28,18 @@ export class Tutorial
 
 	bindElements()
 	{
-		this.indexDiv = <HTMLDivElement> document.getElementById( "tutorialIndexDiv" );
+		this.menuButton = <HTMLButtonElement> document.getElementById( "menuButton" );
+		if( ! this.menuButton )
+			throw new Error( "HTML element not found: menuButton" );
+		this.menuButton.onclick = event => this.onMenuButton()
+
+		this.indexDiv = <HTMLDivElement> document.getElementById( "indexDiv" );
 		if( !this.indexDiv )
-			throw new Error( "HTML element not found: tutorialIndexDiv" );
+			throw new Error( "HTML element not found: indexDiv" );
+
+		this.pageDiv = <HTMLDivElement> document.getElementById( "pageDiv" );
+		if( !this.pageDiv )
+			throw new Error( "HTML element not found: pageDiv" );
 	}
 
 	// Open the index tree details to show the entry for the current page.
@@ -52,4 +64,20 @@ export class Tutorial
 			element = element.parentElement;
 		}
 	}
+
+	onMenuButton()
+	{
+		// If the index is popup mode, hide it again and show the page
+		if( this.indexPopup ) {
+			this.indexDiv.style.display = "none";
+			this.pageDiv.style.display = "block"
+			this.indexPopup = false;
+		}
+		else {
+			this.indexDiv.style.display = "block";
+			this.pageDiv.style.display = "none";
+			this.indexPopup = true;
+		}
+	}
+
 }

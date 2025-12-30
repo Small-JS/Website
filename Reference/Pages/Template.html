@@ -10,24 +10,27 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SmallJS - Reference</title>
-	<link rel="stylesheet" href="/Reference/Reference/Reference.css" type="text/css" />
+	<link rel="stylesheet" href="/Reference/Reference/default.css" type="text/css" />
 	<script src="/Reference/Reference/Script/main.js" type="module"></script>
 </head>
 
 <body>
-	<table id="referenceTable">
-		<div class="vertical-center title">
+	<div id="titleDiv" class="title">
+		<button id="menuButton">&#8801</button>
+		<div id="tileImageAndSpanDiv">
 			<img id="logoImage" src="/Reference/Reference/Logo.png" height="40"></img>
-			<span id="titleMessage">&nbsp;&nbsp;SmallJS Reference</span>
+			<span id="titleSpan">&nbsp;&nbsp;SmallJS Reference</span>
 		</div>
+	</div>
+	<table id="formTable">
 		<tr>
 			<th>
-				<div id="referenceIndexDiv">
+				<div id="indexDiv">
 					<include src="/Reference/Reference/Pages/Index.html"></include>
 				</div>
 			</th>
 			<td>
-				<div id="referencePageDiv">
+				<div id="pageDiv">
 					<table id="classTable">
 						<tr>
 							<th>Class</th>

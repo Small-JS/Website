@@ -1,2 +1,7 @@
 ﻿@import "../default.css";
 
+#playgroundIframe {
+	width: 100%;
+	height: 600px;
+	border: none;
+}

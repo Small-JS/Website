@@ -3,7 +3,7 @@ import * as fs from 'fs';
 export class TutorialTemplate
 {
 	private path = '../Tutorial/Pages/-Template.html';
-	private searchString = '<include src="CustomTutorialPage.html"></include>';
+	private searchString = '{tutorialPage}';
 	private text = '';
 	private matchIndex = -1;
 

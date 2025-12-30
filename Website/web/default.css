@@ -3,7 +3,6 @@ body {
 	margin: 0px;
 	font-family: system-ui;
 	font-size: medium;
-	/* background-color: white; */
 }
 
 #formTable {
@@ -12,16 +11,8 @@ body {
 	margin-right: auto;
 	padding-left: 2px;
 	padding-right: 2px;
-	/* border-spacing: 16px; */
-	/* border-radius: 10px; */
-	/* border-color: grey; */
 	width: 100%;
-}
-
-@media (min-width: 800px) {
-	#formTable {
-		width: 800px;
-	}
+	max-width: 800px;
 }
 
 .title {

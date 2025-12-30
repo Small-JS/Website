@@ -10,11 +10,12 @@
 	A block returns the value of the last expression inside it.<br>
 	<br>
 	<b>Examples:<br></b>
-	- <code>1 + 2 < 4 ifTrue: [ 'smaller' ]</code> returns <code>'smaller'</code><br>
-	- <code>1 + 5 < 4 ifTrue: [ 'smaller' ] ifFalse: [ 'bigger' ]</code> returns <code>'bigger'</code><br>
-	<br>
-
+	- <code>1 + 2 < 4 ifTrue: [ 'smaller' ]</code><br>
+		&nbsp; Returns the string <code>'smaller'</code>.<br>
+	- <code>1 + 5 < 4 ifTrue: [ 'smaller' ] ifFalse: [ 'bigger' ]</code><br>
+		&nbsp; Returns the string <code>'bigger'</code>.<br>
 </div>
+<br>
 
 <div class="tutorialHeading1">Blocks with arguments</div>
 <br>
@@ -25,11 +26,11 @@
 	<br>
 	<b>Examples:<br></b>
 	- <code>1 to: 4 do: [ :i | Console log: i ]</code><br>
-		&nbsp Logs the numbers 1 though 4 on the console.<br>
+		&nbsp; Logs the numbers 1 though 4 on the console.<br>
 	- <code>#( 5 6 7 ) find: [ :num | num even ]</code><br>
-		Returns <code>6</code> (first even number)<br>
+		&nbsp; Returns <code>6</code>, the first even number.<br>
 	- <code>Dictionary new do: [ :key :value |<br>
-		&nbsp &nbsp Console log: key, ': ', value ]</code><br>
-		&nbsp Logs the keys and values of an (empty) dictionary.<br>
+		&nbsp; &nbsp; Console log: key, ': ', value ]</code><br>
+		&nbsp; Logs the keys and values of a dictionary (empty here).<br>
 </div>
 <br>

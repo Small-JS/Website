@@ -1,18 +1,10 @@
 ﻿@import "../default.css";
 
-/* Make 400px extra room from navigation */
+/* Make extra room from navigation pane */
 
 #formTable {
-	width: 1200px;
+	max-width: 1200px;
 }
-
-/* Unless its a mobile phone */
-
-/* @media (min-width: 800px) {
-	#formTable {
-		width: 800px;
-	}
-} */
 
 #referenceIframe {
 	width: 100%;

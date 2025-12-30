@@ -13,8 +13,126 @@ body {
 	background-color: #C5ECF9;
 	margin-top: 0px;
 	margin-bottom: 0px;
+	/* Vertically center items */
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
+/* ==================================== Form table */
+
+#formTable {
+	width: 100%;
+}
+
+#formTable th {
+	/* Force auto-width */
+	width: 0px;
+	vertical-align: top;
+	text-align: left;
+	font-weight: normal;
+}
+
+#formTable td {
+	vertical-align: top;
+	text-align: left;
+}
+
+#titleDiv {
+	/* Grid setup to allow left-aligning the menu button when shown.
+	   Menu button is hidden at first, also removing it as a column in the grid. */
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: center;
+}
+
+#menuButton {
+	/* Align left */
+	justify-self: start;
+}
+
+#tileImageAndSpanDiv
+{
+	/* Vertical center of children */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	/* Horizontal center */
+	justify-self: center;
+}
+
+/* ==================================== Index */
+
+#menuButton {
+	/* Hide button by default */
+	display: none;
+	font-size: x-large;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+#indexDiv {
+	width: 350px;
+	/* Set height to viewport size minus headers */
+	height: calc(100vh - 50px);
+	overflow-y: scroll;
+	margin: 0;
+	padding: 0;
+}
+
+/* Indent index item in hierarchy */
+details > *:not(summary){
+  margin-left: 2em;
+}
+
+
+/* Hide index and show menu button on small (mobile) screen */
+ @media (max-width: 800px) {
+	#indexDiv {
+		display: none;
+	}
+	#menuButton {
+		display: inline;
+	}
+	#titleDiv {
+	/* Grid setup to allow left-aligning the menu button.
+	   Menu button is shown now, causing an extra column the grid. */
+	grid-template-columns: auto 1fr auto;
+	}
+}
+
+
+/* ==================================== Page */
+
+#pageDiv {
+	/* Set height to viewport size minus headers */
+	height: calc(100vh - 50px);
+	overflow-y: scroll;
+	padding-left: 8px;
+}
+
+#classTable th {
+	font-weight: 500;
+	padding-right: 10px;
+}
+
+code {
+	font-family: monospace;
+	font-size: 120%;
+	background-color: #f0f0f0;
+}
+
+/* ==================================== Methods */
+
+.methodCategoryDiv {
+	font-weight: 500;
+	font-style: italic;
+	margin-top: 10px;
+	margin-bottom: 2px;
+}
+
+.methodComment {
+	margin-left: 20px;
+	margin-bottom: 8px;
+}
