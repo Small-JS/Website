@@ -15,16 +15,13 @@
 	Even if the return is within a (nested) block it wil still exit the current <i>method</i>.<br>
 	<br>
 	<b>Examples:<br></b>
-	<code>
-		^ 'a'.<br>
-		'b'.<br>
-	</code>
-	This will return <code>'a'</code> since <code>'b'</code> is never reached.<br>
+	- <code>^ 'a'.<br>
+	&nbsp; 'b'.</code><br>
+	&nbsp; This will return <code>'a'</code> since <code>'b'</code> is never reached.<br>
 	<br>
-	<code>
-		1 < 2 ifTrue: [ ^ 'smaller' ].<br>
-		^ 'bigger'<br>
+	- <code>1 < 2 ifTrue: [ ^ 'smaller' ].<br>
+	&nbsp; ^ 'bigger'<br>
 	</code>
-	This will return <code>'smaller'</code> since <code>'bigger'</code> is never reached.<br>
+	&nbsp; This will return <code>'smaller'</code> since <code>'bigger'</code> is never reached.<br>
 </div>
 <br>
