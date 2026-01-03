@@ -1,22 +1,11 @@
+/* ==================================== Form */
+
 body {
 	padding: 0px;
 	margin: 0px;
 	font-family: system-ui;
 	font-size: medium;
 	background-color: white;
-}
-
-.title {
-	font-size: X-Large;
-	font-weight: bold;
-	text-align: center;
-	background-color: #C5ECF9;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	/* Vertically center items */
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 
 #formTable {
@@ -36,43 +25,72 @@ body {
 	text-align: left;
 }
 
+/* ==================================== Title with menu & navigation */
+
 #titleDiv {
-	/* Grid setup to allow left-aligning the menu button when shown.
-	   Menu button is hidden at first, also removing it as a column in the grid. */
+	/* Grid setup with left, center and right part. */
 	display: grid;
-	grid-template-columns: 1fr auto;
+	grid-template-columns: 1fr auto 1fr;
 	align-items: center;
+
+	background-color: #C5ECF9;
+	font-size: X-Large;
+	font-weight: bold;
+	text-align: center;
 }
 
-#menuButton {
-	/* Align left */
+#titleLeftDiv{
 	justify-self: start;
-}
-
-#tileImageAndSpanDiv {
-	/* Vertical center of children */
+	margin-left: 8px;
+	/* Vertically center items */
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	/* Horizontal center */
-	justify-self: center;
 }
 
-/* ==================================== Index */
+#titleCenterDiv {
+	justify-self: center;
+	/* Vertically center items */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
-#menuButton {
-	/* Hide button by default */
-	display: none;
+#titleRightDiv {
+	justify-self: end;
+	margin-right: 8px;
+	/* Vertically center items */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.titleButton {
 	font-size: x-large;
-	margin-left: 8px;
+	font-size: x-large;
+}
+
+#previousButton {
 	margin-right: 8px;
 }
+
+#menuButton {
+	margin-right: 8px;
+	/* Hide by default */
+	display: none;
+}
+
+#nextButton {
+	margin-left: 8px;
+}
+
+
+/* ==================================== Index */
 
 #indexDiv {
 	width: 200px;
 	/* Set height to viewport size minus headers */
-	height: calc(100vh - 50px);
+	height: calc(100vh - 100px);
 	overflow-y: scroll;
 	margin: 0;
 	padding: 0;
@@ -99,12 +117,19 @@ details>*:not(summary) {
 	}
 }
 
+/* ==================================== Navigation */
+
+.navigationDiv {
+	display: flex;
+	justify-content: space-between;
+	padding: 4px;
+}
 
 /* ==================================== Page */
 
 #pageDiv {
 	/* Set height to viewport size minus headers */
-	height: calc(100vh - 50px);
+	height: calc(100vh - 100px);
 	overflow-y: scroll;
 	padding-left: 8px;
 }
