@@ -1,15 +1,11 @@
 <!-- HTML fragment for the text of this tutorial page -->
 
 <div class="tutorialTitle">Variables</div>
-<br>
-
 <div class="tutorialText">
 	Smalltalk has three types of variables.
 </div>
-<br>
 
 <div class="tutorialHeading1">Local variables</div>
-<br>
 <div class="tutorialText">
 	Local variables are declared at the start of a method or block between two vertical bars.<br>
 	The default value of a variable is the <code>nil</code> object.<br>
@@ -19,10 +15,8 @@
 	<code>| num | num := 7. num := num * 2.</code><br>
 	This will set variable <code>num</code> to 14.
 </div>
-<br>
 
 <div class="tutorialHeading1">Argument variables</div>
-<br>
 <div class="tutorialText">
 	Argument variables are declared with method declarations.<br>
 	They can then be used only within that method (local scope).<br>
@@ -35,27 +29,23 @@
 	Note: Adding methods is not supported in the Playground.<br>
 	We'll come back to this when editing classes later.<br>
 </div>
-<br>
 
 <div class="tutorialHeading1">Variable self</div>
-<br>
 <div class="tutorialText">
 	The special variable <code>self</code> always refers to the current object.<br>
 	(Some other languages call it: 'this').<br>
 	So <code>self</code> can be used to call methods on the current object.<br>
 	<br>
 	<b>Example:<br></b>
-	<code>self class<br> in the Playground will return <code>class Evalutor</code><br>
+	<code>self class</code> in the Playground will return <code>class Evalutor</code><br>
 </div>
-<br>
 
-<div class="tutorialHeading2">Global variables</div>
-<br>
+<div class="tutorialHeading1">Global variables</div>
 <div class="tutorialText">
-	In SmallJS, the only global variables are singleton class instances,
-	like we saw before, e.g.: <code>Integer</code>, <code>String</code> or <code>Boolean</code>.<br>
+	In SmallJS, the only global variables are singleton class instances.<br>
+	Like we saw before, e.g.: <code>Integer</code>, <code>String</code> or <code>Boolean</code>.<br>
 	<br>
-	If you want to store a custom global variable, your can add it as a 'class variable' to a class.<br>
+	If you want to store a custom global variable,<br>
+	your can add it as a 'class variable' to your class.<br>
 	More on that later.<br>
 </div>
-<br>

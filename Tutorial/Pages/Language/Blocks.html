@@ -1,7 +1,6 @@
 <!-- HTML fragment for the text of this tutorial page -->
 
 <div class="tutorialTitle">Blocks</div>
-<br>
 <div class="tutorialText">
 	Smalltalk blocks contain statements that are not executed right away.<br>
 	Blocks are equivalent to anonymous (lambda) functions in other languages.<br>
@@ -15,10 +14,8 @@
 	- <code>1 + 5 < 4 ifTrue: [ 'smaller' ] ifFalse: [ 'bigger' ]</code><br>
 		&nbsp; Returns the string <code>'bigger'</code>.<br>
 </div>
-<br>
 
 <div class="tutorialHeading1">Blocks with arguments</div>
-<br>
 <div class="tutorialText">
 	Blocks can have one or more arguments (parameters)<br>
 	A parameter variable name is preceded by a colon <code>:</code>.<br>
@@ -29,8 +26,9 @@
 		&nbsp; Logs the numbers 1 though 4 on the console.<br>
 	- <code>#( 5 6 7 ) find: [ :num | num even ]</code><br>
 		&nbsp; Returns <code>6</code>, the first even number.<br>
-	- <code>Dictionary new do: [ :key :value |<br>
-		&nbsp; &nbsp; Console log: key, ': ', value ]</code><br>
-		&nbsp; Logs the keys and values of a dictionary (empty here).<br>
+	-<div class="codeBlock">
+		Dictionary new do: [ :key :value |<br>
+		&nbsp; Console log: key, ': ', value ]<br>
+	</div><br>
+	&nbsp; Logs the keys and values of a dictionary (empty here).<br>
 </div>
-<br>

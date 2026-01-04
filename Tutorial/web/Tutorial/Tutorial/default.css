@@ -138,26 +138,31 @@ details>*:not(summary) {
 	font-size: x-large;
 	font-weight: bold;
 	color: navy;
+	margin-bottom: 8px;
 }
 
 .tutorialHeading1 {
 	font-size: large;
 	font-weight: bold;
 	color: navy;
+	margin-bottom: 8px;
 }
 
 .tutorialHeading2 {
 	font-weight: bold;
 	color: navy;
+	margin-bottom: 8px;
 }
 
-.tutorialParagraph {
-	font-size: normal;
+.tutorialText {
+	margin-bottom: 16px;
 }
 
 .tutorialNote {
 	font-style: italic;
 }
+
+/* ========================= Code */
 
 code {
 	font-family: monospace;
@@ -166,7 +171,18 @@ code {
 	padding-right: 3px;
 }
 
-/* ========================= Generic styling */
+.codeBlock {
+	font-family: monospace;
+	background-color: #d8d8d8;
+    display: inline-block;
+	margin-left: 16px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+/* ========================= Generic */
 
 .horizontal-center {
 	text-align: center;
