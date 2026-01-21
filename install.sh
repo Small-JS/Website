@@ -32,5 +32,6 @@ npx http-server --version
 echo "==== Installing npm packages"
 
 ./TutorialBuilder/install.sh
+./ReferenceBuilder/install.sh
 
 echo "==== All installs successful"
