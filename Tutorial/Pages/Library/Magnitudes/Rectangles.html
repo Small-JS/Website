@@ -1,0 +1,29 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Rectangles</div>
+<div class="tutorialText">
+	The class
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Magnitude/Rect.html"
+	target="_blank"><code>Rect</code></a>
+	implements rectangles with an <code>origin</code> and an <code>extent</code> .<br>
+	The <code>origin</code> is a <code>Point</code> specifying its top-left corner.<br>
+	The <code>extent</code> is a <code>Point</code> specifying its width (x) and height (y).<br>
+	Rectangles can be compared for value equality.<br>
+	<br>
+	When implementing HTML DOM functionality, SmallJS always passes <code>Rect</code> objects<br>
+	in stead of passing separate x, y, width and height coordinates.<br>
+	Rectangles are mostly used by the
+	<a href="https://small-js.org/Reference/Reference/Pages/Browser/Canvas/HtmlCanvasElement.html"
+	target="_blank"><code>Canvas</code></a>
+	HTML element.<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul class="tutorialList">
+		<li><code>Rect origin: 8 @ 3 extent: 4 @ 2</code> returns a rect <code>Rect( ( 8 @ 3 ) , ( 4 @ 2 ) )</code> .</li>
+		<li><code>( Rect origin: 8 @ 3 extent: 4 @ 2 ) origin</code> returns a point <code>( 8 @ 3 )</code> .</li>
+		<li><code>( Rect origin: 8 @ 3 extent: 4 @ 2 ) extent</code> returns a point <code>( 4 @ 2 )</code> .</li>
+		<li><code>( Rect origin: 8 @ 3 extent: 4 @ 2 ) = ( Rect origin: 8 @ 3 extent: 4 @ 2 )</code><br>
+			 returns <code>true</code> .</li>
+	</ul>
+</div>
+

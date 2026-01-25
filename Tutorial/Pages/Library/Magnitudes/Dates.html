@@ -1,0 +1,24 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Dates</div>
+<div class="tutorialText">
+	Dates are implemented by the class:
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Magnitude/Date.html" target="_blank"><code>Date</code></a> .<br>
+	<code>Date</code> objects also store the time, in millisecond precision.<br>
+	<code>Date new</code> creates a new date with the current date and time.<br>
+	<code>Date now</code> returns the number of milliseconds elapsed since January 1st, 1970, UTC.<br>
+	This can be used for calculating time differences.<br>
+	Dates can be created through their date and time component values:<br>
+	Year, month, day, hours, minutes, seconds.<br>
+	These component values can also be retrieved from date objects.<br>
+	(The month and day numbers in dates are 1-based, not 0-based.)<br>
+	Dates are timezone aware.<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul class="tutorialList">
+		<li><code>Date new</code> returns e.g. <code>Sun Jan 25 2026 20:38:31 GMT+0100 ...</code> .</li>
+		<li><code>Date now</code> returns e.g. <code>1769369979237</code> .</li>
+		<li><code>Date year: 2026 month: 1 day: 2</code> returns <code>Fri Jan 02 2026 00:00:00 ...</code> .</li>
+		<li><code>( Date fromString: '1970-01-02' ) year</code> returns <code>1970</code> .</li>
+	</ul>
+</div>

@@ -1,0 +1,48 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Points</div>
+<div class="tutorialText">
+	The class
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Magnitude/Point.html" target="_blank"><code>Point</code></a>
+	implements 2D points with <code>x</code> and <code>y</code> coordinates.<br>
+	Points can be constructed conveniently by calling the <code>@</code> method on a number.<br>
+	When comparing points, the comparison is applied to its coordinates with boolean 'and'.<br>
+	Calculations on points are implemented with familiar operator methods like:
+	<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>.<br>
+	These calculations can be done with two points or with a point and a number.<br>
+	<br>
+	When implementing HTML DOM functionality, SmallJS always passes <code>Point</code> objects<br>
+	in stead of passing separate x and y coordinates. E.g. see class
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Magnitude/Rect.html" target="_blank"><code>Rect</code></a> .<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul class="tutorialList">
+		<li><code>2 @ 3</code> returns a point <code>( 2 @ 3 )</code> .</li>
+		<li><code>Point x: 2 y: 3</code> also returns a point <code>( 2 @ 3 )</code> .</li>
+		<li><code>( 2 @ 3 ) x</code> returns <code>2</code> .</li>
+		<li><code>( 2 @ 3 ) y</code> returns <code>3</code> .</li>
+		<li><code>( 2 @ 3 ) = ( 2 @ 3 )</code> returns <code>true</code> .</li>
+		<li><code>( 2 @ 3 ) &lt ( 4 @ 3 )</code> returns <code>false</code> (y is not smaller).</li>
+		<li><code>( 2 @ 3 ) + ( 4 @ 5 )</code> returns <code>( 6 @ 8 )</code> .</li>
+		<li><code>( 2 @ 3 ) * 2</code> returns <code>( 4 @ 6 )</code> .</li>
+	</ul>
+</div>
+
+<div class="tutorialHeading1">Point3d</div>
+<div class="tutorialText">
+	The class
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Magnitude/Point.html" target="_blank"><code>Point3d</code></a>
+	implements 3D points, adding a <code>z</code> coordinate.<br>
+	Class <code>Point3d</code> inherits from class <code>Point</code> implementing all its functionality.<br>
+	Point3d objects can be constructed conveniently by calling the <code>@</code> method on a 2D point.<br>
+	On operations with a <code>Point3d</code> and a 2D <code>Point</code>,<br>
+	the 2D point is assumed to have a z coordinate of 0.<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul class="tutorialList">
+		<li><code>2 @ 3 @ 4</code> returns a 3D point <code>( 2 @ 3 @ 4 )</code> .</li>
+		<li><code>( 2 @ 3 @ 4 ) z</code> returns <code>4</code> .</li>
+		<li><code>( 2 @ 3 @ 0 ) = ( 2 @ 3 )</code> returns <code>true</code> (z defaults to 0).</li>
+	</ul>
+</div>
+

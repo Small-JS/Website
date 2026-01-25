@@ -90,7 +90,7 @@ body {
 #indexDiv {
 	width: 200px;
 	/* Set height to viewport size minus headers */
-	height: calc(100vh - 100px);
+	height: calc(100vh - 60px);
 	overflow-y: scroll;
 	margin: 0;
 	padding: 0;
@@ -129,7 +129,7 @@ details>*:not(summary) {
 
 #pageDiv {
 	/* Set height to viewport size minus headers */
-	height: calc(100vh - 100px);
+	height: calc(100vh - 60px);
 	overflow-y: scroll;
 	padding-left: 8px;
 }
@@ -160,6 +160,10 @@ details>*:not(summary) {
 
 .tutorialNote {
 	font-style: italic;
+}
+
+.tutorialList {
+	    margin-top: -3px;
 }
 
 /* ========================= Code */

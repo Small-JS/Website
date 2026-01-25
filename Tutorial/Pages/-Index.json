@@ -14,8 +14,14 @@
 	],
 	"Library",
 	[
-		"Core",
-		"Browser",
-		"Node"
+		"Magnitudes",
+		[
+			"Strings",
+			"Characters",
+			"Numbers",
+			"Dates",
+			"Points",
+			"Rectangles"
+		]
 	]
 ]

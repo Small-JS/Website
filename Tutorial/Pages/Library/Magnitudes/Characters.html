@@ -1,0 +1,21 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Characters</div>
+<div class="tutorialText">
+	Characters are implemented by the class:
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Magnitude/Character.html" target="_blank"><code>Character</code></a> .<br>
+	Character constants are written with a preceeding dollar sign <code>$</code> .<br>
+	When calling the index method <code>at:</code> on a string, a character is returned.<br>
+	(So <i>not</i> a string of length 1, like in JS)<br>
+	You can create a character from a unicode value with the <i>class</i> method: <code>fromCode:</code> .<br>
+	These methods test for types of characters:<br>
+	<code>isLetter</code>, <code>isUppercase</code>, <code>isLowercase</code>, <code>isDigit</code> .<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul class="tutorialList">
+		<li><code>$a</code> returns character <code>a</code> .</li>
+		<li><code>'abc' at: 1</code> returns <code>b</code></li>
+		<li><code>Character fromCode: 64</code> returns <code>@</code> .</li>
+		<li><code>$7 isDigit</code> returns <code>true</code> .</li>
+	</ul>
+</div>
