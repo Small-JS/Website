@@ -9,19 +9,24 @@
 		"Statements",
 		"Variables",
 		"Blocks",
-		"Returning",
-		"Arrays"
+		"Returning"
 	],
 	"Library",
 	[
 		"Magnitudes",
 		[
-			"Strings",
-			"Characters",
+			"String",
+			"Character",
 			"Numbers",
-			"Dates",
+			"Date",
 			"Points",
-			"Rectangles"
+			"Rectangle"
+		],
+		"Collections",
+		[
+			"Arrays",
+			"Dictionaries",
+			"Set"
 		]
 	]
 ]

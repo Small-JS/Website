@@ -1,4 +1,4 @@
-import { ReferenceEntry } from './ReferenceIndexEntry.js';
+import { ReferenceEntry } from './ReferenceEntry.js';
 
 import * as fs from 'fs';
 import * as path from 'path';

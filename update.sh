@@ -27,5 +27,10 @@ cd $cwd/TutorialBuilder
 npx npm-check-updates -u
 npm install
 
+echo "==== ReferenceBuilder"
+cd $cwd/ReferenceBuilder
+npx npm-check-updates -u
+npm install
+
 echo "==== Updates successful"
 echo "To update all global npm dependencies type: npm -g update"

@@ -1,0 +1,42 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Dictionaries</div>
+
+<div class="tutorialText">
+	The class
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Collection/Dictionary.html" target="_blank"><code>Dictionary</code></a>
+	implements a general purpose key-value dictionary.<br>
+	A key can be any object that can be compared for equality,<br>
+	but mostly magnitudes are used that are compared by value, like strings and integers.<br>
+	Looking up a non existent key throws an error, unless there is an absent clause.<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul>
+		<li><code>| dict | dict :=  Dictionary new at: 5 put: 'e'.</code>
+				returns <code>Dictionary( { 5, e } )</code><br>
+			Adding to the previous line, using the variable <code>dict</code> , you can evaluate:</li>
+		<li><code>dict at: 5</code> returns <code>e</code> .</li>
+		<li><code>dict at: 9</code> throws error <code>Key not found: 9</code> .</li>
+		<li><code>dict at: 9 ifAbsent: [ nil ]</code> returns <code>nil</code> .</li>
+		<li><code>dict at: 5 put: 'f'</code> returns <code>Dictionary( { 5, f } )</code> (value modified for key).</li>
+	</ul>
+</div>
+
+<div class="tutorialHeading1">Map</div>
+<div class="tutorialText">
+	The class
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Collection/Map.html" target="_blank"><code>Map</code></a>
+	implements a dictionary where keys must be strings.<br>
+	It encapsulates the JS class Map that  performs better than class <code>Dictionary</code> .<br>
+	JS Map method names are preserved, that differ from methods in the class <code>Dictionary</code> above.<br>
+	Looking up a non-existent key returns <code>nil</code>, not an error.<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul>
+		<li><code>| map | map :=  Map new set: 'a' value: 1.</code>
+				returns <code>Map( { a, 1 } )</code><br>
+			Adding to the previous line, using the variable <code>map</code> , you can evaluate:</li>
+		<li><code>map get: 'a'</code> returns <code>1</code> .</li>
+		<li><code>map get: 'z'</code> returns <code>nil</code> .</li>
+		<li><code>map set: 'a' value: 2</code> returns <code>Map( { a, 2 } )</code>  (value modified for key).</li>
+</div>

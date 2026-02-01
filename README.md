@@ -1,6 +1,6 @@
 # SmallJS website
 
-<img src="Website/web/SmallJS.png" alt="SmallJS logo" width="300"/>\
+<img src="Website/web/SmallJS.png" alt="SmallJS logo" width="300"/>
 
 This folder contains the source of the official SmallJS website, hosted on:\
 <a href="https://small-js.org" style="font-weight:bold; font-size:x-large">small-js.org</a>

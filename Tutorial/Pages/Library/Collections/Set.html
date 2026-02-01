@@ -1,0 +1,40 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Set</div>
+
+<div class="tutorialText">
+	The class
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Collection/Set.html" target="_blank"><code>Set</code></a>
+	implements mathematical sets.<br>
+	A set contains a collection of element values <i>that can occur only once</i>.<br>
+	Looking up a non-existent element value returns <code>nil</code>.<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul>
+		<li><code>| set | set := Set new add: 3; add: 4.</code> returns <code>Set( 3 4 )</code> .<br>
+			Now with variable <code>set</code> :</li>
+		<li><code>set add: 4</code> returns <code>Set( 3 4 )</code> (nothing was added).</li>
+		<li><code>set size</code> returns <code>2</code> .</li>
+		<li><code>set has: 4</code> returns <code>true</code> .</li>
+		<li><code>set find: 5</code> returns <code>nil</code> .</li>
+		<li><code>set forEach: [ :value | Console log: value ]</code> logs 3 and 4 on the console.</li>
+	</ul>
+	Sets support mathematical set operations like intersection, difference and union.<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul>
+		<li>First create two sets:<br>
+			<div class="codeBlock">
+				| set1 set2 |<br>
+				set1 := Set new add: 3; add: 4.<br>
+				set2 := Set new add: 4; add: 5.<br>
+			</div><br>
+			Now with variables <code>set1</code> and <code>set2</code> you can evaluate:</li>
+		</li>
+		<li><code>set1 intersection: set2</code> returns <code>Set( 4 )</code>.</li>
+		<li><code>set1 difference: set2</code> returns <code>Set( 3 )</code> (set1 minus set2).</li>
+		<li><code>set1 union: set2</code> returns <code>Set( 3 4 5 )</code> (no duplicates).</li>
+	</ul>
+	<code>Set</code> implements the full JS class Set, that strangely also has map-like behavior.<br>
+	That functionality is not detailed here.
+</div>

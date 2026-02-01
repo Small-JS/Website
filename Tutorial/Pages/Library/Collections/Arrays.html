@@ -1,0 +1,57 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Arrays</div>
+
+<div class="tutorialText">
+	The class
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Collection/Array/Array.html" target="_blank"><code>Array</code></a>
+	implements the most commonly used collection type.<br>
+	Arrays contain collections of element objects.<br>
+	Arrays can be defined in code with : <code>#( ... )</code>,<br>
+	specifying space separated objects or expressions within the parentheses.<br>
+	An <code>Array</code> can be allocated with a specific size with the <i>class</i> method <code>new:</code> ,
+	with elements set to <code>nil</code> by default.<br>
+	Arrays can grow dynamically by adding elements.<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul>
+		<li><code>#( 3 'd' ( 3 + 0.5 ) )</code> returns <code>#( 3 d 3.5 )</code> .</li>
+		<li><code>Array new: 2</code> returns <code>#( nil nil )</code> .</li>
+		<li><code>Array new add: 4; add: 5</code> returns <code>#( 4 5 )</code> .</li>
+	</ul>
+</div>
+
+<div class="tutorialHeading1">Accessing elements</div>
+<div class="tutorialText">
+	Array <i>elements</i> can be:<br>
+	- Retrieved with a zero-based index using <code>at:</code>.<br>
+	- Replaced using <code>at:put</code>.<br>
+	- Iterated over using <code>do:</code>.<br>
+	- Converted into a new array using <code>map:</code>.<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul>
+		<li><code>#( 3 4 5 ) at: 1</code> returns <code>4</code> .</li>
+		<li><code>#( 3 4 5 ) at: 1 put: 6</code> returns <code>#( 3 6 5 )</code> .</li>
+		<li><code>#( 3 4 5 ) do: [ :e | Console log: e ]</code> logs numbers 3, 4 and 5 on the console.</li>
+		<li><code>#( 3 4 5 ) map: [ :e | e squared ]</code> returns <code>#( 9 15 25 )</code> .</li>
+	</ul>
+	Check out the
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Collection/Array/Array.html" target="_blank"><code>Array</code></a>
+	class reference for more methods.<br>
+</div>
+
+<div class="tutorialHeading1">Typed arrays</div>
+<div class="tutorialText">
+	Typed arrays are subclasses of the class:
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Collection/Array/TypedArray.html" target="_blank"><code>TypedArray</code></a> .<br>
+	These arrays store <i>one</i> specific data type compactly.<br>
+	<br>
+	For handling binary data there are the classes
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Collection/Array/Uint8Array.html" target="_blank"><code>Uint8Array</code></a>
+	and
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Collection/Array/ArrayBuffer.html" target="_blank"><code>ArrayBuffer</code></a> .<br>
+
+	For use with AI models, there is the class:
+	<a href="https://small-js.org/Reference/Reference/Pages/Core/Collection/Array/Float16Array.html" target="_blank"><code>Float16Array</code></a> .<br>
+</div>
