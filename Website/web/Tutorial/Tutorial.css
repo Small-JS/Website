@@ -1,8 +1,7 @@
 ﻿@import "../default.css";
 
-/* Make extra room for navigation pane */
-
 #formTable {
+	/* Make extra room for navigation pane */
 	max-width: 1000px;
 }
 

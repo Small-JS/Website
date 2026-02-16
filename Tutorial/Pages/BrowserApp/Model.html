@@ -1,0 +1,106 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Model</div>
+<div class="tutorialText">
+	<div class="tutorialHeading1">Disable tests</div>
+	Before continuing with the model first, disable the unit and GUI tests.<br>
+	In the <code>./src/Test</code> folder rename the files from <code>*.st</code> to <code>*.stx</code>.<br>
+	Now the compiler will skip them during compilation.<br>
+	We'll come back to testing after the new functionality has been implemented.<br>
+	<img src="ModelTestsDisabled.png" class="screenPart"><br>
+	<br>
+
+	<div class="tutorialHeading1">Model source code</div>
+	The model of our app will be in the class <code>Frequencies</code> .<br>
+	In the folder <code>./src</code> rename the file <code>Counter.st</code> to <code>Freqencies.st</code> .<br>
+	<br>
+	Now replace the counter model code with this code (copy & paste):<br>
+<pre class="codeBlock">
+CLASS Frequencies EXTENDS Object MODULE FrequenciesApp
+	CLASSVARS '' VARS 'letterDictionary'
+
+constructor
+	letterDictionary := Dictionary new.
+!
+calculate: string
+	letterDictionary clear.
+	string do: [ :character |
+		character isLetter ifTrue: [
+			self incrementFrequency: character toLowerCase ] ].
+	"Sort result by frequency descending."
+	letterDictionary keyValues sortWith:
+		[ :kv1 :kv2 | kv2 value - kv1 value ].
+!
+incrementFrequency: letter
+	| frequency |
+	frequency := letterDictionary at: letter ifAbsent: [ 0 ].
+	letterDictionary at: letter put: frequency + 1.
+!
+letterDictionary
+	^ letterDictionary.
+!
+</pre>
+	<br>
+	On screen it should look like this:<br>
+	<img src="Model.png" class="screenPart"><br>
+	We'll go through it method by method below.<br>
+	<br>
+
+	<div class="tutorialHeading1">Class definition</div>
+	<img src="ModelHeader.png" class="screenPart"><br>
+	These lines defines the class name <code>Frequencies</code> and its parent class <code>Object</code> ,<br>
+	which is the root class of all SmallJS classes.<br>
+	<br>
+	The module name <code>FequenciesApp</code> is the filename the JS code will be generated in.<br>
+	It is good practice to keep files from the samen app in a single module.<br>
+	<b>Note:</b> Classes that reference each other mutually must be in the same module.<br>
+	<br>
+	<code>CLASSVARS</code> is followed by a space separated string of (static) <i>class</i> variable names.<br>
+	They are rare, and for this class we don't need any.<br>
+	<br>
+	<code>VARS</code> is followed by a space separated string of <i>instance</i> variable names.<br>
+	Every object created for this class will have its own variables.<br>
+	The instance variable <code>letterDictionary</code> will hold a dictionary of letters mapped to their frequency.<br>
+	<br>
+
+	<div class="tutorialHeading1">Method: constructor</div>
+	<img src="ModelConstructor.png" class="screenPart"><br>
+	The method named <code>constructor</code> is special; <br>
+	it will be called automatically when a new <code>Frequencies</code> object is created.<br>
+	Here the variable <code>letterDictionary</code> in initialized to an empty <code>Dictionary</code> .<br>
+	The end of a method is indicated with and exclamation mark <code>!</code> .<br>
+	<br>
+
+	<div class="tutorialHeading1">Method: calculate</div>
+	<img src="ModelCalculate.png" class="screenPart"><br>
+	The method <code>calculate: string</code> does the real work.<br>
+	- It first clears the letter dictionary,<br>
+	- then iterates over the characters of the argument string,<br>
+	- and only for characters that are letters,<br>
+	&nbsp;&nbsp;it increments the frequency for its lower case version.<br>
+	Lastly the dictionary is sorted by value descending.<br>
+	<br>
+
+	<div class="tutorialHeading1">Method: incrementFrequency</div>
+	<img src="ModelIncrement.png" class="screenPart"><br>
+	The method <code>incrementFrequency: letter</code> increases the frequency of a letter by 1. <br>
+	It declares a local variable called 'frequency' with <code>| frequency |</code> .<br>
+	(More variable names would be space separated between the vertical bars.)<br>
+	First the <code>letterDictionary</code> is searched for and existing frequency at <code>letter</code> ,<br>
+	and if none is found, the default value of <code>0</code> is returned.<br>
+	The result of this expression is assigned to <code>:=</code> the variable <code>frequency</code> .<br>
+	<br>
+	Then the <code>letterDictionary</code> is updated for the argument <code>letter</code> with a incremented frequency.<br>
+	<br>
+
+	<div class="tutorialHeading1">Method: letterDictionary</div>
+	<img src="ModelAccess.png" class="screenPart"><br>
+	The method <code>letterDictionary</code> just returns the instance variable of the same name. <br>
+	<br>
+	<b>Note:</b> In Smalltalk, class and instance variables are always private to the class they're defined in,<br>
+	so getter and setter methods are needed if you want to access them from outside it.<br>
+	This is a <i>good</i> thing :-).
+	<br>
+	Now we are ready to create the view for our app.<br>
+</div>
+

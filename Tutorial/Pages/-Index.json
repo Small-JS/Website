@@ -28,5 +28,15 @@
 			"Dictionaries",
 			"Set"
 		]
+	],
+	"Browser App",
+	[
+		"Template",
+		"Model",
+		"View",
+		"App",
+		"Main",
+		"Running",
+		"Testing-Unit"
 	]
 ]

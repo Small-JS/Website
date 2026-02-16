@@ -8,7 +8,7 @@
 			"name": "Launch Chrome",
 			"request": "launch",
 			"type": "chrome",
-			"url": "http://localhost:3000/Reference/Reference",
+			"url": "http://localhost:3002/Reference/Reference",
 			"webRoot": "${workspaceFolder}/web",
 			"preLaunchTask": "Build Site"
 		},
@@ -16,7 +16,7 @@
 			"name": "Launch Edge",
 			"request": "launch",
 			"type": "msedge",
-			"url": "http://localhost:3000/Reference/Reference",
+			"url": "http://localhost:3002/Reference/Reference",
 			"webRoot": "${workspaceFolder}/web",
 			"preLaunchTask": "Build Site"
 		},
@@ -24,7 +24,7 @@
 			"name": "Launch Firefox",
 			"request": "launch",
 			"type": "firefox",
-			"url": "http://localhost:3000/Reference/Reference",
+			"url": "http://localhost:3002/Reference/Reference",
 			"webRoot": "${workspaceFolder}/web",
 			"preLaunchTask": "Build Site"
 		}

@@ -1,0 +1,31 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Running</div>
+<div class="tutorialText">
+	First make sure the web server is still running,<br>
+	by starting <code>startWebServer.sh</code> as explained in the <a href="Template.html">Template</a> tutorial page.<br>
+	<br>
+
+	In VSCode, click the triangle button "Run and Debug" on the left.<br>
+	In the section "BREAKPOINTS", be sure "Uncaught Exceptions" is checked:<br>
+	<img src="RunningCheckUncaughtExceptions.png" class="screenPart"><br>
+	<br>
+	Now press the [F5] key to build and start the app.<br>
+	If all went well, a browser is launched.<br>
+	You can enter the input string <code>abb</code> and press the <code>[Calculate]</code> button.<br>
+	The updated browser page should look like this:<br>
+	<img src="RunningCalculated.png" class="screenPart"><br>
+	<br>
+	If there was a syntax error on in the Smalltalk code,<br>
+	the SmallJS compiler will indicate an error and location.<br>
+	To illustrate this, lets <i>intentionally</i> introduce an error.<br>
+	In the file <code>./src/FrequencyApp.st</code>, in the method <code>start</code> ,<br>
+	insert an <code>X</code> before the class name <code>Frequencies</code> :<br>
+	<img src="RunningSyntaxErrorCode.png" class="screenPart"><br>
+	<br>
+	After stopping and restarting the app,<br>
+	the compiler will now give this error in the "TERMINAL" pane of VSCode:<br>
+	<img src="RunningSyntaxErrorMessage.png" class="screenPart"><br>
+	Now you should undo the error before continuing... :)<br>
+</div>
+

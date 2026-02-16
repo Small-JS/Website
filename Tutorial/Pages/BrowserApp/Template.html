@@ -1,0 +1,46 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Template</div>
+<div class="tutorialText">
+	<div class="tutorialHeading1">Copy template app</div>
+	To get started quickly, we'll just copy an existing example browser app as our template.<br>
+	Our app will count letter frequencies, so we'll call it: Frequencies.<br>
+	Start by copying the folder <code>./Examples/Counter</code> to the new folder <code>./Examples/Frequencies</code> .<br>
+	In the new folder, rename the file <code>Counter.code-workspace</code> to <code>Frequencies.code-workspace</code> .<br>
+	Open the new workspace file in VSCode, e.g.: by double-clicking on it in your file manager.<br>
+	The result should look like this:<br>
+	<img src="TemplateVscodeStarted.png" class="screenShot"><br>
+	<br>
+
+	<div class="tutorialHeading1">Start web server</div>
+	We're making a web app so we'll need a webserver.<br>
+	To start the npm webserver 'http-server' on port 3000, <br>
+	run the bash script: <code>startWebServer.sh</code> from the new folder <code>Freqencies</code> .<br>
+	The result should look like this:<br>
+	<img src="TemplateWebServerStarted.png" class="screenPart"><br>
+	<br>
+
+	<div class="tutorialHeading1">Select browser</div>
+	To start the app first select a browser you have installed<br>
+	from the VSCode menu "Run and Debug" in the launch dropdown:<br>
+	<img src="TemplateSelectBrowser.png" class="screenPart"><br>
+	<br>
+	<div class="tutorialHeading1">Run app</div>
+	Now click the green start triangle or press the [F5] key to start the app.<br>
+	The result should look like this:<br>
+	(Remember, this is still just a copy of the Counter app)<br>
+	<img src="TemplateCounterApp.png" class="screenPart"><br>
+	<br>
+	<div class="tutorialHeading1">Check compilation</div>
+	Switching back to VSCode, the terminal pane should like like this:<br>
+	<img src="TemplateSmalljsCompiled.png" class="screenPart"><br>
+	All Smalltalk library files and app files were first compiled to JS modules in the folder <code>./web/Script</code><br>
+	<br>
+	<b>Note:</b><br>
+	The compilation step is a VSCode task in the file: <code>./vscode/tasks.json</code> .<br>
+	In the task <code>"Compile Smalltalk"</code> you can see <br>
+	that the paths to the SmallJS compiler and library are relative.<br>
+	<img src="TemplateCompilerTask.png" class="screenPart"><br>
+	Because our new app has in the same relative folder position, this can stay the same.<br>
+	If you move your app to a different folder level, these paths must be updated.<br>
+</div>

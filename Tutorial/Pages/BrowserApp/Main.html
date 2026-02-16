@@ -1,0 +1,38 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Main</div>
+<div class="tutorialText">
+	There is one last thing to do before the app can be started.<br>
+	Starting from JS, the system needs to know with ST startup class and method to call.<br>
+	That code is in the file <code>./src/main.ts</code> .<br>
+	Replace its contents with the following JS code:<br>
+
+<pre class="codeBlock">
+let moduleName: string = "./FrequenciesApp.js";
+import( moduleName )
+	.then( module => { module.stFrequenciesApp$class.$new().$start() } );
+</pre><br>
+
+	On screen it looks like this:<br>
+	<img src="Main.png" class="screenPart"><br>
+	First a variable is set to the compiled ST module name to import.<br>
+	Then the module is imported async using the <code>import()</code> <i>function</i>.<br>
+	Lastly a new instance is created of the app class with <code>$new()</code> ,<br>
+	and then the <code>start$()</code> method is called on that instance.<br>
+	So its just the JS equivalent of the ST expression: <code>FreqenciesApp new start</code> .<br>
+	<br>
+	<b>Notes (advanced):</b><br>
+	<ul>
+		<li>The import is done with a separate variable and aynchronously<br>
+			to prevent VSCode complaining about initially missing ST modules, classes or methods.<br>
+			(This happens when sync ESM6 'import' is used.)<br>
+		</li>
+		<li>The ST class and method names are bit 'mangled' with dollar signs and an <code>st</code> prefix.<br>
+			This is necessary to prevent name clashes in generated code.<br>
+			Don't worry, you won't see this in regular ST development.<br>
+		</li>
+	</ul>
+
+	Now we can finally start the app! ...<br>
+</div>
+

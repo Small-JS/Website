@@ -1,0 +1,88 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">App</div>
+<div class="tutorialText">
+	The app connects the model to the view (so is a controller).<br>
+	It is implemented in class: <code>FrequenciesApp</code> .<br>
+	<br>
+	In the folder <code>./src</code> first rename the file <code>CounterApp.st</code> to <code>FreqenciesApp.st</code> .<br>
+	Now replace the contents of that file with the following ST code (copy & paste):<br>
+
+<pre class="codeBlock">
+CLASS FrequenciesApp EXTENDS BrowserApp MODULE FrequenciesApp CLASSVARS ''
+	VARS 'frequencies inputTextArea calculateButton frequenciesTable'
+
+start
+	frequencies := Frequencies new.
+	self bindElements.
+!
+bindElements
+	inputTextArea := Document getElementById: 'inputTextArea' class: HtmlTextAreaElement.
+	calculateButton := Document getElementById: 'calculateButton' class: HtmlButtonElement.
+	calculateButton onClick: [ self calculate ].
+	frequenciesTable := Document getElementById: 'frequenciesTable' class: HtmlTableElement.
+!
+calculate
+	frequencies calculate: inputTextArea value.
+	self update.
+!
+update
+	| row |
+	frequenciesTable tBody innerHtml: ''.
+	frequencies letterDictionary do: [ :key :value |
+		row := frequenciesTable tBody insertRow: -1.
+		row insertCell textContent: key toString.
+		row insertCell textContent: value toString ].
+!
+</pre>
+	<br>
+	On screen it should look like this:<br>
+	<img src="App.png" class="screenPart"><br>
+	We'll go through it method by method below.<br>
+	<br>
+
+	<div class="tutorialHeading1">Class: FequenciesApp</div>
+	<img src="AppHeader.png" class="screenPart"><br>
+	These lines define the class name <code>Frequencies</code> and its parent class <code>BrowserApp</code> ,<br>
+	which has some functionality we can use later.<br>
+	The module name <code>FequenciesApp</code> the same as for the model <code>Frequencies</code>, <br>
+	so these ST classes will be generated in the same JS file.<br>
+	The instance <code>VARS</code> are <code>frequencies</code>, our model,<br>
+	followed by three variables that will reference HTML elements we want to access.<br>
+	<br>
+
+	<div class="tutorialHeading1">Method: start</div>
+	<img src="AppStart.png" class="screenPart"><br>
+	The method <code>start</code> is the first ST method called after loading the web page.<br>
+	It just creates and saves a new <code>Frequencies</code> instance and then calls the method <code>bindElements</code> .<br>
+	<br>
+
+	<div class="tutorialHeading1">Method: bindElements</div>
+	<img src="AppBindElements.png" class="screenPart"><br>
+	The method <code>bindElements</code> looks up DOM HTML elements in the current page by their IDs,<br>
+	and saves them in variables that have the same names as the IDs, by convention.<br>
+	Notice that the expected ST classes are also given as arguments.<br>
+	If an element ID is missing or it has the wrong type, an error will occur.<br>
+	For the <code>calculateButton</code> an event handler is added that calls the <code>calculate</code> method in this object.<br>
+	<br>
+	So now the rest of the app can be coded using these ST DOM element <i>objects</i>,<br>
+	and we don't have to bother with HTML text strings anymore.<br>
+	<br>
+
+	<div class="tutorialHeading1">Method: calculate</div>
+	<img src="AppCalculate.png" class="screenPart"><br>
+	The method <code>calculate</code> fetches the text string in the <code>inputTextArea</code> ,<br>
+	and dispatches it to the <code>calculate:</code> method of our frequencies model.<br>
+	Then the method <code>update</code> is called to display the result.<br>
+	<br>
+
+	<div class="tutorialHeading1">Method: update</div>
+	<img src="AppUpdate.png" class="screenPart"><br>
+	The method <code>update</code> displays the calculated frequencies in the frequencies table on the page.<br>
+	First, the body of the table is cleared (all rows are removed).<br>
+	Then the key and value pairs of the <code>letterDictionary</code> are iterated over,<br>
+	inserting a new row into the table for every value pair using two cells.<br>
+	<br>
+	Before we can run the app, one last thing to do is to set the startup method in <code>main.ts</code> .<br>
+</div>
+

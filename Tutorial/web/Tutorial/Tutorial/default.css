@@ -179,11 +179,36 @@ code {
 	font-family: monospace;
 	background-color: #d8d8d8;
     display: inline-block;
-	margin-left: 16px;
 	padding-top: 4px;
 	padding-bottom: 4px;
 	padding-left: 8px;
 	padding-right: 8px;
+	tab-size: 4;
+}
+
+.screenShot {
+	width: 100%;
+	max-width: 720px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.screenPart {
+	max-width: 720px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.copyButton {
+	background-color: #d8d8d8;
+	border: 2px solid grey;
+	border-radius: 4px
+}
+
+.copyImage {
+	width: 20px;
+	height: 20px;
+	background-color: #d8d8d8;
 }
 
 /* ========================= Generic */

@@ -1,0 +1,95 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Debugging</div>
+<div class="tutorialText">
+	Maybe the started app encountered a runtime error.<br>
+	Then it will break into the VSCode debugger<br>
+	because in the "BREAKPOINTS" section, we checked "Uncaught Execeptions" earlier.<br>
+	<br>
+	To illustrate this, lets intentionally intoduce an runtime error<br>
+	by putting an <code>x</code> before the method call to <code>bindElements</code> :<br>
+	in the method <code>start</code> in the file <code>./src/FrequencyApp.st</code> .</br>
+	<img src="DebuggingSyntaxErrorCode.png" class="screenPart"><br>
+	<br>
+	Now stop the app (close the browser) and restart it from VSCode with [F5].<br>
+	Now VSCode should break into the debugger with a screen part looking like this:<br>
+	<img src="DebuggingSyntaxErrorMessage.png" class="screenPart"><br>
+	You can see that the error describes compiled JS function names in generated JS files.<br>
+	(This can actually be useful for low-level debuging, but that's not needed often).<br>
+	But through the magic of Source Maps, is shows ST source code at the right location.<br>
+	<br>
+	Before proceeding, first undo the error by removing the <code>x</code> from the method call to <code>xbindElements</code><br>
+</div>
+
+<div class="tutorialHeading1">Breakpoints</div>
+<div class="tutorialText">
+	You can also set breakpoints on ST method calls,<br>
+	to inspect the value of variables as that moment,
+	and step over, into and out of following method calls.<br>
+	Just like when developing in JS or TS in VSCode.<br>
+	<br>
+	In VSCode, open the file <code>./src/Frequencies.st</code> .<br>
+	In the method <code>incrementFrequency</code> set a breakpoint on the last line of code,<br>
+	by clicking in the leftmost margin of the source file window pane.<br>
+	A red dot should appear indicating the breakpoint has been set:<br>
+	<img src="DebuggingBreakpointSet.png" class="screenPart"><br>
+	<br>
+	Now stop the app (close the browser) and restart it again from VSCode with [F5].<br>
+	Type the input the string <code>abb</code> and press the <code>[Calculate]</code> button.<br>
+	Now VSCode should break on our breakpoint with a screen part looking like this:<br>
+	<img src="DebuggingBreakpointHit.png" class="screenPart"><br>
+	There's a lot going on here, we'll break it down.<br>
+</div>
+
+<div class="tutorialHeading2">Source</div>
+<div class="tutorialText">
+	In the source pane you can see the debugger has stopped at the desired line:<br>
+	<img src="DebuggingBreakpointSource.png" class="screenPart"><br>
+	You can inspect local variables by hovering your mouse above them.<br>
+	Try moving the mouse over the variable <code>frequency</code> and this window should pop up:<br>
+	<img src="DebuggingBreakpointHover.png" class="screenPart"><br>
+	<br>
+</div>
+
+<div class="tutorialHeading2">Variables</div>
+<div class="tutorialText">
+	In the "VARIABLES" pane you can see local variables shown automatically:<br>
+	<img src="DebuggingBreakpointLocalVariables.png" class="screenPart"><br>
+	JS variable <code>this</code> contains the ST variable <code>self</code> .<br>
+	You can expand variables containing composed objects by clicking on the right-arrow: &gt<br>
+	Try that for the variable <code>this</code> and it should look like this:<br>
+	<img src="DebuggingBreakpointExpandVariable.png" class="screenPart"><br>
+	<br>
+</div>
+
+<div class="tutorialHeading2">Call stack</div>
+<div class="tutorialText">
+	In the "CALL STACK" pane you can see function call stack upto the current breakpoint:<br>
+	<img src="DebuggingCallStack.png" class="screenPart"><br>
+	You can click on functions further down the stack<br>
+	to show their source code and inspect their variables.<br>
+	ST function names are a bit 'mangled' with dollar signs to prevent name clashes,<br>
+	but they should be redable well enough.<br>
+	Its also possible to click on JS functions in the stack and inspect them.<br>
+</div>
+
+<div class="tutorialHeading2">Stepping</div>
+<div class="tutorialText">
+	You can use the normal VSCode stepping keys to 'walk' htrough the code:<br>
+	[F10] = Step over. [F11] = Step into. [Shift]+[F11] = Step out. [F5] = Continue.<br>
+</div>
+
+<div class="tutorialHeading2">Limitations</div>
+<div class="tutorialText">
+	Debugging in SmallJS with Source Maps currently has these limitations:<br>
+	<ul>
+		<li>Breakpoints can only be set on ST method calls.</li>
+		<li>ST assignments cannot have a breakpoints, e.g.: <code>var := 7</code> .</il>
+		<li>Its not possible to set a breakpoint within a ST block, e.g.: <code>var ifTrue: [ ... ]</code> .</li>
+	</ul>
+	- Debugging assignments.
+	- Debugging in blocks.
+	So its a bit of a compromise also showing some JS until a full "Language Server" for SmallJS is made.<br>
+
+	Now that our code is working, lets add some tests to keep it that way...<br>
+<div>

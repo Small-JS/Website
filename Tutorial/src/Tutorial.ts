@@ -32,16 +32,18 @@ export class Tutorial
 
 	bindElements()
 	{
-		this.menuButton = <HTMLButtonElement> this.getElement( "menuButton", "button" );
-		this.menuButton.onclick = event => this.onMenuButton();
+		this.menuButton = this.getElement( "menuButton", "button" ) as HTMLButtonElement;
+		this.menuButton.onclick = () => this.onMenuButton();
 
-		this.menuButton = <HTMLButtonElement> this.getElement( "previousButton", "button" );
-		this.menuButton.onclick = event => this.onPreviousButton();
-		this.menuButton = <HTMLButtonElement> this.getElement( "nextButton", "button" );
-		this.menuButton.onclick = event => this.onNextButton();
+		this.menuButton = this.getElement( "previousButton", "button" ) as HTMLButtonElement;
+		this.menuButton.onclick = () => this.onPreviousButton();
+		this.menuButton = this.getElement( "nextButton", "button" ) as HTMLButtonElement;
+		this.menuButton.onclick = () => this.onNextButton();
 
 		this.indexDiv = <HTMLDivElement> this.getElement( "indexDiv", "div" );
 		this.pageDiv = <HTMLDivElement> this.getElement( "pageDiv", "div" );
+
+		this.addCopyToClipboardButtons();
 	}
 
 	// Get HTML element also id checking for existence and correct tag
@@ -59,6 +61,25 @@ export class Tutorial
 				", expected: " + tagName );
 
 		return element;
+	}
+
+	// Add a button enabling copy to clipboard after every codeblock
+
+	addCopyToClipboardButtons()
+	{
+		for( let element of document.getElementsByClassName( "codeBlock" ) ) {
+			// Create button image
+			let image = document.createElement( "img" );
+			image.src = "/Tutorial/Tutorial/Copy.png";
+			image.classList.add( "copyImage" );
+
+			// Create button
+			let button = document.createElement( "button" );
+			button.classList.add( "copyButton" );
+			button.append( image );
+			button.onclick = () => navigator.clipboard.writeText( element.textContent );
+			element.after( button );
+		}
 	}
 
 	// Open the index tree details to show the entry for the current page.

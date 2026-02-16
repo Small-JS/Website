@@ -1,0 +1,97 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Testing - Unit</div>
+<div class="tutorialText">
+	SmallJS has built-in, very lightweight support for adding unit tests.<br>
+	Compiling test classes can be skipped by the compiler for parts of the library.<br>
+	This is enabled by default for the standard library parts: Core, Browser and Node.<br>
+</div>
+
+<div class="tutorialHeading1">Unit test class</div>
+<div class="tutorialText">
+	Let's start by unit tests for our class <code>Frequencies</code>.<br>
+	In the folder <code>./src/Test</code>, rename the file <code>TestCounter.stx</code> to <code>TestFrequencies.st</code>,<br>
+	to get it back into the ST build.<br>
+	<br>
+	Replace its file contents with the  following:<br>
+<pre class="codeBlock">
+CLASS TestFrequencies EXTENDS Test MODULE TestFrequenciesApp
+	CLASSVARS '' VARS ''
+
+test
+	| frequencies dictionary keyValue |
+	frequencies := Frequencies new.
+	frequencies calculate: 'abb'.
+
+	dictionary := frequencies letterDictionary.
+	self assert: [ dictionary size = 2 ].
+	self assert: [ ( dictionary at: $a ) = 1 ].
+
+	keyValue := dictionary keyValues first.
+	self assert: [ keyValue key = $b ].
+	self assert: [ keyValue value = 2 ].
+!
+</pre><br>
+	On screen it should look like this:<br>
+	<img src="TestingUnit.png" class="screenPart"><br>
+	We'll to through it piece by piece below.
+</div>
+
+<div class="tutorialHeading2">Class definition</div>
+<div class="tutorialText">
+	This is the class definition:<br>
+	<img src="TestingUnitClassDefinition.png" class="screenPart"><br>
+	By convention, the class name starts with the word 'Test'.<br>
+	Unit tests classes must inherit from the base class <code>Test</code> to enable automatic discovery.<br>
+	The module name is also prefixed with 'Test',<br>
+	so they can be removed from the main code during deployment.<br>
+	There are no class and instance varables here now,<br>
+	but those <i>can</i> be useful in complex tests.<br>
+</div>
+
+<div class="tutorialHeading2">Test method header</div>
+<div class="tutorialText">
+	This is the header and first few lines of the (first) test method:<br>
+	<img src="TestingUnitMethodHeader.png" class="screenPart"><br>
+	In classes derived from base class <code>Test</code>,<br>
+	methods whose names start with <code>test</code> are automatically called by the unit tester.<br>
+	So you can create more methods like <code>testA</code>, <code>testB</code> to group tests.<br>
+	Methods names <i>not</i> starting with <code>test</code> can be used as utility methods.<br>
+	E.g. an event handler triggered by the method <code>testA</code> could be called <code>onTestA</code> .<br>
+	<br>
+	The method lines delare local variables, create a new <code>Frequencies</code> object,<br>
+	and calculate the result with the test string <code>'abb'</code> as input.<br>
+</div>
+
+<div class="tutorialHeading2">Test assertions</div>
+<div class="tutorialText">
+	The second part of the <code>test</code> method actually performs the tests:<br>
+	<img src="TestingUnitAssert.png" class="screenPart"><br>
+	It asserts (must be true) that:<br>
+	- The letter dictionary should contain 2 entries.<br>
+	- It should contain frequency 1 at letter 'a'.<br>
+	- The first key/value pair in the <i>sorted</i> letter frequencies should be key 'b' and value 2.<br>
+</div>
+
+<div class="tutorialHeading2">Calling tests</div>
+<div class="tutorialText">
+	To run this test code we have to call unit tests somewhere.<br>
+	In the file <code>./src/Frequencies</code> replace the <code>start</code> method with de following code:<br>
+	(Adding a third line calling <code>TestFrequencies all</code>)<br>
+<pre class="codeBlock">
+start
+	frequencies := Frequencies new.
+	self bindElements.
+	TestFrequencies all.
+!
+</pre>
+
+<div class="tutorialHeading2">Running tests</div>
+<div class="tutorialText">
+	In VsCode, now close the app and restart it again with [F5].<br>
+	After switching back to VSCode, from the browser,<br>
+	In the bottom pane, the tab 'DEBUG CONSOLE' should look like this:<br>
+	<img src="TestingUnitRun.png" class="screenPart"><br>
+
+	Now on to testing the GUI...<br>
+</div>

@@ -1,0 +1,160 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">View</div>
+<div class="tutorialText">
+	A view in a browser app is ultimately just HTML + CSS.<br>
+	This app will use just one file for each (without compontents).<br>
+	VSCode has a nice preview button for HTML files,<br>
+	that renders the HTML with CSS styling while you edit.<br>
+	<br>
+	Teaching HTML and CSS is beyond the scope of this tutorial,<br>
+	as there are already plenty of great online resources for that.<br>
+	You can just copy-paste the code below into the existing files.<br>
+	<br>
+
+	<div class="tutorialHeading1">File: index.html</div>
+	Replace the contents of the file <code>./web/index.html</code> with the following HTML:<br>
+
+	<!-- HTML has to be processed the following way
+	 	to be able to display it within a HTML page:
+		- Replace & characters with &amp;
+		- Replace < characters with &lt;
+		- Replace > characters with &gt;
+	-->
+
+<pre class="codeBlock">
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en-GB"&gt;
+
+&lt;head&gt;
+	&lt;meta charset="utf-8" /&gt;
+	&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+	&lt;title&gt;Counter&lt;/title&gt;
+	&lt;link rel="stylesheet" href="default.css" type="text/css" /&gt;
+	&lt;script src="Script/main.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+	&lt;table id="formTable"&gt;
+		&lt;tr&gt;
+			&lt;td class="title"&gt;
+				&lt;img id="logoImage" src="logo.png" height="40"&gt;&lt;/img&gt;
+				&lt;span id="titleMessage"&gt;&amp;nbsp;&amp;nbsp;Frequencies&lt;/span&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;
+				&lt;div class="subTitle"&gt;Input&lt;/div&gt;
+				&lt;textarea id="inputTextArea"&gt;&lt;/textarea&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;
+				&lt;button id="calculateButton"&gt;Calculate&lt;/button&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;
+				&lt;div class="subTitle"&gt;Frequencies&lt;/div&gt;
+				&lt;table id="frequenciesTable"&gt;
+					&lt;tr&gt;
+						&lt;th&gt;Letter&lt;/th&gt;
+						&lt;th&gt;Frequency&lt;/th&gt;
+					&lt;/tr&gt;
+					&lt;!-- Rows will be replaced by the app --&gt;
+					&lt;tr&gt;
+						&lt;td&gt;&amp;nbsp&lt;/td&gt;
+						&lt;td&gt;&amp;nbsp&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/table&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/table&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+	<br>
+	<div class="tutorialHeading1">File: default.css</div>
+	Replace the contents of the file <code>./web/default.css</code> with the following CSS:<br>
+
+<pre class="codeBlock">
+body {
+    font-family: system-ui;
+    font-size: medium;
+    background-color: #F8F8F8;
+}
+
+#formTable {
+	width: 320px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	border: solid gray;
+	border-width: 2px;
+	border-spacing: 16px;
+	border-radius: 10px;
+	text-align: center;
+	box-shadow: 10px 10px 5px grey;
+}
+
+.title {
+	font-size: X-Large;
+	font-weight: bold;
+	background-color: lightblue;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	/* Vertically center items */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.subTitle {
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+#inputTextArea {
+	width: 100%;
+	height: 50px;
+
+}
+
+#calculateButton {
+	font-weight: bold;
+}
+
+#frequenciesTable {
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+}
+
+#frequenciesTable th, #frequenciesTable td {
+  border: 2px solid grey;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+</pre>
+	<br>
+
+	We also want a new icon and logo for the app.<br>
+	You can download their files by clicking on the links:
+	<a href="./favicon.ico" download>favicon.ico</a> and
+	<a href="./logo.png" download>logo.png</a>.<br>
+	<br>
+	Then put them in the <code>./web</code> folder of the app project.<br>
+	<br>
+
+	The HTML preview in VSCode can be activated with this button on the top right
+	<img src="ViewPreviewButton.png"><br>
+	when the file <code>index.html</code> is open. It should now look like this:<br>
+	<img src="ViewPreview.png" class="screenPart"><br>
+	<br>
+
+	Now we're ready to combine using the model and view with the app class.<br>
+</div>
+
