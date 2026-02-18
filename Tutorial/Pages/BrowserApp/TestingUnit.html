@@ -9,7 +9,7 @@
 
 <div class="tutorialHeading1">Unit test class</div>
 <div class="tutorialText">
-	Let's start by unit tests for our class <code>Frequencies</code>.<br>
+	Let's create unit tests for our class <code>Frequencies</code>.<br>
 	In the folder <code>./src/Test</code>, rename the file <code>TestCounter.stx</code> to <code>TestFrequencies.st</code>,<br>
 	to get it back into the ST build.<br>
 	<br>
@@ -33,7 +33,7 @@ test
 !
 </pre><br>
 	On screen it should look like this:<br>
-	<img src="TestingUnit.png" class="screenPart"><br>
+	<img src="TestingUnitClass.png" class="screenPart"><br>
 	We'll to through it piece by piece below.
 </div>
 
@@ -52,7 +52,7 @@ test
 <div class="tutorialHeading2">Test method header</div>
 <div class="tutorialText">
 	This is the header and first few lines of the (first) test method:<br>
-	<img src="TestingUnitMethodHeader.png" class="screenPart"><br>
+	<img src="TestingUnitMethodTestHeader.png" class="screenPart"><br>
 	In classes derived from base class <code>Test</code>,<br>
 	methods whose names start with <code>test</code> are automatically called by the unit tester.<br>
 	So you can create more methods like <code>testA</code>, <code>testB</code> to group tests.<br>
@@ -66,7 +66,7 @@ test
 <div class="tutorialHeading2">Test assertions</div>
 <div class="tutorialText">
 	The second part of the <code>test</code> method actually performs the tests:<br>
-	<img src="TestingUnitAssert.png" class="screenPart"><br>
+	<img src="TestingUnitMethodTestAsserts.png" class="screenPart"><br>
 	It asserts (must be true) that:<br>
 	- The letter dictionary should contain 2 entries.<br>
 	- It should contain frequency 1 at letter 'a'.<br>

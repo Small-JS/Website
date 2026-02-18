@@ -37,6 +37,7 @@
 		"App",
 		"Main",
 		"Running",
-		"Testing-Unit"
+		"Testing-Unit",
+		"Testing-Gui"
 	]
 ]

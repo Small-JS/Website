@@ -1,98 +1,163 @@
 <!-- HTML fragment for the text of this tutorial page -->
 
-<div class="tutorialTitle">Testing - Unit</div>
+<div class="tutorialTitle">Testing - GUI</div>
 <div class="tutorialText">
-	All SmallJS GUI (client) example apps have automated GUI testing that can be copied and customised.<br>
-	Web (browser) apps have automated testing for browsers: Chrome, Edge and Firefox.<br>
+	All SmallJS GUI (client) example apps have automated GUI testing<br>
+	that can be copied and customised for your apps.<br>
+	Browser apps have automated testing for browsers: Chrome, Edge and Firefox.<br>
 	Automated testing can be started from VSCode by selecting the desired configuration.<br>
-	The script <code>build.sh</code> also runs unit and GUI tests after building.<br>
+	The script <code>build.sh</code> first builds the app and then runs unit and GUI tests.<br>
+
+	Let's now create GUI tests for our app <code>FrequenciesApp</code> .<br>
 </div>
 
-<div class="tutorialHeading1">GUI tests class</div>
+<div class="tutorialHeading1">Calling GUI tester</div>
 <div class="tutorialText">
-	...CONTINUE HERE...
-	Let's start by unit tests for our class <code>Frequencies</code>.<br>
-	In the folder <code>./src/Test</code>, rename the file <code>TestCounter.stx</code> to <code>TestFrequencies.st</code>,<br>
-	to get it back into the ST build.<br>
-	<br>
-	Replace its file contents with the  following:
-<pre clas="codeBlock">
-CLASS TestFrequencies EXTENDS Test MODULE TestFrequenciesApp
-	CLASSVARS '' VARS ''
+	First the class <code>FrequenciesApp</code> must be able to call the GUI test.<br>
+	In the file <code>./src/FrequenciesApp.st</code>, add the flowing lines at the end of the method <code>start</code> :<br>
 
-test
-	| frequencies dictionary keyValue |
-	frequencies := Frequencies new.
-	frequencies calculate: 'abb'.
+<pre class="codeBlock">
+	self testMode ifTrue: [
+		TestFrequenciesApp new test: self ].
+</pre><br>
+	The resulting method should look like this:<br>
+	<img src="TestingGuiMethodStart.png" class="screenPart"><br>
+	After normal app startup, the added lines check if the app was started in test mode.<br>
+	If so, a new GUI tester <code>TestFrequenciesApp</code> is created,<br>
+	and its method <code>test:</code> is called with the running app as the argument.<br>
+</div>
 
-	dictionary := frequencies letterDictionary.
-	self assert: [ dictionary size = 2 ].
-	self assert: [ ( dictionary at: $a ) = 1 ].
+<div class="tutorialHeading1">Access to app variables</div>
+<div class="tutorialText">
+	The tester class will need access to the variables in the app.<br>
+	Since variables in ST are always private, we need to create getters for them.<br>
+	In the file <code>./src/FrequenciesApp.st</code>, add the following methods to the end of the file:<br>
 
-	keyValue := dictionary keyValues first.
-	self assert: [ keyValue key = $b ].
-	self assert: [ keyValue value = 2 ].
+<pre class="codeBlock">
+"Accessing - Used by tests"
+
+inputTextArea
+	^ inputTextArea.
 !
-</pre>
-	<br>
-	On screen it should look like this:
-	<img src="TestingUnit.png" class="screenPart"><br>
-	We'll to through it piece by piece below.
+calculateButton
+	^ calculateButton.
+!
+frequenciesTable
+	^ frequenciesTable.
+!
+</pre><br>
+	So these methods just return instance variables.<br>
+	This might look a bit verbose, but it keeps the ST language simple,<br>
+	and you can always add functionality inside getters without changing calling code.<br>
+</div>
+
+<div class="tutorialHeading1">GUI tester class</div>
+<div class="tutorialText">
+	Now we can create the GUI tester class: <code>TestFrequenciesApp</code> .<br>
+	In the folder <code>./src/Test</code>, rename the file <code>TestCounterApp.stx</code> to <code>TestFrequenciesApp.st</code> .<br>
+	Then replace its contents with the following code: <br>
+
+<pre class="codeBlock">
+CLASS TestFrequenciesApp EXTENDS Object MODULE TestFrequenciesApp
+	CLASSVARS '' VARS 'frequenciesApp'
+
+async test: aFrequenciesApp
+	frequenciesApp := aFrequenciesApp.
+	await TestFrequencies all.
+	await self testGui.
+!
+async testGui
+	frequenciesApp inputTextArea value: 'abb'.
+	frequenciesApp calculateButton click.
+	await Timer timeout: 3000.
+
+	self checkRow: 0 letter: $b frequency: 2.
+	self checkRow: 1 letter: $a frequency: 1.
+!
+checkRow: rowIndex letter: letter frequency: frequency
+	| row |
+	row := frequenciesApp frequenciesTable tBody rows at: rowIndex.
+	self assert: [ ( row cells at: 0 ) textContent = letter toString ].
+	self assert: [ ( row cells at: 1 ) textContent = frequency toString ].
+!
+</pre><br>
+	The resulting class should look like this:<br>
+	<img src="TestingGuiClass.png" class="screenPart"><br>
+	We'll go through it piece by piece below.<br>
 </div>
 
 <div class="tutorialHeading2">Class definition</div>
 <div class="tutorialText">
-	This is the class definition:<br>
-	<img src="TestingUnitClassDefinition.png" class="screenPart"><br>
-	By convention, the class name starts with the word 'Test'.<br>
-	Unit tests classes must inherit from the base class <code>Test</code>, to enable automatic discovery.<br>
-	The module name is also prefixed with 'Test',<br>
-	so they don't abscure the main code and can be removed when deploying.<br>
-	There are no class and instance varables here, but they can be useful in complex tests.<br>
+	<img src="TestingGuiClassDefinition.png" class="screenPart"><br>
+	Note that this class just inherits from class <code>Object</code>, not <code>Test</code> .<br>
+	So it is <i>not</i> a unit testing class of which test methods are called automatically.<br>
+	The module name <code>TestFrequenciesApp</code> is the same as for the unit test class.<br>
+	(The module name and class name are the same here, but that doesn't matter.)<br>
+	The instance variable <code>frequenciesApp</code> will reference the app to be tested.<br>
 </div>
 
-<div class="tutorialHeading2">Test method header</div>
+<div class="tutorialHeading2">Method: test:</div>
 <div class="tutorialText">
-	This is the header and first few lines of the (first) test method:<br>
-	<img src="TestingUnitMethodHeader.png" class="screenPart"><br>
-	In classes dirived from <code>Test</code>,<br>
-	methods whose name start with <code>test</code> are autoamtically called by the unit tester.<br>
-	So you can move more methods <code>testA</code>, <code>testB</code> to group tests.<br>
-	And methods names not starting with <code>test</code> are utility methods that can be called.<br>
-	E.g. an event handler triggered by the method <code>testA</code>> could be called <code>onTestA</code><br>
+	<img src="TestingGuiMethodTest.png" class="screenPart"><br>
+	First note that this method is <code>async</code> .<br>
+	Methods that <code>await</code> the outcome of other <code>async</code> methods, must also be <code>async</code> .<br>
+	This is a design restriction (flaw) of JS, that cannot be circumvented in SmallJS, alas.<br>
 	<br>
-	The next lines delare some local variables, create a new <code>Frequencies</code> object,<br>
-	and calculate some results with the test string <code>'abb'</code> want to check.<br>
+	The method first saves a reference to the app being tested.<br>
+	Then it executes all unit tests through the class <code>TestFrequencies</code> we created earlier.<br>
+	Note: The class method <code>all</code> executes <b><i>all</i></b> unit tests that were compiled,<br>
+	not only the ones in the class <code>TestFrequencies</code> .<br>
+	Then the <code>testGui</code> method is called, the main purpose of this class.<br>
+	Lastly the app is stopped, also closing the browser.<br>
 </div>
 
-<div class="tutorialHeading2">Test assertions</div>
+<div class="tutorialHeading2">Method: testGui</div>
 <div class="tutorialText">
-	The second part of the <code>test</code> method actually performs the tests.<br>
-	<img src="TestingUnitAssert.png" class="screenPart"><br>
-	The letter disctionary should contain 2 entries.<br>
-	It should contain frequency 1 at letter 'a'.<br>
-	The first key / value in the sorted letter frequencies should key 'b' and value 2.<br>
+	<img src="TestingGuiMethodTestGui.png" class="screenPart"><br>
+	This method is also <code>async</code> because it <code>await</code>-s a timer.<br>
+	First the test string 'abb' is put into the input HTML control on the page.<br>
+	Then the [Calculate] button is clicked.<br>
+	Waiting for 3 seconds gives the app time to calculate and display the results.<br>
+	(This time can be much shorter if no humans watch along :)<br>
+	Now the frequencies table is checked if it contains the expected results,<br>
+	using the following utility method.<br>
 </div>
 
-<div class="tutorialHeading2">Calling tests</div>
+<div class="tutorialHeading2">Method: checkRow:...</div>
 <div class="tutorialText">
-	To run this test code we have to call unit tests somewhere.<br>
-	In the file <code>./src/Frequencies</code> replace the <code>start</code> method with de following code:<br>
-	(Adding a third line calling <code>TestFrequencies all</code>)
-<pre class="codeBlock">
-start
-	frequencies := Frequencies new.
-	self bindElements.
-	TestFrequencies all.
-!
-</pre>
-
-<div class="tutorialHeading2">Running tests</div>
-<div class="tutorialText">
-	Now close and start the app again in VSCode with [F5].<br>
-	After switching back to VSCode, form the browser,<br>
-	the tab 'DEBUG CONSOLE' in the bottom pane should look like this:<br>
-	<img src="TestingUnitRun.png" class="screenPart"><br>
-
-	Now on to testing the GUI...
+	<img src="TestingGuiMethodCheckRow.png" class="screenPart"><br>
+	This method checks if a row in the frequencies table<br>
+	contains the expected letter and frequency results.<br>
+	First it fetches a row from the frequencies table body by index.<br>
+	From that row, it asserts that the 1st cell is equal to the agument letter,<br>
+	and asserts that the 2nd cell is equal to the agument frequency.<br>
+	<br>
+	Now our code is complete and the GUI test can be run.<br>
 </div>
+
+<div class="tutorialHeading2">Running</div>
+<div class="tutorialText">
+	To run the app in GUI testing mode, we have to select a test configuration.<br>
+	In VSCode, in the 'RUN AND DEBUG' pane, select a 'test' configuration<br>
+	for a browser you have installed:<br>
+	<img src="TestingGuiRunningConfiguration.png" class="screenPart"><br>
+	This will start the app with <code>?test</code> appended to the URL,<br>
+	causing the method <code>testMode</code> (see above) to return <code>true</code> . <br>
+	<br>
+	In VSCode, now press [F5] to start the app in test mode.<br>
+	If all goes well, a bowser will be launched and the GUI tests class will run automatically,<br>
+	filling the input, calculate results and close the browser after 3 seconds.<br>
+	(On MacOS the browser will not close.)<br>
+	<br>
+	Back in VSCode, in the bottom pane, the tab 'DEBUG CONSOLE' should look like this:<br>
+	<img src="TestingGuiRunning.png" class="screenPart"><br>
+	This is the output from (also) running the unit tests, same as earlier.<br>
+	<br>
+	If a GUI test <code>assert:</code> fails,<br>
+	VSCode with break into the debugger the same way as with the unit tests.<br>
+	You can try this by changing one of the expected values in the method <code>testGui</code> .<br>
+	<br>
+	Congratulations, you've made a fully functional and tested SmallJS browser app!<br>
+	Now let's automate the build & test proces, for quick regression testing...<br>
+</div>
+
