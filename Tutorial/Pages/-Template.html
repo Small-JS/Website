@@ -16,15 +16,15 @@
 <body>
 	<div id="titleDiv">
 		<div id="titleLeftDiv">
-			<button id="menuButton" class="titleButton">&#8801</button>
-			<button id="previousButton" class="titleButton">&lt</button>
+			<button id="menuButton" class="navigationButton">&#8801</button>
+			<button id="previousButton" class="navigationButton">&lt</button>
 		</div>
 		<div id="titleCenterDiv">
 			<img id="logoImage" src="/Tutorial/Tutorial/Logo.png" height="40"></img>
 			<span id="titleSpan">&nbsp;&nbsp;SmallJS Tutorial</span>
 		</div>
 		<div id="titleRightDiv">
-			<button id="nextButton" class="titleButton">&gt</button>
+			<button id="nextButton" class="navigationButton">&gt</button>
 		</div>
 	</div>
 	<table id="formTable">
@@ -38,6 +38,7 @@
 				<div id="pageDiv">
 					<!-- Tutorial page fragment is inserted here -->
 					{tutorialPage}
+					<button id="advanceButton" class="navigationButton">&gt</button>
 				</div>
 			</td>
 		</tr>

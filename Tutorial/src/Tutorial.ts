@@ -1,9 +1,6 @@
 
 export class Tutorial
 {
-	menuButton!: HTMLButtonElement;
-	previousButton!: HTMLButtonElement;
-	nextButton!: HTMLButtonElement;
 	indexDiv!: HTMLDivElement;
 	pageDiv!: HTMLDivElement;
 	indexPopup = false;
@@ -32,13 +29,14 @@ export class Tutorial
 
 	bindElements()
 	{
-		this.menuButton = this.getElement( "menuButton", "button" ) as HTMLButtonElement;
-		this.menuButton.onclick = () => this.onMenuButton();
-
-		this.menuButton = this.getElement( "previousButton", "button" ) as HTMLButtonElement;
-		this.menuButton.onclick = () => this.onPreviousButton();
-		this.menuButton = this.getElement( "nextButton", "button" ) as HTMLButtonElement;
-		this.menuButton.onclick = () => this.onNextButton();
+		let menuButton = this.getElement( "menuButton", "button" ) as HTMLButtonElement;
+		menuButton.onclick = () => this.onMenuButton();
+		let previousButton = this.getElement( "previousButton", "button" ) as HTMLButtonElement;
+		previousButton.onclick = () => this.onPreviousButton();
+		let nextButton = this.getElement( "nextButton", "button" ) as HTMLButtonElement;
+		nextButton.onclick = () => this.onNextButton();
+		let advanceButton = this.getElement( "advanceButton", "button" ) as HTMLButtonElement;
+		advanceButton.onclick = () => this.onNextButton();
 
 		this.indexDiv = <HTMLDivElement> this.getElement( "indexDiv", "div" );
 		this.pageDiv = <HTMLDivElement> this.getElement( "pageDiv", "div" );

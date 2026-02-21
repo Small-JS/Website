@@ -1,7 +1,4 @@
 export class Tutorial {
-    menuButton;
-    previousButton;
-    nextButton;
     indexDiv;
     pageDiv;
     indexPopup = false;
@@ -23,12 +20,14 @@ export class Tutorial {
         }
     }
     bindElements() {
-        this.menuButton = this.getElement("menuButton", "button");
-        this.menuButton.onclick = () => this.onMenuButton();
-        this.menuButton = this.getElement("previousButton", "button");
-        this.menuButton.onclick = () => this.onPreviousButton();
-        this.menuButton = this.getElement("nextButton", "button");
-        this.menuButton.onclick = () => this.onNextButton();
+        let menuButton = this.getElement("menuButton", "button");
+        menuButton.onclick = () => this.onMenuButton();
+        let previousButton = this.getElement("previousButton", "button");
+        previousButton.onclick = () => this.onPreviousButton();
+        let nextButton = this.getElement("nextButton", "button");
+        nextButton.onclick = () => this.onNextButton();
+        let advanceButton = this.getElement("advanceButton", "button");
+        advanceButton.onclick = () => this.onNextButton();
         this.indexDiv = this.getElement("indexDiv", "div");
         this.pageDiv = this.getElement("pageDiv", "div");
         this.addCopyToClipboardButtons();

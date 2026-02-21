@@ -38,6 +38,8 @@
 		"Main",
 		"Running",
 		"Testing-Unit",
-		"Testing-Gui"
+		"Testing-Gui",
+		"Environment",
+		"Documentation"
 	]
 ]

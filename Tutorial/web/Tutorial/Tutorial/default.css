@@ -65,7 +65,7 @@ body {
 	justify-content: center;
 }
 
-.titleButton {
+.navigationButton {
 	font-size: x-large;
 	font-size: x-large;
 }
@@ -211,23 +211,3 @@ code {
 	background-color: #d8d8d8;
 }
 
-/* ========================= Generic */
-
-.horizontal-center {
-	text-align: center;
-}
-
-.horizontal-left {
-	text-align: left;
-}
-
-.bold-horizontal-center {
-	text-align: center;
-	font-weight: bold;
-}
-
-.vertical-center {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}

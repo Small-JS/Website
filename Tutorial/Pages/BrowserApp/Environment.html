@@ -1,0 +1,123 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Environment</div>
+<div class="tutorialText">
+	Now that we manually created a working and tested app,<br>
+	we need a way of working to change, re-test and deploy it,<br>
+	on all configurations and on all platforms.<br>
+	<br>
+	In the spirit of Smalltalk, SmallJS takes a minimalist approach here.<br>
+	Its not tied to any specific tools, but just uses cross-platform bash scripts.<br>
+	<br>
+	<b>Note:</b><br>
+	As stated in the
+	<a href="https://github.com/Small-JS/SmallJS/blob/main/Documentation/Installing/Prerequisites.md" target="_blank">Prerequisites</a>,
+	if you're on Windows, you need 'Git for Windows'.<br>
+	Not necessarily for the Git tools, but for the bash shell 'Git Bash'.<br>
+</div>
+
+<div class="tutorialHeading1">Cleaning</div>
+<div class="tutorialText">
+	Before our app can be added to source control, all <i>generated</i> files should be deleted.<br>
+	This is done  by the bash script: <code>./clean.sh</code> .<br>
+	First replace its contents with this script:<br>
+
+	<pre class="codeBlock">
+#!/bin/bash
+cd "$(dirname "$0")"
+echo "Cleaning: Frequencies"
+rm -fr ./web/Script
+</pre><br>
+
+	This first line ensures its run with the bash shell.<br>
+	Then the current directory is set to the script directory (folder),<br>
+	ensuring all file operations are done from a known point.<br>
+	A message is displayed what the script is about to do.<br>
+	The actual cleaning is only removing the <code>./web/Script</code> directory,<br>
+	that contains all compiled TypeScript and Smalltalk files.<br>
+	Now start the script <code>./clean.sh</code> from a bash terminal or from your file manager.<br>
+</div>
+
+<div class="tutorialHeading1">Version control</div>
+<div class="tutorialText">
+	Now our project is cleaned, we should put in under version control.<br>
+	For this you can use any system you like,<br>
+	as SmallJS does not have any built-in preferences or hooks.<br>
+	<br>
+	If you're new to this, then GitHub will probably be fine to start with.<br>
+	And then GitHub Desktop is a user friendly tool for making changes (committing).<br>
+	Now you can commit all files the project directory (optional).<br>
+</div>
+
+<div class="tutorialHeading1">Browser configuration</div>
+<div class="tutorialText">
+	To enable automated GUI testing, we need to tell the script <code>./build.sh</code><br>
+	which browsers are available and which we want to use.<br>
+	This can differ per system, so it needs to be configured.<br>
+	First copy the file <code>./.env.example</code> to file <code>./.env</code>.<br>
+	(You can do this easily in the file view of VSCode)<br>
+	<br>
+	Then open the file <code>.env</code> in VSCode.<br>
+	You can see there are default browser locations for Windows, MacOS and Linux.<br>
+	Uncomment the browser you want to use by removing the leading hash characters <code># </code>,<br>
+	and adjust their paths to match installation on your computer.<br>
+	<br>
+	For example, if use are on Windows and only want to use Chrome to test,<br>
+	the resulting <code>.env</code> file would look something like this:<br>
+
+	<pre class="codeBlock">
+browserChrome="/c/Program Files/Google/Chrome/Application/chrome.exe"
+# browserEdge="/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+# browserFirefox="/c/Program Files/Mozilla Firefox/firefox.exe"
+</pre><br>
+
+<div class="tutorialHeading1">Building & Testing</div>
+	The script <code>./build.sh</code> builds and tests our app this way:<br>
+	<ul>
+		<li>Compiles all TypeScript (*.ts) files to JavaScript. (Here only <code>main.ts</code>)</li>
+		<li>Compiles all SmallJS (*.st) files to JavaScript.</li>
+		<li>Checks if any web browsers are configured in the file <code>.env</code>, and if so:</li>
+		<li>Starts a static web server.</li>
+		<li>Sequentially starts configured browsers in test mode for the app,<br>
+		running alle unit tests and GUI tests.</li>
+		<li>Terminates the web server.</li>
+	</ul>
+
+	The script <code>./build.sh</code> is already configured to run for every project.<br>
+	You should only replace all all text occurences of <code>Counter</code> with <code>Frequencies</code>,
+	to have build messages show the correct project name.<br>
+	If you moved the project folder relative to the SmallJS compiler and library,<br>
+	then the relative paths to them must be adjusted.<br>
+	<br>
+	Now start the script <code>./build.sh</code> from a bash terminal.<br>
+	All steps should run automatically to completion,<br>
+	including starting configured browsers in test mode and closing them when done.<br>
+	<br>
+	If a tests in a browser fails, that browser will not close.<br>
+	To see what went wrong, you can open its developer tools with [F12],<br>
+	and then check out the error messages in the Console tab.<br>
+	Its probably more convenient to fix any errors in VSCode, using its debugger.<br>
+</div>
+
+<div class="tutorialHeading1">Deploying</div>
+<div class="tutorialText">
+	The SmallJS system actually does *not* have any specific tools for deploying,<br>
+	as this is quite straightforward, and you will probably want to your own cloud tooling.<br>
+	<br>
+	To deploy this static web app, you can just:
+	<ul>
+		<li>Setup a static web sever on a production server.<br>
+		possibly using the same npm 'http-server' that is used in development.</li>
+		<li>Then copy the contents of the <code>./web</code> folder to the production location.</li>
+	</ul>
+
+	<b>Note:</b><br>
+	Removing (calls to) test classes from the app is currently a manual proces.<br>
+	This will be made simpler in a later release.<br>
+	<br>
+	This concludes the 'Browser App' tutorial.<br>
+	Now you can make your own coll browser app in Smalltalk! :-)<br>
+	If you've just been reading, remember the full tutorial app can be found here:<br>
+	<br>
+	One last step is to document the app...<br>
+</div>
