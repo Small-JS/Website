@@ -8,13 +8,23 @@
 	Replace its contents with the following JS code:<br>
 
 <pre class="codeBlock">
-let moduleName: string = "./FrequenciesApp.js";
-import( moduleName )
-	.then( module => { module.stFrequenciesApp$class.$new().$start() } );
+let testMode = window.location.search.toLowerCase() == '?test';
+if( testMode ) {
+	let moduleName = "./TestFrequenciesApp.js";
+	import( moduleName )
+		.then( module => { module.stTestFrequenciesApp$class.$new().$start(); } );
+} else {
+	let moduleName = "./FrequenciesApp.js";
+	import( moduleName )
+		.then( module => { module.stFrequenciesApp$class.$new().$start(); } );
+}
 </pre><br>
 
 	On screen it looks like this:<br>
 	<img src="Main.png" class="screenPart"><br>
+	Note that first a check is done if the app was started in test mode.<br>
+	We don't have that yet, so let's focus on the <code>else</code> part.<br>
+	<br>
 	First a variable is set to the compiled ST module name to import.<br>
 	Then the module is imported async using the <code>import()</code> <i>function</i>.<br>
 	Lastly a new instance is created of the app class with <code>$new()</code> ,<br>

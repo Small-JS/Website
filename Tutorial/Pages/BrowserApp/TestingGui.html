@@ -11,22 +11,6 @@
 	Let's now create GUI tests for our app <code>FrequenciesApp</code> .<br>
 </div>
 
-<div class="tutorialHeading1">Calling GUI tester</div>
-<div class="tutorialText">
-	First the class <code>FrequenciesApp</code> must be able to call the GUI test.<br>
-	In the file <code>./src/FrequenciesApp.st</code>, add the flowing lines at the end of the method <code>start</code> :<br>
-
-<pre class="codeBlock">
-	self testMode ifTrue: [
-		TestFrequenciesApp new test: self ].
-</pre><br>
-	The resulting method should look like this:<br>
-	<img src="TestingGuiMethodStart.png" class="screenPart"><br>
-	After normal app startup, the added lines check if the app was started in test mode.<br>
-	If so, a new GUI tester <code>TestFrequenciesApp</code> is created,<br>
-	and its method <code>test:</code> is called with the running app as the argument.<br>
-</div>
-
 <div class="tutorialHeading1">Access to app variables</div>
 <div class="tutorialText">
 	The tester class will need access to the variables in the app.<br>
@@ -61,10 +45,12 @@ frequenciesTable
 CLASS TestFrequenciesApp EXTENDS Object MODULE TestFrequenciesApp
 	CLASSVARS '' VARS 'frequenciesApp'
 
-async test: aFrequenciesApp
-	frequenciesApp := aFrequenciesApp.
+async start
+	frequenciesApp := FrequenciesApp new start.
+
 	await TestFrequencies all.
 	await self testGui.
+	frequenciesApp stop.
 !
 async testGui
 	frequenciesApp inputTextArea value: 'abb'.
@@ -96,18 +82,18 @@ checkRow: rowIndex letter: letter frequency: frequency
 	The instance variable <code>frequenciesApp</code> will reference the app to be tested.<br>
 </div>
 
-<div class="tutorialHeading2">Method: test:</div>
+<div class="tutorialHeading2">Method: start</div>
 <div class="tutorialText">
-	<img src="TestingGuiMethodTest.png" class="screenPart"><br>
+	<img src="TestingGuiMethodStart.png" class="screenPart"><br>
 	First note that this method is <code>async</code> .<br>
 	Methods that <code>await</code> the outcome of other <code>async</code> methods, must also be <code>async</code> .<br>
-	This is a design restriction (flaw) of JS, that cannot be circumvented in SmallJS, alas.<br>
+	This is a design restriction of JS, that cannot be circumvented in SmallJS, alas.<br>
 	<br>
-	The method first saves a reference to the app being tested.<br>
+	The method first creates and starts a <code>FrequenciesApp</code> instance to be tested.<br>
 	Then it executes all unit tests through the class <code>TestFrequencies</code> we created earlier.<br>
 	Note: The class method <code>all</code> executes <b><i>all</i></b> unit tests that were compiled,<br>
 	not only the ones in the class <code>TestFrequencies</code> .<br>
-	Then the <code>testGui</code> method is called, the main purpose of this class.<br>
+	Then the method <code>testGui</code> is called, the main purpose of this class.<br>
 	Lastly the app is stopped, also closing the browser.<br>
 </div>
 
@@ -142,7 +128,8 @@ checkRow: rowIndex letter: letter frequency: frequency
 	for a browser you have installed:<br>
 	<img src="TestingGuiRunningConfiguration.png" class="screenPart"><br>
 	This will start the app with <code>?test</code> appended to the URL,<br>
-	causing the method <code>testMode</code> (see above) to return <code>true</code> . <br>
+	causing variable <code>testMode</code> in <code>main.ts</code>become <code>true</code> ,<br>
+	so it will start a <code>FrequenciesTestApp</code> iso a <code>FrequenciesApp</code> .<br>
 	<br>
 	In VSCode, now press [F5] to start the app in test mode.<br>
 	If all goes well, a bowser will be launched and the GUI tests class will run automatically,<br>
