@@ -75,7 +75,7 @@ body {
 #indexDiv {
 	width: 350px;
 	/* Set height to viewport size minus headers */
-	height: calc(100vh - 50px);
+	height: calc(100vh - 70px);
 	overflow-y: scroll;
 	margin: 0;
 	padding: 0;
@@ -102,6 +102,9 @@ details > *:not(summary){
 	}
 }
 
+.referenceIndexEntry {
+	display: block;
+}
 
 /* ==================================== Page */
 

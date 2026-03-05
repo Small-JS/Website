@@ -1,4 +1,4 @@
 
-import { Reference } from "./Reference.js";
+import { ReferenceApp } from "./ReferenceApp.js";
 
-new Reference().start();
+new ReferenceApp().start();

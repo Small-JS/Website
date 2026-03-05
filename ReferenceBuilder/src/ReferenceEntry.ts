@@ -89,7 +89,7 @@ export class ReferenceEntry
 			'class="referenceIndexEntry" ' +
 			'href="/Reference/Reference/Pages/' + this.path() + '">' +
 			this.title +
-			'</a><br>\n';
+			'</a>\n';
 	}
 
 	detailsHtml()
