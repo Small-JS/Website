@@ -6,16 +6,20 @@ import { TutorialPages } from "./TutorialPages.js";
 
 // Currentlly this is only done for the pages of the Tutorial.
 
-export class TutorialBuilder
+export class TutorialBuilderApp
 {
-	build()
+	start()
 	{
+		console.log( 'Generating tutorial pages...' );
+
 		let tutorialIndex = new TutorialIndex();
 		tutorialIndex.load();
 		tutorialIndex.save();
 
 		let tutorialPages = new TutorialPages();
 		tutorialPages.convert();
-	}
 
+		console.log( 'Completed.' );
+	}
 }
+

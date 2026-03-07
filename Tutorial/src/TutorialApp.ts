@@ -1,5 +1,5 @@
 
-export class Tutorial
+export class TutorialApp
 {
 	indexDiv!: HTMLDivElement;
 	pageDiv!: HTMLDivElement;
@@ -140,10 +140,6 @@ export class Tutorial
 			throw Error( "Failed to find previous sibling element in tree" );
 
 		let previousElement = element.previousElementSibling;
-
-		while( previousElement && previousElement.tagName == "BR" )
-			previousElement = previousElement.previousElementSibling;
-
 		if( ! previousElement ) {
 			if( element == this.indexDiv )
 				return;
@@ -160,9 +156,6 @@ export class Tutorial
 
 		if( element.tagName == "SUMMARY" || element.tagName == "DETAILS" )
 			return this.navigateIntoLast( element.lastElementChild )
-
-		while( element && element.tagName == "BR" )
-			element = element.previousElementSibling;
 
 		if( ! element )
 			throw new Error( "Failed to find last anchor element" );
@@ -187,10 +180,6 @@ export class Tutorial
 			throw Error( "Failed to find next sibling element in tree" );
 
 		let nextElement = element.nextElementSibling;
-
-		while( nextElement && nextElement.tagName == "BR" )
-			nextElement = nextElement.nextElementSibling;
-
 		if( ! nextElement ) {
 			if( element == this.indexDiv )
 				return;

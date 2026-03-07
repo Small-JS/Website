@@ -1,4 +1,4 @@
 
-import { TutorialBuilder } from "./TutorialBuilder.js";
+import { TutorialBuilderApp } from "./TutorialBuilderApp.js";
 
-new TutorialBuilder().build();
+new TutorialBuilderApp().start();

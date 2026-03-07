@@ -38,25 +38,26 @@ export class TutorialEntry
 		let html = '';
 		for( let entry of this.entries ) {
 			if( entry.entries.length == 0 )
-				html += entry.entryHtml();
+				html += entry.entryHtml( false);
 			else
 				html += entry.detailsHtml();
 		}
 		return html;
 	}
 
-	entryHtml(): string
+	entryHtml( isBranch: boolean ): string
 	{
 		if( !fs.existsSync( this.filePath() ) )
 			throw new Error( '-Index.json: Page file not found: ' + this.filePath() );
 
 		let indent = '\t'.repeat( this.level - 1 );
+		let _class= isBranch ? 'tutorialIndexEntryBranch' : 'tutorialIndexEntry';
 		return indent + '<a ' +
 			'id="' + this.baseName() + 'Entry" ' +
-			'class="tutorialIndexEntry" ' +
+			'class="' + _class + '" ' +
 			'href="/Tutorial/Tutorial/Pages/' + this.path() + '">' +
 			this.title +
-			'</a><br>\n';
+			'</a>\n';
 	}
 
 	detailsHtml()
@@ -64,7 +65,7 @@ export class TutorialEntry
 		let indent = '\t'.repeat( this.level - 1 );
 		return indent + '<details>\n' +
 			indent + '\t<summary>\n' +
-			'\t\t' + this.entryHtml() +
+			'\t\t' + this.entryHtml( true ) +
 			indent + '\t</summary>\n' +
 			this.toHtml() +
 			indent + '</details>\n';

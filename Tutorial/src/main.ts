@@ -1,4 +1,4 @@
 
-import { Tutorial } from "./Tutorial.js";
+import { TutorialApp } from "./TutorialApp.js";
 
-new Tutorial().start();
+new TutorialApp().start();

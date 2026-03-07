@@ -117,6 +117,10 @@ details>*:not(summary) {
 	}
 }
 
+.tutorialIndexEntry {
+	display: block;
+}
+
 /* ==================================== Navigation */
 
 .navigationDiv {

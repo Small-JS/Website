@@ -90,7 +90,7 @@ export class ReferenceApp
 	{
 		this.showAllDetails( false );
 
-		let searchText = this.searchInput.value.toLowerCase();
+		let searchText = this.searchInput.value.toLowerCase().trim();
 		if( searchText.length == 0 ) {
 			this.showAllDetails( true );
 			this.showAllLinks( true );
