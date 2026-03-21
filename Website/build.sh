@@ -60,3 +60,6 @@ cp -r ../../SmallJS/Examples/Benchmark/web web/Examples/Benchmark
 rm -rf web/Examples/WebWorkers
 cp -r ../../SmallJS/Examples/WebWorkers/web web/Examples/WebWorkers
 
+rm -rf web/Examples/PWA
+cp -r ../../SmallJS/Examples/PWA/web web/Examples/PWA
+
