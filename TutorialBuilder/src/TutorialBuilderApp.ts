@@ -10,7 +10,7 @@ export class TutorialBuilderApp
 {
 	start()
 	{
-		console.log( 'Generating tutorial pages...' );
+		console.log( 'Generating Tutorial pages...' );
 
 		let tutorialIndex = new TutorialIndex();
 		tutorialIndex.load();

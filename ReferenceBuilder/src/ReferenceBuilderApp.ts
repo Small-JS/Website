@@ -8,12 +8,16 @@ import { ReferencePages } from "./ReferencePages.js";
 
 // Currentlly this is only done for the pages of the Reference.
 
-export class ReferenceBuilder
+export class ReferenceBuilderApp
 {
-	build()
+	start()
 	{
+		console.log( "Generating Reference pages..." );
+
 		let classes = DocumentedClass.load();
 		new ReferencePages().generate( classes );
 		new ReferenceIndex().generate();
+
+		console.log( "Completed." );
 	}
 }

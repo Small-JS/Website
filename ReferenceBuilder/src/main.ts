@@ -1,4 +1,4 @@
 
-import { ReferenceBuilder } from "./ReferenceBuilder.js";
+import { ReferenceBuilderApp } from "./ReferenceBuilderApp.js";
 
-new ReferenceBuilder().build();
+new ReferenceBuilderApp().start();
