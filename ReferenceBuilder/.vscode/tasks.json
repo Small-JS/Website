@@ -21,7 +21,7 @@
 			"label": "Compile class info",
 			"type": "shell",
 			"command": "node",
-			"args": [ "../Compiler/out/main.js", "-d", "-t", ".", "../../Website/Reference/Pages" ],
+			"args": [ "../Compiler/out/main.js", "-d", "-t", ".", "../../Website/Reference/web/Reference/Reference" ],
 			"options": {
 				"cwd": "${workspaceFolder}/../../SmallJS/Smalltalk"
 			}

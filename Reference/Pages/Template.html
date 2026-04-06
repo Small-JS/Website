@@ -18,13 +18,15 @@
 	<div id="titleDiv" class="title">
 		<button id="menuButton">&#8801</button>
 		<div id="tileImageAndSpanDiv">
-			<img id="logoImage" src="/Reference/Reference/Logo.png" height="40"></img>
+			<img id="logoImage" src="/Reference/Reference/Logo.png" alt="Logo" height="40"></img>
 			<span id="titleSpan">&nbsp;&nbsp;SmallJS Reference</span>
 		</div>
 	</div>
 	<table id="formTable">
 		<tr>
 			<th>
+				<input id="searchMethodsCheckbox" type="checkbox" />
+				<label for="searchMethodsCheckbox">Search methods</label><br>
 				<input type="text" id="searchInput" placeholder="Search..." />
 				<div id="indexDiv">
 					<include src="/Reference/Reference/Pages/Index.html"></include>

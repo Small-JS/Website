@@ -10,13 +10,13 @@ import * as fs from 'fs';
 
 export class DocumentedClass
 {
-	name = '';
-	path = '';
-	module = '';
-	superclass = '';
-	classVars = '';
-	vars = '';
-	comment = '';
+	name = "";
+	path = "";
+	module = "";
+	superclass = "";
+	classVars = "";
+	vars = "";
+	comment = "";
 
 	classMethods: DocumentedMethod[] = [];
 	methods: DocumentedMethod[] = [];

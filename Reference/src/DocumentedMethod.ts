@@ -8,4 +8,15 @@ export class DocumentedMethod
 	header = "";
 	category = "";
 	comment = "";
+
+	constructor( object: any )
+	{
+		Object.assign( this, object );
+	}
+
+	matches( searchText: string ): boolean
+	{
+		return this.name.toLowerCase().includes( searchText );
+	}
+
 }
