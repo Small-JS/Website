@@ -1,45 +1,6 @@
 [
 	"Home",
 	"Language",
-	[
-		"Syntax",
-		"Objects",
-		"Classes",
-		"Messages",
-		"Statements",
-		"Variables",
-		"Blocks",
-		"Returning"
-	],
 	"Library",
-	[
-		"Magnitudes",
-		[
-			"String",
-			"Character",
-			"Numbers",
-			"Date",
-			"Points",
-			"Rectangle"
-		],
-		"Collections",
-		[
-			"Arrays",
-			"Dictionaries",
-			"Set"
-		]
-	],
-	"Browser App",
-	[
-		"Template",
-		"Model",
-		"View",
-		"App",
-		"Main",
-		"Running",
-		"Testing-Unit",
-		"Testing-Gui",
-		"Environment",
-		"Documentation"
-	]
+	"Browser App"
 ]

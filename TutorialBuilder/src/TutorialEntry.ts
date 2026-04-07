@@ -1,4 +1,3 @@
-
 import * as path from 'path';
 import * as fs from 'fs';
 
@@ -9,26 +8,34 @@ export class TutorialEntry
 	level: number = 0;
 	dir: string = '';
 
-	// Recursively add entries from JSON format
+	// Recursively add entries in JSON file: "-Index.json"
 	// It must start with an array.
 
-	fromObjects( objects: any[], level: number, dir: string )
+	fromDir( dir: string, level: number )
 	{
-		let entry: TutorialEntry;
+		let jsonIndexPath = path.posix.join( "../Tutorial/Pages", dir, "-Index.json" );
+		let text = fs.readFileSync( jsonIndexPath  ).toString();
+		let objects = JSON.parse( text );
+		if( ! Array.isArray( objects ) )
+			throw new Error( "File '-Index.json': Must start with an array." );
 
-		for( let object of objects ) {
-			if( typeof object === 'string' ) {
-				entry = new TutorialEntry();
-				entry.title = object;
-				entry.level = level;
-				entry.dir = dir;
-				this.entries.push( entry );
-			}
-			if( object instanceof Array ) {
-				let newDir = path.join( dir, entry!.baseName() );
-				entry!.fromObjects( object, level + 1, newDir );
-			}
+		for( let title of objects ) {
+			if( typeof title !== 'string' )
+				throw new Error( "File '-Index.json': Array elements must be strings." );
+
+			let entry = new TutorialEntry();
+			entry.title = title;
+			entry.level = level;
+			entry.dir = dir;
+			this.entries.push( entry );
+
+			let newDir = path.posix.join( entry.dir, entry.baseName() );
+			let newFileDir = path.posix.join( entry.fileDir(), entry.baseName() );
+			if( fs.existsSync( newFileDir ) )
+				if( fs.lstatSync( newFileDir ).isDirectory() )
+					entry.fromDir( newDir, level + 1 );
 		}
+
 	}
 
 	// Recursively generate HTML for sub-entries
@@ -86,9 +93,14 @@ export class TutorialEntry
 		return path.posix.join( this.dir, this.fileName() );
 	}
 
+	fileDir(): string
+	{
+		return path.posix.join( "../Tutorial/Pages", this.dir );
+	}
+
 	filePath(): string
 	{
-		return "../Tutorial/Pages/" + this.path();
+		return path.posix.join( this.fileDir(), this.fileName() );
 	}
 };
 

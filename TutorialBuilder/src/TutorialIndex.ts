@@ -7,16 +7,12 @@ export class TutorialIndex
 {
 	root!: TutorialEntry;
 
-	private sourcePath = '../Tutorial/Pages/-Index.json';
 	private destPath = '../Tutorial/web/Tutorial/Tutorial/Pages/-Index.html';
 
 	load()
 	{
-		let text = fs.readFileSync( this.sourcePath ).toString();
-		let objects = JSON.parse( text );
-
 		this.root = new TutorialEntry();
-		this.root.fromObjects( objects, 1, '' );
+		this.root.fromDir( '', 1 );
 	}
 
 	save()

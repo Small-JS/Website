@@ -1,6 +1,6 @@
 {
 	"type": "module",
 	"devDependencies": {
-		"@types/node": "^25.1.0"
+		"@types/node": "^25.5.2"
 	}
 }
