@@ -1,0 +1,21 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Nil</div>
+<div class="tutorialText">
+	The class <code>Nil</code> has a singelton (only) instance object called <code>nil</code>.<br>
+	Keyword <code>nil</code> can be used in ST soure code to refer to this object.<br>
+	Variables are initialised to <code>nil</code> by default.<br>
+	Testing if an object is <code>nil</code> or not <code>nil</code><br>
+	can be done with methods <code>ifNil: [ ... ]</code> or <code>ifNotNil: [ ... ]</code> .<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul>
+		<li><code>| a | a = nil</code> returns <code>true</code> .</li>
+		<li><code>nil ifNil: [ 7 ]</code> returns <code>7</code> .</li>
+		<li><code>nil ifNotNil: [ 8 ]</code> returns <code>nil</code> .</li>
+	</ul>
+	<b>Advanced</b><br>
+	The <code>nil</code> object also stores JS <code>null</code> internally,<br>
+	so it can be passed to and returned from <code>INLINE</code> JS code<br>
+	that takes <code>null</code> as arguments or returns it.<br>
+</div>

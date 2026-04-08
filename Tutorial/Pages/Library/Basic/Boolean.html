@@ -1,0 +1,23 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Boolean</div>
+<div class="tutorialText">
+	A <a href="Basic/Boolean.html"><code>Boolean</code></a>
+	refers to either the <code>true</code> or <code>false</code> singleton (only) object.<br>
+	Keywords <code>true</code> and <code>false</code> can be used in soure code to refer to these objects.<br>
+	Testing if an object is <code>true</code> or <code>false</code> can be done with methods<br>
+	<code>ifNil: [ ... ]</code>, <code>ifFalse: [ ... ]</code> or a combination of them.<br>
+	The method <code>not</code> flips the true/false value of a <code>Boolean</code>.<br>
+	<br>
+	<b>Note:</b><br>
+	ST does not <i>coerce</i> 'truthy' values into booleans, like integers <code>1</code> and <code>0</code> .<br>
+	Conversions to booleans must be done explicitly.<br>
+	<br>
+	<b>Examples:</b><br>
+	<ul>
+		<li><code>true ifTrue: [ 'yes' ]</code> returns <code>'yes'</code> .</li>
+		<li><code>false ifTrue: [ 'yes' ] ifFalse: [ 'no' ]</code> returns <code>'no'</code> .</li>
+		<li><code>true not = false</code> returns <code>true</code> .</li>
+		<li><code>1 ifTrue: [ 'no-no' ]</code> returns <code>1</code> (block not evaluated).</li>
+	</ul>
+</div>
