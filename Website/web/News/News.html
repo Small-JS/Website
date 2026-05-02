@@ -29,17 +29,31 @@
 		<tr>
 			<td>
 				<div class="subTitle">Latest development
-					<span class="newsDate">6-APR-2026</span>
+					<span class="newsDate">2-MAY-2026</span>
 				</div>
-				<p><b>Examples</b><br>
-					- PWA example game added: Emoji Memory :-).<br>
-					&nbsp; Also added this app to the Examples page on this webite.</p>
-				<p><b>Website</b><br>
-					- Reference page now supports searching classes and methods.<br>
-				</p>
+
+				<p class="newsGroup">Compiler</p>
+				<ul class="newsList">
+					<li>Added keyword <code>CLASSEXTENSION</code> that enables adding methods to (system) classes
+						in separate source files.<br>
+						The tutorial page
+						<a href="../Tutorial/Tutorial/Pages/Language/Syntax.html#tutorialExtensionClassDiv" target="_blank">Syntax</a>
+						shows how to use it.</li>
+				</ul>
+
+				<p class="newsGroup">Examples<br>
+				<ul class="newsList">
+					<li>PWA example game added: Emoji Memory :-).<br>
+						Also added this app to the Examples page on this webite.</li>
+				</ul>
+
+				<p class="newsGroup">Website</p>
+				<ul class="newsList">
+					<li>Reference page now supports searching classes and methods.</li>
+				</ul>
+
 			</td>
 		</tr>
-
 
 		<!-- ============================ Release 2.0 -->
 
@@ -48,47 +62,58 @@
 				<div class="subTitle">SmallJS release 2.0
 					<span class="newsDate">21-FEB-2026</span>
 				</div>
+
+				<p class="newsGroup">Tutorial</p>
 				<p>This website has a new
 					<a href="../Tutorial/Tutorial.html">Tutorial</a>
-					page with tutorials on:<br>
-					- The Smalltalk language, the core libraries.<br>
-					&nbsp;&nbsp;Tutorial examples can be done interactively in the
-					<a href="../Playground/Playground.html">Playground</a> .<br>
-					- Building a new browser app in SmallJS from scratch.<br>
-				</p>
+					page with tutorials on:<p>
+				<ul class="newsList">
+					<li>The Smalltalk language, the core libraries.</li>
+					<li>Tutorial examples can be done interactively in the
+					<a href="../Playground/Playground.html">Playground</a>.</li>
+					<li>Building a new browser app in SmallJS from scratch.</li>
+				</ul>
+
+				<p class="newsGroup">Reference</p>
 				<p>The website now also has a new SmallJS class
 					<a href="../Reference/Reference.html"> Reference</a>
 					page,<br>
 					showing all library classes, methods with their main comments,<br>
 					in a sensible hierarchy.<br>
 				</p>
+
+				<p class="newsGroup">Async, await, promises</p>
 				<p>SmallJS now fully embraces JavaScript promises,<br>
 					using 'await' for sync execution of 'async' functions iso callbacks.<br>
 					More info in GitHub
 					<a href="https://github.com/Small-JS/SmallJS/issues/70" target="_blank" rel="noopener">issue #70</a>.<br>
 				</p>
-				<p>
-					Note: SmallJS now requires
+
+				<p>Note: SmallJS now requires at least
 					<a href="https://nodejs.org/en/download/current" target="_blank" rel="noopener">Node.js v25</a> to run.<br>
 				</p>
-				<p><b>Smalltalk library</b><br>
-					- Core: Promise: New convenience methods for creation.<br>
-					&nbsp; Tests for 'async', 'await', 'then', 'catch' and 'finally'.<br>
-					- Smalltalk: Convertrted callbacks to promises for modules:<br>
-					&nbsp; Fetch, File, Database, Crypto<br>
-					- Core: Web Crypto API implemented with working examples in tests<br>
-					&nbsp; for AES, RSA and ECDH. These work in both browsers and Node.<br>
-				</p>
 
-				<p><b>Compiler</b><br>
-					- Fixed code generation for 'await'.<br>
-					- Using 'await' outside an 'async' method now gives an error, conforming to JS.<br>
-				</p>
+				<p class="newsGroup">Smalltalk library</p>
+				<ul class="newsList">
+					<li>Core: Promise: New convenience methods for creation.<br>
+						Tests for 'async', 'await', 'then', 'catch' and 'finally'.</li>
+					<li>Smalltalk: Convertrted callbacks to promises for modules:<br>
+						Fetch, File, Database, Crypto</li>
+					<li>Core: Web Crypto API implemented with working examples in tests<br>
+						for AES, RSA and ECDH. These work in both browsers and Node.</li>
+				</ul>
 
-				<p><b>Website</b><br>
-					- Created a new Tutorial page to learn Smalltalk and SmallJS.<br>
-					- Created a new Reference page to look up class info.<br>
-				</p>
+				<p class="newsGroup">Compiler</p>
+				<ul class="newsList">
+					<li>Fixed code generation for 'await'.</li>
+					<li>Using 'await' outside an 'async' method now gives an error, conforming to JS.</li>
+				</ul>
+
+				<p class="newsGroup">Website</p>
+				<ul class="newsList">
+					<li>Created a new Tutorial page to learn Smalltalk and SmallJS.</li>
+					<li>Created a new Reference page to look up class info.</li>
+				</ul>
 			</td>
 		</tr>
 
@@ -103,21 +128,23 @@
 					<a href="https://nodejs.org/en/about" target="_blank" rel="noopener">Node.js</a> features,<br>
 					that are also usable from the desktop app option <a href="https://nwjs.io" target="_blank" rel="noopener">NW.js</a>
 				</p>
-				<p><b>Smalltalk library</b><br>
-					- Node: File System ('fs') and Path support fully implemented,<br>
-					&nbsp; with sync and async (promises) operations.<br>
-					- Node: Operating System ('os') support fully implemented.<br>
-					- Node: Process support fully implemented.<br>
-					- Node: Environment variable handing now in new class: Environment.<br>
-					- Node: Renamed classes there where also in Browser,<br>
-					&nbsp; so desktop frameworks like NW.js can compile them together now.
-				</p>
+				<p class="newsGroup">Smalltalk library</p>
+				<ul class="newsList">
+					<li>Node: File System ('fs') and Path support fully implemented,<br>
+						with sync and async (promises) operations.</li>
+					<li>Node: Operating System ('os') support fully implemented.</li>
+					<li>Node: Process support fully implemented.</li>
+					<li>Node: Environment variable handing now in new class: Environment.</li>
+					<li>Node: Renamed classes there where also in Browser,<br>
+						so desktop frameworks like NW.js can compile them together now.</li>
+				</ul>
 
-				<p><b>Example apps</b><br>
-					- NWjs: Added feature reading a text file using the Node Fs class.<br>
-					- NWjs: Added example feature using an imported npm package 'lpad'.<br>
-					- NodeGui: NodeGui now works also on MacOS on ARM silicon!<br>
-				</p>
+				<p class="newsGroup">Example apps</p>
+				<ul class="newsList">
+					<li>NWjs: Added feature reading a text file using the Node Fs class.</li>
+					<li>NWjs: Added example feature using an imported npm package 'lpad'.</li>
+					<li>NodeGui: NodeGui now works also on MacOS on ARM silicon!</li>
+				</ul>
 
 			</td>
 		</tr>
@@ -129,25 +156,28 @@
 					<span class="newsDate">18-AUG-2025</span>
 				</p>
 
-				<p><b>Smalltalk library</b><br>
-					- <a href="https://nwjs.io" target="_blank" rel="noopener">NW.js framework</a> support for developing
-					multi-platform desktop apps!<br>
-					&nbsp&nbsp; The GUI of these apps is made with familiar HTML and CSS.<br>
-					&nbsp&nbsp; They take up less memory than using Electron and are less complex to develop.<br>
-					- Core: Added full unit tests for Fetch, consolidated Fetch into Core.<br>
-					- Core: Implemented new JavaScript features since 2022.<br>
-					&nbsp&nbsp; In classes: JsObject, String, Error, Array, Map, Set, Float16Array (#46).<br>
-				</p>
+				<p class="newsGroup">Smalltalk library</p>
+				<ul class="newsList">
+					<li><a href="https://nwjs.io" target="_blank" rel="noopener">NW.js framework</a>
+							support for developing multi-platform desktop apps!<br>
+						The GUI of these apps is made with familiar HTML and CSS.<br>
+						They take up less memory than using Electron and are less complex to develop.</li>
+					<li>Core: Added full unit tests for Fetch, consolidated Fetch into Core.</li>
+					<li>Core: Implemented new JavaScript features since 2022.<br>
+						In classes: JsObject, String, Error, Array, Map, Set, Float16Array (#46).</li>
+				</ul>
 
-				<p><b>Examples</b><br>
-					- NW.js: New example app that shows off the features of the new framework.<br>
-					- AI: Updated UI, models selection, including GTP-5.<br>
-				</p>
+				<p class="newsGroup">Examples</p>
+				<ul class="newsList">
+					<li>NW.js: New example app that shows off the features of the new framework.</li>
+					<li>AI: Updated UI, models selection, including GTP-5.</li>
+				</ul>
 
-				<p><b>Build</b><br>
-					- Contributions: New section for 3rd party contributions.<br>
-					&nbsp&nbsp; Starting with CounterUsingMithril.<br>
-				</p>
+				<p class="newsGroup">Build</p>
+				<ul class="newsList">
+					<li>Contributions: New section for 3rd party contributions.<br>
+					Starting with CounterUsingMithril.</li>
+				</ul>
 			</td>
 		</tr>
 
@@ -158,29 +188,34 @@
 					<span class="newsDate">25-MAY-2025</span>
 				</p>
 
-				<p><b>Smalltalk library</b><br>
-					- AI: Added support for local AI provider: Ollama!<br>
-					- AI: Added support for conversation history for all AI providers.<br>
-					- Browser: 'HtmlSelectElement' fully implemented with unit & GUI tests.
-				</p>
+				<p class="newsGroup">Smalltalk library</p>
+				<ul class="newsList">
+					<li>AI: Added support for local AI provider: Ollama!</li>
+					<li>AI: Added support for conversation history for all AI providers.</li>
+					<li>Browser: 'HtmlSelectElement' fully implemented with unit & GUI tests.</li>
+				</ul>
 
-				<p><b>Examples</b><br>
-					- AI: Client: Now shows the conversation history<br>
-					&nbsp&nbsp; and sends it to AI providers to maintain the conversation context..<br>
-					- Shop: Shared the source code of these classes between client and server<br>
-					&nbsp&nbsp; Person, Product and Order.<br>
-					- Todo: Language selection now uses the nicer looking 'HtmlSelectElement'<br>
-					- Balls: The balls now have a nice shadow effect :-)<br>
-				</p>
+				<p class="newsGroup">Examples</p>
+				<ul class="newsList">
+					<li>AI: Client: Now shows the conversation history<br>
+						and sends it to AI providers to maintain the conversation context.</li>
+					<li>Shop: Shared the source code of these classes between client and server<br>
+						Person, Product and Order.</li>
+					<li>Todo: Language selection now uses the nicer looking 'HtmlSelectElement'</li>
+					<li>Balls: The balls now have a nice shadow effect :-)</li>
+				</ul>
 
-				<p><b>Compiler</b><br>
-					- Gives a compile error when a local variable duplicates an argument variable.<br>
-				</p>
+				<p class="newsGroup">Compiler</p>
+				<ul class="newsList">
+					<li>Gives a compile error when a local variable duplicates an argument variable.</li>
+				</ul>
 
-				<p><b>Build</b><br>
-					- The bash script 'install.sh' now only installs npm packages for the core.<br>
-					&nbsp&nbsp; 'installAll.sh' installs npm packages for the examples too.
-				</p>
+				<p class="newsGroup">Build</p>
+				<ul class="newsList">
+					<li>The bash script 'install.sh' now only installs npm packages for the core.<br>
+						'installAll.sh' installs npm packages for the examples too.</li>
+				</ul>
+				</ul>
 			</td>
 		</tr>
 
@@ -195,37 +230,42 @@
 					with a new example application to show off the new capacilities.<br>
 					Addtionally, the compiler and build environment where improved.<br>
 					Have fun!
-				</p>
+				</ul>
 
-				<p><b>Smalltalk library</b><br>
-					- Node & browser: AI support for OpenAI, Deepseek, Google AI and Anthropic!<br>
-					&nbsp&nbsp; With provider-neutral base class functionality.
-				</p>
+				<p class="newsGroup">Smalltalk library</p>
+				<ul class="newsList">
+					<li>Node & browser: AI support for OpenAI, Deepseek, Google AI and Anthropic!<br>
+						With provider-neutral base class functionality.</li>
+				</ul>
 
-				<p><b>Examples</b><br>
-					- New multi-provider AI example chat app!<br>
-					- New Counter example app using the Mithril library. (thanks <b><i>@pdfernhout</i></b>!)
-				</p>
+				<p class="newsGroup">Examples</p>
+				<ul class="newsList">
+					<li>New multi-provider AI example chat app!</li>
+					<li>New Counter example app using the Mithril library. (thanks <b><i>@pdfernhout</i></b>!)
+				</ul>
 
-				<p><b>Compiler</b><br>
-					- Inline assignment was fixed, e.g.: '^ ( a := 1 ) + 2' sets a to 1 and returns 3.
-				</p>
+				<p class="newsGroup">Compiler</p>
+				<ul class="newsList">
+					<li>Inline assignment was fixed, e.g.: '^ ( a := 1 ) + 2' sets a to 1 and returns 3.</li>
+				</ul>
 
-				<p><b>Build</b><br>
-					- Build, clean and install scripts more modular.<br>
-					&nbsp&nbsp; Examples are now excluded from the default build.<br>
-					&nbsp&nbsp; Run buildAll.sh to include examples.<br>
-					- Global npm prerequisites removed,<br>
-					&nbsp&nbsp; now using local packages and npx. (thanks <b><i>@pdfernhout</i></b>!)
-				</p>
+				<p class="newsGroup">Build</p>
+				<ul class="newsList">
+					<li>Build, clean and install scripts more modular.<br>
+						Examples are now excluded from the default build.<br>
+						Run buildAll.sh to include examples.</li>
+					<li>Global npm prerequisites removed,<br>
+						now using local packages and npx. (thanks <b><i>@pdfernhout</i></b>!)</li>
+				</ul>
 
-				<p><b>Documentation</b><br>
-					SmallJS was presented an UK Smalltalk User Group (UKSTUG) meetup on 26-Feb-2025<br>
-					- The video of the presentation is here:
-					<a href="https://youtu.be/FOswdxQMyOI">Richard Ronteltap - SmallJS</a><br>
-					- The presentation slides are here:
-					<a href="/Home/Why_SmallJS.pdf">Why_SmallJS.pdf</a>
-				</p>
+				<p class="newsGroup">Documentation</p>
+				<ul class="newsList">
+					<li>SmallJS was presented an UK Smalltalk User Group (UKSTUG) meetup on 26-Feb-2025<br>
+						The video of the presentation is here:
+						<a href="https://youtu.be/FOswdxQMyOI">Richard Ronteltap - SmallJS</a><br>
+						The presentation slides are here:
+						<a href="/Home/Why_SmallJS.pdf">Why_SmallJS.pdf</a></li>
+				</ul>
 
 			</td>
 			</td>
@@ -238,23 +278,26 @@
 					<span class="newsDate">21-Jan-2025</span>
 				</p>
 				<p>This one is all about database support and multi-threading.</p>
-				<p><b>Smalltalk library</b><br>
-					- Database: SQLite database support added!<br>
-					- Database: Added async error handling to all supported databases.<br>
-					- Database: Added support for ST classes: Float, Date, Boolean, Uint8Array.<br>
-					- Node: Worker threads support added.<br>
-					&nbsp&nbsp; Enables development of multi-threaded Node.js apps.<br>
-					- Browser: Web Workers minimal support added, only to support the example app.<br>
-				</p>
+				<p class="newsGroup">Smalltalk library</p>
+				<ul class="newsList">
+					<li>Database: SQLite database support added!</li>
+					<li>Database: Added async error handling to all supported databases.</li>
+					<li>Database: Added support for ST classes: Float, Date, Boolean, Uint8Array.</li>
+					<li>Node: Worker threads support added.<br>
+						Enables development of multi-threaded Node.js apps.</li>
+					<li>Browser: Web Workers minimal support added, only to support the example app.</li>
+				</ul>
 
-				<p><b>Examples</b><br>
-					- Web Workers example app added!<br>
-					- Electron: Split up Node and Browser compilation to prevent class name clashes.
-				</p>
+				<p class="newsGroup">Examples</p>
+				<ul class="newsList">
+					<li>Web Workers example app added!</li>
+					<li>Electron: Split up Node and Browser compilation to prevent class name clashes.
+				</ul>
 
-				<p><b>Website</b><br>
-					- Added Web Workers example app to this site.<br>
-				</p>
+				<p class="newsGroup">Website</p>
+				<ul class="newsList">
+					<li>Added Web Workers example app to this site.</li>
+				</ul>
 			</td>
 			</td>
 		</tr>
@@ -266,35 +309,36 @@
 					<span class="newsDate">8-Oct-2024</span>
 				</p>
 
-				<p><b>Examples</b><br>
-					- Electron example app added!<br>
-					&nbsp&nbsp; <a href="https://electronjs.org/">Electron</a> enables development of multi-platform
-					desktop GUI
-					apps using web technologies.<br>
-					- NodeGui example app added!<br>
-					&nbsp&nbsp; <a href="https://nodegui.org/">NodeGui</a> enables development of multi-platform desktop
-					GUI apps
-					based on the <a href="https://qt.org/">QT</a> library,<br>
-					&nbsp&nbsp; that are smaller, faster and easier to make than Electron apps.<br>
-					- Pharo Smalltalk server with SmallJS browser client added!<br>
-					&nbsp&nbsp; <a href="https://pharo.org/">Pharo</a> is an expansive, "traditional" Smalltalk with an
-					active
-					user base.<br>
-					&nbsp&nbsp; The SmallJS client uses a standard web API to communicate with the Pharo Zinc web
-					server.<br>
-				</p>
+				<p class="newsGroup">Examples</p>
+				<ul class="newsList">
+					<li>Electron example app added!<br>
+						<a href="https://electronjs.org/">Electron</a>
+						enables development of multi-platform desktop GUI apps using web technologies.</li>
+					<li>NodeGui example app added!<br>
+						<a href="https://nodegui.org/">NodeGui</a>
+						enables development of multi-platform desktop GUI apps
+						based on the <a href="https://qt.org/">QT</a> library,<br>
+						that are smaller, faster and easier to make than Electron apps.</li>
+					<li>Pharo Smalltalk server with SmallJS browser client added!<br>
+						<a href="https://pharo.org/">Pharo</a>
+						is an expansive, "traditional" Smalltalk with an active user base.<br>
+						The SmallJS client uses a standard web API to communicate with the Pharo Zinc web
+					server.</li>
+				</ul>
 
-				<p><b>Smalltalk library</b><br>
-					- Minimal Electron support added, only to support the example app.<br>
-					- Minimal NodeGui support added, only to support the example app.<br>
-					If you want more complete support for these frameworks or if you want to contribute,<br>
-					please open an issue in the SmallJS GitHub repo.
-				</p>
+				<p class="newsGroup">Smalltalk library</p>
+				<ul class="newsList">
+					<li>Minimal Electron support added, only to support the example app.</li>
+					<li>Minimal NodeGui support added, only to support the example app.<br>
+						If you want more complete support for these frameworks or if you want to contribute,<br>
+						please open an issue in the SmallJS GitHub repo.</li>
+				</ul>
 
-				<p><b>Website</b><br>
-					- The Playground now supports multiple statements and local variables.<br>
-					&nbsp&nbsp; Thanks to @aiksiongkoh for the suggestion.
-				</p>
+				<p class="newsGroup">Website</p>
+				<ul class="newsList">
+					<li>The Playground now supports multiple statements and local variables.<br>
+						Thanks to <b>@aiksiongkoh</b> for the suggestion.</li>
+				</ul>
 			</td>
 			</td>
 		</tr>
@@ -306,39 +350,45 @@
 					<span class="newsDate">23-Aug-2024</span>
 				</p>
 
-				<p><b>Compiler</b><br>
-					- New Playground project that can evaluate any ST expression in realtime!<br>
-					- Signal error duplicate local variables.<br>
-					- Signal error on newlines in string constants (like in JS).<br>
-					- Hide instance variables for class methods.<br>
-				</p>
+				<p class="newsGroup">Compiler</p>
+				<ul class="newsList">
+					<li>New Playground project that can evaluate any ST expression in realtime!</li>
+					<li>Signal error duplicate local variables.</li>
+					<li>Signal error on newlines in string constants (like in JS).</li>
+					<li>Hide instance variables for class methods.</li>
+				</ul>
 
-				<p><b>Smalltalk library</b><br>
-					- HTML Canvas 2D functionality fully implemented with supporting classes like:<br>
-					&nbsp&nbsp; CanvasRenderingContext2d Path2d, DomMatrix, DomPoint, ImageData, ImageBitmap.<br>
-					- Standardized 3D point operations on new class Point3d (iso DomPoint).<br>
-					&nbsp&nbsp; Enhanced reflexivity with canUnderstand: and respondsTo:.<br>
-				</p>
+				<p class="newsGroup">Smalltalk library</p>
+				<ul class="newsList">
+					<li>HTML Canvas 2D functionality fully implemented with supporting classes like:<br>
+						CanvasRenderingContext2d Path2d, DomMatrix, DomPoint, ImageData, ImageBitmap.</li>
+					<li>Standardized 3D point operations on new class Point3d (iso DomPoint).<br>
+						Enhanced reflexivity with canUnderstand: and respondsTo:.</li>
+				</ul>
 
-				<p><b>Build</b><br>
-					- Improved ST debugging experience in Firefox (source mapping).
-				</p>
+				<p class="newsGroup">Build</p>
+				<ul class="newsList">
+					<li>Improved ST debugging experience in Firefox (source mapping).
+				</ul>
 
-				<p><b>Browser project</b><br>
-					- Restructured all functionality and tests into separate components.<br>
-					- Only use HTML label elements when there's a 'for' clause (less warnings).<br>
-					- New canvas component with visual tests for all canvas drawing methods.<br>
-				</p>
+				<p class="newsGroup">Browser project</p>
+				<ul class="newsList">
+					<li>Restructured all functionality and tests into separate components.</li>
+					<li>Only use HTML label elements when there's a 'for' clause (less warnings).</li>
+					<li>New canvas component with visual tests for all canvas drawing methods.</li>
+				</ul>
 
-				<p><b>Examples</b><br>
-					- New Balls example project with bouncing balls, using canvas functionality.<br>
-				</p>
+				<p class="newsGroup">Examples</p>
+				<ul class="newsList">
+					<li>New Balls example project with bouncing balls, using canvas functionality.</li>
+				</ul>
 
-				<p><b>Website</b><br>
-					- Playground project added!<br>
-					- Bouncing balls example added.<br>
-					- Is now mobile friendly.<br>
-				</p>
+				<p class="newsGroup">Website</p>
+				<ul class="newsList">
+					<li>Playground project added!</li>
+					<li>Bouncing balls example added.</li>
+					<li>Is now mobile friendly.</li>
+				</ul>
 			</td>
 			</td>
 		</tr>
@@ -350,27 +400,35 @@
 					<span class="newsDate">1-Feb-2024</span>
 				</p>
 
-				<p><b>Compiler</b><br>
-					- Implemented minimize to prevent generation library code not used by your app.<br>
-					- Stricter language syntax parsing.<br>
-					- Improved compile error handling.<br>
-					- Allow newlines in VARS and CLASSVARS declarations</p>
+				<p class="newsGroup">Compiler</p>
+				<ul class="newsList">
+					<li>Implemented minimize to prevent generation library code not used by your app.</li>
+					<li>Stricter language syntax parsing.</li>
+					<li>Improved compile error handling.</li>
+					<li>Allow newlines in VARS and CLASSVARS declarations</li>
+				</ul>
 
-				<p><b>Build</b><br>
-					- Expanded detection of prerequisites.<br>
-					- Build scripts now exit on startup errors.<br>
-					- Added MacOS browser testing options.</p>
+				<p class="newsGroup">Build</p>
+				<ul class="newsList">
+					<li>Expanded detection of prerequisites.</li>
+					<li>Build scripts now exit on startup errors.</li>
+					<li>Added MacOS browser testing options.
+				</ul>
 
-				<p><b>Smalltalk library</b><br>
-					- Node: Consolidated Fetch and Streams classes form modules Node and Browser to Core.<br>
-					- Node: ST implementation of full fetch API. Consolidated browser and Node.js functionality.<br>
-					- Node: Added Linux default browser locations to .env.example files.</p>
+				<p class="newsGroup">Smalltalk library</p>
+				<ul class="newsList">
+					<li>Node: Consolidated Fetch and Streams classes form modules Node and Browser to Core.</li>
+					<li>Node: ST implementation of full fetch API. Consolidated browser and Node.js functionality.</li>
+					<li>Node: Added Linux default browser locations to .env.example files.</li>
+				</ul>
 
-				<p><b>Examples</b><br>
-					- Shop: Implemented session management.<br>
-					- Todo: Made it working on Firefox on MacOS.<br>
-					- Todo: Added language selection option with 2 languages.<br>
-					- Shop Client SPA: Created new shop client app as a Single Page Application (SPA).</p>
+				<p class="newsGroup">Examples</p>
+				<ul class="newsList">
+					<li>Shop: Implemented session management.</li>
+					<li>Todo: Made it working on Firefox on MacOS.</li>
+					<li>Todo: Added language selection option with 2 languages.</li>
+					<li>Shop Client SPA: Created new shop client app as a Single Page Application (SPA).</li>
+				</ul>
 			</td>
 			</td>
 		</tr>
@@ -382,19 +440,25 @@
 					<span class="newsDate">25-Nov-2023</span>
 				</p>
 
-				<p><b>Examples</b><br>
-					- Added Counter example app. Can be used as a template for new apps.<br>
-					- Added Todo example app, with functionality for editing, adding, removing and sorting tasks.<br>
-					- Added Benchmark example app, comparing SmallJS performance to JavaScript.<br>
-					- Implemented full unit, API and GUI tests on all example apps on all supported browser.</p>
+				<p class="newsGroup">Examples</p>
+				<ul class="newsList">
+					<li>Added Counter example app. Can be used as a template for new apps.</li>
+					<li>Added Todo example app, with functionality for editing, adding, removing and sorting tasks.</li>
+					<li>Added Benchmark example app, comparing SmallJS performance to JavaScript.</li>
+					<li>Implemented full unit, API and GUI tests on all example apps on all supported browser.</li>
+				</ul>
 
-				<p><b>Build</b><br>
-					- Various fixes and improvements for first time use, especially on MacOS.<br>
-					- Added build scripts to check dependencies and build the complete environment.<br>
-					- Made language extenion an official *.vsix package for deployment.</p>
+				<p class="newsGroup">Build</p>
+				<ul class="newsList">
+					<li>Various fixes and improvements for first time use, especially on MacOS.</li>
+					<li>Added build scripts to check dependencies and build the complete environment.</li>
+					<li>Made language extenion an official *.vsix package for deployment.
+				</ul>
 
-				<p><b>Compiler</b><br>
-					- Added -t and +t options to skip compiling unit tests on selected libraries.</p>
+				<p class="newsGroup">Compiler</p>
+				<ul class="newsList">
+					<li>Added -t and +t options to skip compiling unit tests on selected libraries.</li>
+				</ul>
 			</td>
 		</tr>
 
@@ -406,14 +470,17 @@
 				</p>
 
 				<p>Initial commit of SmallJS on GitHub supporting Smalltalk to JavaScript compilation for browsers and
-					Node.js.</p>
+					Node.js.
+				</p>
 
 				<p>For development in browsers, a workable part of the DOM is encapsulated in Smalltalk.<br>
 					For Node.js, the Express server is embedded plus support for 3 databases: PostgreSQL, MariaDB and
-					MySQL.</p>
+					MySQL.
+				</p>
 
-				<p>It should run on Linux, Mac and Windows.<br>
-					It's configured for using the Visual Studio Code IDE by default.</p>
+				<p>It should run on Linux, MacOS and Windows.<br>
+					It's configured for using the Visual Studio Code IDE by default.
+				</p>
 			</td>
 		</tr>
 	</table>

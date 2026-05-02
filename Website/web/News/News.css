@@ -27,3 +27,12 @@
 	font-weight: normal;
 	font-size: smaller;
 }
+
+.newsGroup {
+	font-weight: bold;
+}
+
+.newsList {
+	margin-top: 0px;
+}
+

@@ -6,7 +6,7 @@
 	Don't worry, we'll get into more detail further on in the tutorial.<br>
 	Here's an example SmallJS class declaration using all syntax features:<br>
 	<br>
-	<img id="syntaxImage" src="Syntax.png" alt="Syntax elements" class="screenShot"><br>
+	<img class="screenShot" src="Syntax.png" alt="Syntax elements" ><br>
 	<br>
 	Explanation of the syntax elements used in the image above:<br>
 </div>
@@ -89,3 +89,13 @@
 	&nbsp; Like JS: do { ... } while( a > 0 )<br>
 </div>
 
+<div id="tutorialExtensionClassDiv" class="tutorialHeading1">Class extensions - advanced</div>
+<div class="tutorialText">
+	You can add methods to other (system) classes in separate source files.<br>
+	Then your additions will not be overwritten when the original (system) class is updated.<br>
+	To do this, on the first line of a <code>*.st</code> file put the keyword <code>CLASSEXTENSION</code><br>
+	followed by the name of the class that is being extended.<br>
+	Then add class and instance methods as described above.<br>
+	<br>
+	<img class="screenPart" src="ClassExtension.png" alt="Class extension" ><br>
+<div>
