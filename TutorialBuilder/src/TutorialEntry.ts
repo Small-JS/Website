@@ -60,7 +60,6 @@ export class TutorialEntry
 		let indent = '\t'.repeat( this.level - 1 );
 		let _class= isBranch ? 'tutorialIndexEntryBranch' : 'tutorialIndexEntry';
 		return indent + '<a ' +
-			'id="' + this.baseName() + 'Entry" ' +
 			'class="' + _class + '" ' +
 			'href="/Tutorial/Tutorial/Pages/' + this.path() + '">' +
 			this.title +

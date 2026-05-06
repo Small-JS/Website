@@ -1,0 +1,26 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Connect to the Database</div>
+<div class="tutorialText">
+	In VSCode, Open file <code>src/ShopServer.st</code> and find the method <code>async connectDatabase</code> .<br>
+	It should look like this:<br>
+	<img src="ConnectDatabase.png" class="screenPart" alt="Connect database"><br>
+	<br>
+	Note that the method is <code>async</code> .<br>
+	Most methods that wait for a network or disk response,<br>
+	are be async in JS, and therefore also in SmallJS.<br>
+	To still get a sync program flow, you can <code>await</code> calls to async methods.<br>
+	An (unfortunate) JS restriction is that functions using <code>await</code> must themselves also be <code>async</code> .<br>
+	<br>
+	First the database connection string <code>SHOP_DATABASE</code> is read from the environment.<br>
+	Then a new database instance is created for that string.<br>
+	Note that a database-specific instance is returned, depending on the connection string.<br>
+	In our case the returned object will be a <code>SqliteDatabase</code>, a subclass of <code>SqlDatabase</code> .<br>
+	Then the database is connected to, using the connection string.<br>
+	<br>
+	Then the tables Person, Product and Orders are connected to within our database.<br>
+	These will have class <code>SqliteTable</code>, a subclass of <code>SqlTable</code>.<br>
+	<br>
+	Since only common functionality of <code>SqlDatabase</code> and <code>SqlTable</code> subclasses is used,<br>
+	the app is database independent and also works on Postgres, MariaDB and MySQL.<br>
+</div>

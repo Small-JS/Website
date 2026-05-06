@@ -96,17 +96,15 @@ export class TutorialApp
 		}
 	}
 
-	// Find entry with same name as URL of current page
+	// Find entry with same href as URL of current page.
 	// Throw an error if it is not found.
 
 	currentIndexElement(): HTMLElement
 	{
 		let url = window.location.pathname;
-		let fileName = url.substring( url.lastIndexOf( "/" ) + 1 );
-		fileName = fileName.substring( 0, fileName.lastIndexOf( "." ) )
-		let element = document.getElementById( fileName + "Entry" );
+		var element = <HTMLElement> document.querySelector( "a[href='" + url + "']");
 		if( !element )
-			throw new Error( "HTML element not found: " + element );
+			throw new Error( "HTML element not found with href: " + url );
 
 		return element;
 	}

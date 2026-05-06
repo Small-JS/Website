@@ -1,0 +1,33 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Login</div>
+<div class="tutorialText">
+	In the file <code>src/ShopServer.st</code> , scroll down to the method <code>async login: request response: response</code> :<br>
+	<img src="Login.png" class="screenPart" alt="Login"><br>
+	<br>
+	The request URL should be in the format: <code>localhost:3000/api/login?name=John&password=secret</code> .<br>
+	<code>request query</code> returns a ST <code>Object</code> with properties <code>name</code> and password set to the specified values.<br>
+	<code>Person fromObject:</code> then converts the generic object to a Person instance.<br>
+	Now the can be checked to for completeness with normal method calls <code>name</code> and <code>password</code> .<br>
+	<br>
+	Now we want to check of this person exists in our database.<br>
+	Variable <code>query</code> contains the 'WHERE' clause of the select statement, checking by name.<br>
+	Its passed with a select statement with the person name as a parameter.<br>
+	(The extra parenteses are needed to resolve the <i>method call</i> <code>person name</code> first).<br>
+	Note: Always pass parameters separately this way, to prevent SQL injection attacks.<br>
+	<br>
+	The query returns a <code>DbPerson</code> a subclass of <code>Person</code> with all database fields.<br>
+	This is necessary because the <code>Person</code> class is shared with the web client app,<br>
+	and we don't want to show all database fields on the client side.<br>
+	<br>
+	Now a check if the person with a matching name was found and if its password matches<br>
+	with the password that was sent in the login request.<br>
+	If all went well, the <code>DbPerson</code>> is stored in the session object property <code>'user'</code><br>
+	and a <code>LoginReponse</code> indicating success is sent back to the web client.<br>
+	<br>
+	Passwords stored in the database are hashed with a salt.<br>
+	Check out the method <code>DbPerson.checkPassword:</code> to see how checking works.<br>
+	<br>
+	Handlers for API requests for products and orders first call the method <code>getRequestUser:response:</code><br>
+	to check if a user is present on the session object. If not, the users is not logged in.<br>
+</div>

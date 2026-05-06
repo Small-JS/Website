@@ -29,8 +29,14 @@
 		<tr>
 			<td>
 				<div class="subTitle">Latest development
-					<span class="newsDate">2-MAY-2026</span>
+					<span class="newsDate">6-MAY-2026</span>
 				</div>
+
+				<p class="newsGroup">Website</p>
+				<ul class="newsList">
+					<li>New Tutorial section for making Node.js apps with SmallJS.</li>
+					<li>Reference page now supports searching classes and methods.</li>
+				</ul>
 
 				<p class="newsGroup">Compiler</p>
 				<ul class="newsList">
@@ -45,11 +51,6 @@
 				<ul class="newsList">
 					<li>PWA example game added: Emoji Memory :-).<br>
 						Also added this app to the Examples page on this webite.</li>
-				</ul>
-
-				<p class="newsGroup">Website</p>
-				<ul class="newsList">
-					<li>Reference page now supports searching classes and methods.</li>
 				</ul>
 
 			</td>
@@ -78,13 +79,13 @@
 				<p>The website now also has a new SmallJS class
 					<a href="../Reference/Reference.html"> Reference</a>
 					page,<br>
-					showing all library classes, methods with their main comments,<br>
+					showing all library classes and methods with their main comments,<br>
 					in a sensible hierarchy.<br>
 				</p>
 
 				<p class="newsGroup">Async, await, promises</p>
 				<p>SmallJS now fully embraces JavaScript promises,<br>
-					using 'await' for sync execution of 'async' functions iso callbacks.<br>
+					using <code>await</code> for sync execution of <code>async</code> functions iso callbacks.<br>
 					More info in GitHub
 					<a href="https://github.com/Small-JS/SmallJS/issues/70" target="_blank" rel="noopener">issue #70</a>.<br>
 				</p>
@@ -96,17 +97,17 @@
 				<p class="newsGroup">Smalltalk library</p>
 				<ul class="newsList">
 					<li>Core: Promise: New convenience methods for creation.<br>
-						Tests for 'async', 'await', 'then', 'catch' and 'finally'.</li>
+						Tests for <code>async</code>, <code>await</code>, <code>then</code>, <code>catch</code> and <code>finally</code>.</li>
 					<li>Smalltalk: Convertrted callbacks to promises for modules:<br>
-						Fetch, File, Database, Crypto</li>
+						<code>Fetch</code>, <code>File</code>, <code>Database</code>, <code>Crypto</code></li>
 					<li>Core: Web Crypto API implemented with working examples in tests<br>
 						for AES, RSA and ECDH. These work in both browsers and Node.</li>
 				</ul>
 
 				<p class="newsGroup">Compiler</p>
 				<ul class="newsList">
-					<li>Fixed code generation for 'await'.</li>
-					<li>Using 'await' outside an 'async' method now gives an error, conforming to JS.</li>
+					<li>Fixed code generation for <code>await</code>.</li>
+					<li>Using <code>await</code> outside an <code>async</code> method now gives an error, conforming to JS.</li>
 				</ul>
 
 				<p class="newsGroup">Website</p>
@@ -130,19 +131,19 @@
 				</p>
 				<p class="newsGroup">Smalltalk library</p>
 				<ul class="newsList">
-					<li>Node: File System ('fs') and Path support fully implemented,<br>
+					<li>Node: File system (<code>Fs</code>) and <code>Path</code> support fully implemented,<br>
 						with sync and async (promises) operations.</li>
-					<li>Node: Operating System ('os') support fully implemented.</li>
-					<li>Node: Process support fully implemented.</li>
-					<li>Node: Environment variable handing now in new class: Environment.</li>
+					<li>Node: Operating system (<code>Os</code>) support fully implemented.</li>
+					<li>Node: <code>Process</code> support fully implemented.</li>
+					<li>Node: Environment variable handing now in new class: <code>Environment</code>.</li>
 					<li>Node: Renamed classes there where also in Browser,<br>
 						so desktop frameworks like NW.js can compile them together now.</li>
 				</ul>
 
 				<p class="newsGroup">Example apps</p>
 				<ul class="newsList">
-					<li>NWjs: Added feature reading a text file using the Node Fs class.</li>
-					<li>NWjs: Added example feature using an imported npm package 'lpad'.</li>
+					<li>NWjs: Added feature reading a text file using the Node <code>Fs</code> class.</li>
+					<li>NWjs: Added example feature using an imported npm package <code>lpad</code>.</li>
 					<li>NodeGui: NodeGui now works also on MacOS on ARM silicon!</li>
 				</ul>
 
@@ -162,9 +163,11 @@
 							support for developing multi-platform desktop apps!<br>
 						The GUI of these apps is made with familiar HTML and CSS.<br>
 						They take up less memory than using Electron and are less complex to develop.</li>
-					<li>Core: Added full unit tests for Fetch, consolidated Fetch into Core.</li>
+					<li>Core: Added full unit tests for class <code>Fetch</code> and consolidated it into Core.</li>
 					<li>Core: Implemented new JavaScript features since 2022.<br>
-						In classes: JsObject, String, Error, Array, Map, Set, Float16Array (#46).</li>
+						In classes: <code>JsObject</code>, <code>String</code>, <code>Error</code>, <code>Array</code>,
+						<code>Map</code>, <code>Set</code>, <code>Float16Array</code> .</li>
+
 				</ul>
 
 				<p class="newsGroup">Examples</p>
@@ -190,9 +193,9 @@
 
 				<p class="newsGroup">Smalltalk library</p>
 				<ul class="newsList">
-					<li>AI: Added support for local AI provider: Ollama!</li>
+					<li>AI: Added support for local AI provider Ollama!</li>
 					<li>AI: Added support for conversation history for all AI providers.</li>
-					<li>Browser: 'HtmlSelectElement' fully implemented with unit & GUI tests.</li>
+					<li>Browser: <code>HtmlSelectElement</code> fully implemented with unit & GUI tests.</li>
 				</ul>
 
 				<p class="newsGroup">Examples</p>
@@ -201,7 +204,7 @@
 						and sends it to AI providers to maintain the conversation context.</li>
 					<li>Shop: Shared the source code of these classes between client and server<br>
 						Person, Product and Order.</li>
-					<li>Todo: Language selection now uses the nicer looking 'HtmlSelectElement'</li>
+					<li>Todo: Language selection now uses the nicer looking <code>HtmlSelectElement</code> .</li>
 					<li>Balls: The balls now have a nice shadow effect :-)</li>
 				</ul>
 
@@ -212,8 +215,8 @@
 
 				<p class="newsGroup">Build</p>
 				<ul class="newsList">
-					<li>The bash script 'install.sh' now only installs npm packages for the core.<br>
-						'installAll.sh' installs npm packages for the examples too.</li>
+					<li>The bash script <code>install.sh</code> now only installs npm packages for the core.<br>
+						<code>installAll.sh</code> installs npm packages for the examples too.</li>
 				</ul>
 				</ul>
 			</td>
@@ -246,16 +249,16 @@
 
 				<p class="newsGroup">Compiler</p>
 				<ul class="newsList">
-					<li>Inline assignment was fixed, e.g.: '^ ( a := 1 ) + 2' sets a to 1 and returns 3.</li>
+					<li>Inline assignment was fixed, e.g.: <code>^ ( a := 1 ) + 2</code> sets <code>a</code> to <code>1</code> and returns <code>3</code> .</li>
 				</ul>
 
 				<p class="newsGroup">Build</p>
 				<ul class="newsList">
 					<li>Build, clean and install scripts more modular.<br>
 						Examples are now excluded from the default build.<br>
-						Run buildAll.sh to include examples.</li>
-					<li>Global npm prerequisites removed,<br>
-						now using local packages and npx. (thanks <b><i>@pdfernhout</i></b>!)</li>
+						Run <code>buildAll.sh</code> to include examples.</li>
+					<li>Global npm prerequisites removed, now using local packages and npx.<br>
+						(thanks <b><i>@pdfernhout</i></b> !)</li>
 				</ul>
 
 				<p class="newsGroup">Documentation</p>
@@ -282,7 +285,7 @@
 				<ul class="newsList">
 					<li>Database: SQLite database support added!</li>
 					<li>Database: Added async error handling to all supported databases.</li>
-					<li>Database: Added support for ST classes: Float, Date, Boolean, Uint8Array.</li>
+					<li>Database: Added support for ST classes: <code>Float</code>, <code>Date</code>, <code>Boolean</code>, <code>Uint8Array</code>.</li>
 					<li>Node: Worker threads support added.<br>
 						Enables development of multi-threaded Node.js apps.</li>
 					<li>Browser: Web Workers minimal support added, only to support the example app.</li>
@@ -353,7 +356,7 @@
 				<p class="newsGroup">Compiler</p>
 				<ul class="newsList">
 					<li>New Playground project that can evaluate any ST expression in realtime!</li>
-					<li>Signal error duplicate local variables.</li>
+					<li>Signal error on duplicate local variables.</li>
 					<li>Signal error on newlines in string constants (like in JS).</li>
 					<li>Hide instance variables for class methods.</li>
 				</ul>
@@ -361,9 +364,9 @@
 				<p class="newsGroup">Smalltalk library</p>
 				<ul class="newsList">
 					<li>HTML Canvas 2D functionality fully implemented with supporting classes like:<br>
-						CanvasRenderingContext2d Path2d, DomMatrix, DomPoint, ImageData, ImageBitmap.</li>
-					<li>Standardized 3D point operations on new class Point3d (iso DomPoint).<br>
-						Enhanced reflexivity with canUnderstand: and respondsTo:.</li>
+						<code>CanvasRenderingContext2d</code>, <code>Path2d</code>, <code>DomMatrix</code>, <code>DomPoint</code>, <code>ImageData</code>, <code>ImageBitmap</code>.</li>
+					<li>Standardized 3D point operations on new class <code>Point3d</code> (iso DomPoint).<br>
+						Enhanced reflexivity with <code>canUnderstand:</code> and <code>respondsTo:</code>.</li>
 				</ul>
 
 				<p class="newsGroup">Build</p>
@@ -374,7 +377,7 @@
 				<p class="newsGroup">Browser project</p>
 				<ul class="newsList">
 					<li>Restructured all functionality and tests into separate components.</li>
-					<li>Only use HTML label elements when there's a 'for' clause (less warnings).</li>
+					<li>Only use HTML label elements when there's a <code>for</code> clause (less warnings).</li>
 					<li>New canvas component with visual tests for all canvas drawing methods.</li>
 				</ul>
 
@@ -387,7 +390,7 @@
 				<ul class="newsList">
 					<li>Playground project added!</li>
 					<li>Bouncing balls example added.</li>
-					<li>Is now mobile friendly.</li>
+					<li>Website is now mobile friendly.</li>
 				</ul>
 			</td>
 			</td>
@@ -405,7 +408,7 @@
 					<li>Implemented minimize to prevent generation library code not used by your app.</li>
 					<li>Stricter language syntax parsing.</li>
 					<li>Improved compile error handling.</li>
-					<li>Allow newlines in VARS and CLASSVARS declarations</li>
+					<li>Allow newlines in <code>VARS</code> and <code>CLASSVARS</code> declarations.</li>
 				</ul>
 
 				<p class="newsGroup">Build</p>
@@ -417,9 +420,9 @@
 
 				<p class="newsGroup">Smalltalk library</p>
 				<ul class="newsList">
-					<li>Node: Consolidated Fetch and Streams classes form modules Node and Browser to Core.</li>
-					<li>Node: ST implementation of full fetch API. Consolidated browser and Node.js functionality.</li>
-					<li>Node: Added Linux default browser locations to .env.example files.</li>
+					<li>Node: ST implementation of full fetch API..</li>
+					<li>Node: Consolidated <code>Fetch</code> and <code>Streams</code> classes form modules Node and Browser to Core.</li>
+					<li>Node: Added Linux default browser locations to <code>.env.example</code> files.</li>
 				</ul>
 
 				<p class="newsGroup">Examples</p>
@@ -452,7 +455,7 @@
 				<ul class="newsList">
 					<li>Various fixes and improvements for first time use, especially on MacOS.</li>
 					<li>Added build scripts to check dependencies and build the complete environment.</li>
-					<li>Made language extenion an official *.vsix package for deployment.
+					<li>Made language extenion an official <code>*.vsix</code> package for deployment.
 				</ul>
 
 				<p class="newsGroup">Compiler</p>

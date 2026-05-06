@@ -1,0 +1,17 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Connect to the Database</div>
+<div class="tutorialText">
+	In the file <code>src/ShopServer.st</code> , scroll down to the method <code>startServer</code> .<br>
+	It should look like this:<br>
+	<img src="StartServer.png" class="screenPart" alt="Start server"><br>
+	<br>
+	First the server port number and the path to the client HTML files are read from the environment.<br>
+	Then a new Express server instance is created.<br>
+	(This class is based on the popular npm package Express.js)<br>
+	The important method <code>useSession</code> is called on the server,<br>
+	that allows login sessions to be separated with users not seeing each other's data.<br>
+	The call <code>express static: clientPath</code> tells Express where the static HTML files are. <br>
+	Now the API calls for login, products and orders are routed to methods in our server app.<br>
+	Finally the server is started with a callback after succesful start.<br>
+</div>
