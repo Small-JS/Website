@@ -2,7 +2,7 @@
 
 <div class="tutorialTitle">Orders API</div>
 <div class="tutorialText">
-	The products API is quite trivial, so we'll explain the orders API here in stead.<br>
+	The products API is quite trivial, so we'll explain the orders API here instead.<br>
 	In the file <code>src/ShopServer.st</code> , find the method <code>async orders: request response: response</code> :<br>
 	<img src="Orders.png" class="screenPart" alt="Orders"><br>
 	<br>
@@ -14,15 +14,13 @@
 	If not present, an error 500 "Not logged in" is returned to the client.<br>
 	<br>
 	Then all orders placed by this user are selected from the database using the user id.<br>
-	(Query construction is a bit complicated because of different styles for quotation and parameters<br>
-	by different databases. This will be simplified in a later release.)<br>
 	Now all products are selected, who's id's appear in the orders placed by the current user.<br>
 	<br>
 	Lastly, the selected orders and products are placed as properties in a basic <code>Object</code><br>
 	and sent back to the web client in JSON format for display.<br>
 	<br>
 	<b>Congratulations</b><br>
-	You now know how to make a Node.js server app in SmallJS!<br>
+	You now know how to make a Node.js server app in SmallJS !<br>
 	For your own projects, just make a copy of this app and modify.<br>
-	If you have suggestions for framework improvements, please create issues on GitHub.<br>
+	If you have suggestions for improvements, please create issues on GitHub.<br>
 </div>
