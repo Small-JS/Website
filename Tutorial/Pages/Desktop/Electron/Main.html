@@ -1,0 +1,33 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Main process - the app</div>
+<div class="tutorialText">
+	Now back to the file <code>src/Node/MyElectronApp.st</code> in VSCode<br>
+	<img src="MainApp.png" class="screenPart" alt="Main app"><br>
+	<br>
+	Electron apps have a single main process, which acts as the application's entry point.<br>
+	The main process runs in a Node.js environment, meaning use all of Node.js APIs.<br>
+	The ST app is started by the code in <code>/src/main.ts</code> , as usual.<br>
+	<br>
+	Notice that <code>MyElectronApp</code> inherits from <code>ElectronApp</code>. <br>
+	The app class is placed in module <code>MyElectronMain</code> ,<br>
+	which <i>must</i> be different from the modules used by the API and view later on.<br>
+	Instance variable <code>browserWindow</code> will refer to that view.<br>
+	Method <code>start</code> does some extra waiting required by Electron.<br>
+	Method <code>start2</code> actually starts the app with the indicated operations.<br>
+</div>
+
+<div class="tutorialHeading1">Method setListeners</div>
+<div class="tutorialText">
+	Scroll down to the method <code>setListeners</code> that looks like this:<br>
+	<img src="MainSetListeners.png" class="screenPart" alt="Method setListeners"><br>
+	<br>
+	This method sets up handling for events requested by the browser view:<br>
+	<ul class="tutorialList">
+		<li>Changeling the title of the app window.</li>
+		<li>Ask some data (with 'ping') that is aswered (with 'pong').</li>
+		<li>Quiting the app.</li>
+	</ul>
+	You can check out the methods below that perform the actions<br>
+	and anwer back any result to the browser view through the custom API.<br>
+</div>

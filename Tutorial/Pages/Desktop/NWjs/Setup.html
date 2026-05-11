@@ -1,0 +1,19 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Setup NW.js in the ./bin folder</div>
+
+<div class="tutorialText">
+	Unfortunately, VSCode can currently not debug NW.js apps with the npm version.<br>
+	First we need to download the SDK version of NW.js<br>
+	and put it in the <code>./bin</code> folder the example app.
+	<br>
+	Go to the page
+	<a href="https://nwjs.io/downloads" target="_blank" rel="noopener">nwjs.io/downloads</a>
+	and download the latest <b>SDK</b> version of the framework for your platform.<br>
+	It should look like this:<br>
+	<img src="Setup.png" class="screenPart" alt="Setup"><br>
+	<br>
+	Extract the downloaded <code>*.zip</code> file to the repo folder <code>./Examples/NWjs/bin</code> .<br>
+	The file <code>./vscode/launch.json</code> refers to this location<br>
+	when starting the example app in the VSCode debugger.<br>
+</div>

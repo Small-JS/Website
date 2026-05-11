@@ -1,0 +1,20 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Base app structure</div>
+
+<div class="tutorialText">
+	Now back to the file <code>src/MyNwApp.st.</code> in VSCode,<br>
+	that looks like this when expanding the <code>./web</code> folder:<br>
+	<img src="Base.png" class="screenPart" alt="Base"><br>
+	<br>
+	First notice that the app is structed like a regular web client app.<br>
+	The desktop GUI will be composed from the files in the <code>/web</code> folder,<br>
+	by a Chromium browser engine packaged within NW.js.<br>
+	(But different from Electron, there is only <i>one</i> JavaScript engine running<br>
+	that makes the app use less memory and development much easier)<br>
+	<br>
+	The app class <code>MyNwApp</code> inherits from <code>NwApp</code><br>
+	that gives you some desktop app functionality.<br>
+	The method <code>bindElements</code> works exacly the same as in other web apps.<br>
+</div>
+

@@ -1,0 +1,24 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Files</div>
+<div class="tutorialText">
+	NW.js apps can use Node.js featues, like reading files.<br>
+	This is the main advantage of it begin a desktop app that runs in Node.js<br>
+	Browser apps cannot do this, because of security reasons.<br>
+	(Opening a file in a browser always requires user confirmation)<br>
+	<br>
+	With this great power comes great responsibility to keep it secure.<br>
+	You must ensure that all app files are controlled by yourself.<br>
+	Specifically it is often not safe to fetch GUI HTML files from the web.<br>
+	Keep them as local files, bundeled with the app.<br>
+</div>
+
+<div class="tutorialHeading1">Reading a file</div>
+<div class="tutorialText">
+	Scroll down to the method <code>openFile</code> that looks like this:<br>
+	<img src="Files.png" class="screenPart" alt="Menus"><br>
+	<br>
+	You can see the the regular Node <code>Fs</code> classes is used to read the file,<br>
+	just like in any other Node app.<br>
+	Then the file text is displayed in our GUI.
+</div>

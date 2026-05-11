@@ -1,0 +1,55 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">View class - central widget.</div>
+<div class="tutorialText">
+	<code>QWidget</code> is the central GUI element of NodeGui.<br>
+	It can contain GUI elements, but also entire window panes.<br>
+	A window can have a CSS stylesheet, to facilitate static styling.<br>
+	<br>
+	(The view operations coded into the app class here,<br>
+	but a separate view class cloud be more reusable.)<br>
+</div>
+
+<div class="tutorialHeading1">Method createStyleSheet</div>
+<div class="tutorialText">
+	Scroll down to the method <code>createStyleSheet</code> that looks like this:<br>
+	<img src="ViewCreateStyleSheet.png" class="screenPart" alt="Create style sheet"><br>
+	<br>
+	It simply reads the CSS file and returns it as a string.<br>
+	<br>
+	The CSS file contents looks like this:<br>
+	<img src="ViewDefaultStyleSheet.png" class="screenPart" alt="Default style sheet"><br>
+	<br>
+	You can see it sets static CSS styling for the <code>#root</code> window<br>
+	and for the <code>#greetLabel</code> and the <code>#changeStyleButton</code> .<br>
+	Coding this out in ST would be very verbose..<br>
+</div>
+
+<div class="tutorialHeading1">Methods createCentralWinget</div>
+<div class="tutorialText">
+	Scroll down to the method <code>createCentralWindget</code> that looks like this:<br>
+	<img src="ViewCreateCentralWidget.png" class="screenPart" alt="Create central widget"><br>
+	<br>
+	This method simply create a new window <code>QWidget</code> with the name <code>root</code>,
+	and then sets the layout for it (creates GUI elements) with the next method.<br>
+</div>
+
+<div class="tutorialHeading1">Methods createRootLayout</div>
+<div class="tutorialText">
+	Scroll down to the method <code>createCentralWindget</code> that looks like this:<br>
+	<img src="ViewCreateRootLayout.png" class="screenPart" alt="Create root layout"><br>
+	<br>
+	This method acutall add the GUI elements to a new <code>QLayout</code> object,
+	that will be the layout for the containing window (widget).<br>
+	<br>
+	The remainder of the code creates the GUI elements in a straightforward way<br>
+	closely following the NodeGui/Qt way of doing things.<br>
+	<br>
+	<b>Congratulations</b><br>
+	This concludes the tutorial section on NodeGui.<br>
+	To make your own NW.js app, start by making a copy of this example app.<br>
+	<br>
+	And this is also the end of the tutorial section on SmallJS desktop apps.<br>
+	If you're unsure about which framework to use,<br>
+	remember NW.js is the most easy and mature choice currently.<br>
+</div>

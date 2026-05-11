@@ -1,0 +1,32 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Menus</div>
+<div class="tutorialText">
+	A NW.js app can have a menu bar with submenus and have context menus.<br>
+</div>
+
+<div class="tutorialHeading1">Menu bar</div>
+<div class="tutorialText">
+	Scroll down to the method <code>setMenuBar</code> that looks like this:<br>
+	<img src="MenusBar.png" class="screenPart" alt="Menus"><br>
+	<br>
+	As stated, menus are built from the bottom up.<br>
+	So first a menu item Exit is created, that is added to a File menu,<br>
+	that is added to the main menu bar, that is added to the app window.<br>
+	The Exit menu item had an icon that's a regular <code>*.png</code> image.<br>
+	And a click event is set chat calls the <code>quit</code> method on the app.<br>
+</div>
+
+<div class="tutorialHeading1">Context menu</div>
+<div class="tutorialText">
+	Scroll down to the method <code>setContextMenu</code> that looks like this:<br>
+	<img src="MenusContext.png" class="screenPart" alt="Menus"><br>
+	<br>
+	First a new context menu created.<br>
+	Then three menu items are created that are added to it.<br>
+	Note the menu items are created with a checkmark option,<br>
+	and their click event is routed to our app.<br>
+	Lastly, a right mouse button click in the main window (body) is caught<br>
+	and calls the method <code>onMouseContextMenu:</code> that displays the menu.<br>
+</div>
+

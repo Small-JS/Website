@@ -1,0 +1,64 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Renderer process - the browser view</div>
+<div class="tutorialText">
+	Open the file <code>src/Browser/MyElectronView.st</code> in VSCode.<br>
+	The top part looks like this:<br>
+	<img src="RendererView.png" class="screenPart" alt="Renderer View"><br>
+	<br>
+	Electron apps have a 'renderer' process in which the view is rendered by an embedded browser.<br>
+	The 'renderer' browser proces is separate from the 'main' Node.js process.<br>
+	They must communicate through the API loaded in de 'preload' phase of the 'renderer' process.<br>
+	The ST View class is invoked by Electron through <code>/src/renderer.ts</code> .<br>
+	<br>
+	Notice that <code>MyElectronView</code> inherits from <code>ElectronView</code>. <br>
+	The view class is placed in the module <code>MyElectronView</code> ,<br>
+	which <i>must</i> be different from the modules used by the app and the api.<br>
+	<br>
+	Method <code>start</code> is called in <code>renderer.ts</code>.<br>
+	Notice that the app is structed like a regular web client app.<br>
+	The view will be composed from the files in the <code>/web</code> repo folder,<br>
+	by a Chromium browser engine packaged within Electron.<br>
+</div>
+
+<div class="tutorialHeading1">Method colorText</div>
+<div class="tutorialText">
+	Scroll down to the method <code>colorText</code> that looks like this:<br>
+	<img src="RendererColortext.png" class="screenPart" alt="Renderer color text"><br>
+	<br>
+	This method sets the color of a HTML span directly in the browser.<br>
+	No API is invoked for this, its just standard browser development.<br>
+</div>
+
+<div class="tutorialHeading1">Method setTitle</div>
+<div class="tutorialText">
+	Scroll down to the method <code>setTitle</code> that looks like this:<br>
+	<img src="PreloadSetTitle.png" class="screenPart" alt="Method setTitle"><br>
+	<br>
+	This method calls the API to modify the title in the main app Window,<br>
+	which, in Electron, is not part of the view.<br>
+	It does not wait for a response, assuming the request will succeed.<br>
+</div>
+
+<div class="tutorialHeading1">Method ping</div>
+<div class="tutorialText">
+	Scroll down to the method <code>ping</code> that looks like this:<br>
+	<img src="PreloadPing.png" class="screenPart" alt="Method ping"><br>
+	<br>
+	This method calls the API to request data from the main app,<br>
+	with callback method <code>onPing: result</code> that handles the response.<br>
+	The result of the response (always 'Pong') will be displayed in a HTML span element.<br>
+</div>
+
+<div class="tutorialHeading1">Method quit</div>
+<div class="tutorialText">
+	Scroll down to the method <code>quit</code> that looks like this:<br>
+	<img src="RendererQuit.png" class="screenPart" alt="Method quit"><br>
+	<br>
+	This method calls the API with a request to terminate the main app.<br>
+	It does not provide any arguments and does not wait for a response.<br>
+	<br>
+	<b>Congratulations</b><br>
+	This concludes the tutorial section on Electron.<br>
+	To make your own Electron app, start by making a copy of this example app.<br>
+</div>

@@ -1,0 +1,50 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Preload process - the API</div>
+<div class="tutorialText">
+	Open the file <code>src/Node/MyElectronApi.st</code> in VSCode.<br>
+	The top part looks like this:<br>
+	<img src="PreloadApi.png" class="screenPart" alt="Preload API"><br>
+	<br>
+	Electron apps have a special 'preload' process / phase.<br>
+	Preload scripts execute in a renderer (view) process before its web content begins loading.<br>
+	They run in the renderer context, but also have access to Node.js APIs.<br>
+	The ST API class is invoked by Electron through <code>/src/preload.ts</code> .<br>
+	<br>
+	Notice that <code>MyElectronApi</code> inherits from <code>ElectronApi</code>. <br>
+	The API class is placed in module <code>MyElectronPreload</code> ,<br>
+	which <i>must</i> be different from the modules used by the app and view later on.<br>
+	<br>
+	Method <code>expose</code> is the 'start' method, called in <code>preload.ts</code>.<br>
+	Its first line names the API <code>'myAPI'</code> that our view uses to identify it.<br>
+	The following lines add methods to the API for operations setting title, ping and quit.<br>
+</div>
+
+<div class="tutorialHeading1">Method setTitle</div>
+<div class="tutorialText">
+	Scroll down to the method <code>setTitle</code> that looks like this:<br>
+	<img src="PreloadSetTitle.png" class="screenPart" alt="Method setTitle"><br>
+	<br>
+	This method sends the new title to the main app,<br>
+	and it does not wait for a response.<br>
+</div>
+
+<div class="tutorialHeading1">Method ping</div>
+<div class="tutorialText">
+	Scroll down to the method <code>ping</code> that looks like this:<br>
+	<img src="PreloadPing.png" class="screenPart" alt="Method ping"><br>
+	<br>
+	This method requests data from the main app,<br>
+	and calls a callback on the view with the response.<br>
+	The example app will always respond with <code>'Pong'</code> .<br>
+</div>
+
+<div class="tutorialHeading1">Method quit</div>
+<div class="tutorialText">
+	Scroll down to the method <code>quit</code> that looks like this:<br>
+	<img src="PreloadQuit.png" class="screenPart" alt="Method quit"><br>
+	<br>
+	This method requests the main app to terminate.<br>
+	It does not provide any arguments and does not wait for a response.<br>
+</div>
+

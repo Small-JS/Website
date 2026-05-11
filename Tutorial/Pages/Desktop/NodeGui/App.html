@@ -1,0 +1,27 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">App class</div>
+<div class="tutorialText">
+	Now back to the file <code>src/Node/MyNodeGuiApp.st</code> in VSCode:<br>
+	<img src="AppClass.png" class="screenPart" alt="App"><br>
+	<br>
+	The app runs in a Node.js environment, meaning it can use all Node.js APIs.<br>
+	The ST app is started by the code in <code>/src/main.ts</code> , as usual.<br>
+	<br>
+	Notice that <code>MyNodeGuiApp</code> inherits from <code>QApplication</code>. <br>
+	NodeGui classes are prefixed with "Q" and mirror class names form the Qt C++ library.<br>
+	<br>
+	Instance variable <code>window</code> will refer to the main window.<br>
+	Method <code>start</code> starts the app, mainly by creating the main window.<br>
+</div>
+
+<div class="tutorialHeading1">Method createWindow</div>
+<div class="tutorialText">
+	Scroll down to the method <code>createWindow</code> that looks like this:<br>
+	<img src="AppCreateWindow.png" class="screenPart" alt="Create window"><br>
+	<br>
+	This method creates the main app windows as a <code>QMainWindow</code> .<br>
+	Then it sets the title, icon and menu bar.<br>
+	Next a CSS style sheet is loaded for the main view (central widget).<br>
+	Lastly the window created is shown.<br>
+</div>

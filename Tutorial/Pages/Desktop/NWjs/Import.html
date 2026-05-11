@@ -1,0 +1,33 @@
+<!-- HTML fragment for the text of this tutorial page -->
+
+<div class="tutorialTitle">Importing npm modules</div>
+<div class="tutorialText">
+	Unfortunately, NW.js currently does not fully support ESM import functionality.<br>
+	Using a new npm module, requires a different way of importing it.<br>
+	The example app shows how to do it by importing the infamous module <code>lpad</code> ,<br>
+	that only has one function <code>lpad</code> that inserts a string before every line in another string.<br>
+</div>
+
+<div class="tutorialHeading1">Importing module lpad</div>
+<div class="tutorialText">
+	Open the file <code>src/Lpad.st</code> that looks like this:<br>
+	<img src="ImportLpad.png" class="screenPart" alt="Import Lpad"><br>
+	<br>
+	To be able to use the npm module <code>lpad</code> ,<br>
+	it was installed earlier with the shell command: <code>npm install lpad</code> .<br>
+	<br>
+	Here we create a new ST class <code>Lpad</code> in our app.<br>
+	The <code>INLINE</code> statment imports the JS module <code>lpad</code> using <code>require( ... )</code> ,<br>
+	also creating a module variable <code>lpad$</code> to reference it.<br>
+	<br>
+	The method <code>leftPad: string with: prefix</code> calls the JS function <code>lpad</code> ,<br>
+	using the regular SmallJS <code>INLINE</code> keyword.<br>
+	<br>
+	The method <code>testLpad</code> in the app class tests if it works:<br>
+	<img src="ImportTest.png" class="screenPart" alt="Test import Lpad"><br>
+	Jay...<br>
+	<br>
+	<b>Cheers</b><br>
+	This concludes the tutorial section on NW.js.<br>
+	To make your own NW.js app, start by making a copy of this example app.<br>
+</div>
