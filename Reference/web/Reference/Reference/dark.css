@@ -1,0 +1,25 @@
+/* ==================================== Form */
+
+body {
+	background-color: #1F1F1F;
+	color: #F0F0F0;
+}
+
+a {
+	color: #F0F0F0;
+}
+
+#titleDiv {
+	background-color: #7090D0;
+}
+
+/* ==================================== Code */
+
+code {
+	background-color: #383838;
+}
+
+.codeBlock {
+	background-color: #383838;
+}
+

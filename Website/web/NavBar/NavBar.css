@@ -15,11 +15,15 @@
 
 #navBar a {
 	font-weight: bold;
-	color: black;
+	/* color: black; */
 	text-align: center;
 	padding: 6px 6px;
 	text-decoration: none;
 	line-height: 1.8;
+}
+
+#themeButton {
+	font-size: larger
 }
 
 #navBar a:hover {

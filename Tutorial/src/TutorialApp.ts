@@ -1,47 +1,67 @@
+import { PageTheme } from "./PageTheme.js";
 
 export class TutorialApp
 {
-	indexDiv!: HTMLDivElement;
-	pageDiv!: HTMLDivElement;
+	pageTheme = new PageTheme();
+	darkCssLink!: HTMLLinkElement;
+	themeButton!: HTMLButtonElement;
+
+	previousButton!: HTMLButtonElement;
+	nextButton!: HTMLButtonElement;
+	advanceButton!: HTMLButtonElement;
+
 	indexPopup = false;
+	menuButton!: HTMLButtonElement;
+	indexDiv!: HTMLDivElement;
+
+	pageDiv!: HTMLDivElement;
 
 	async start()
 	{
-		await this.loadIncludes();
 		this.bindElements();
+		this.applyTheme();
+		this.addCopyToClipboardButtons();
+		await this.loadIncludes();
 		this.openIndexForPage();
-	}
-
-	// Replaces tags <include src="<file path>"> with referenced HTML
-
-	async loadIncludes()
-	{
-		const includeNodes = document.getElementsByTagName( "include" );
-		for( const includeNode of includeNodes ) {
-			let filePath = <string> includeNode.getAttribute( "src" );
-			let file = await fetch( filePath );
-			let text = await file.text();
-			includeNode.insertAdjacentHTML( "afterend", text );
-			// This might produce a bug with multiple include nodes?
-			includeNode.remove();
-		}
+		this.bindEvents();
 	}
 
 	bindElements()
 	{
-		let menuButton = this.getElement( "menuButton", "button" ) as HTMLButtonElement;
-		menuButton.onclick = () => this.onMenuButton();
-		let previousButton = this.getElement( "previousButton", "button" ) as HTMLButtonElement;
-		previousButton.onclick = () => this.onPreviousButton();
-		let nextButton = this.getElement( "nextButton", "button" ) as HTMLButtonElement;
-		nextButton.onclick = () => this.onNextButton();
-		let advanceButton = this.getElement( "advanceButton", "button" ) as HTMLButtonElement;
-		advanceButton.onclick = () => this.onNextButton();
+		this.darkCssLink = this.getElement( "darkCssLink", "link" ) as HTMLLinkElement;
+		this.themeButton = this.getElement( "themeButton", "button" ) as HTMLButtonElement;
 
-		this.indexDiv = <HTMLDivElement> this.getElement( "indexDiv", "div" );
-		this.pageDiv = <HTMLDivElement> this.getElement( "pageDiv", "div" );
+		this.previousButton = this.getElement( "previousButton", "button" ) as HTMLButtonElement;
+		this.nextButton = this.getElement( "nextButton", "button" ) as HTMLButtonElement;
+		this.advanceButton = this.getElement( "advanceButton", "button" ) as HTMLButtonElement;
 
-		this.addCopyToClipboardButtons();
+		this.menuButton = this.getElement( "menuButton", "button" ) as HTMLButtonElement;
+		this.indexDiv = this.getElement( "indexDiv", "div" ) as HTMLDivElement;
+
+		this.pageDiv = this.getElement( "pageDiv", "div" ) as HTMLDivElement;
+	}
+
+	// Call this after the page is completely loaded.
+
+	bindEvents()
+	{
+		this.themeButton.onclick = () => this.onThemeButton();
+		this.menuButton.onclick = () => this.onMenuButton();
+		this.previousButton.onclick = () => this.onPreviousButton();
+		this.nextButton.onclick = () => this.onNextButton();
+		this.advanceButton.onclick = () => this.onNextButton();
+	}
+
+	applyTheme()
+	{
+		this.pageTheme.apply( this.darkCssLink );
+	}
+
+	// Toggle dark / light mode.
+
+	onThemeButton()
+	{
+		this.pageTheme.toggle( this.darkCssLink );
 	}
 
 	// Get HTML element also id checking for existence and correct tag
@@ -77,6 +97,21 @@ export class TutorialApp
 			button.append( image );
 			button.onclick = () => navigator.clipboard.writeText( element.textContent );
 			element.after( button );
+		}
+	}
+
+	// Replaces tags <include src="<file path>"> with referenced HTML
+
+	async loadIncludes()
+	{
+		const includeNodes = document.getElementsByTagName( "include" );
+		for( const includeNode of includeNodes ) {
+			let filePath = <string> includeNode.getAttribute( "src" );
+			let file = await fetch( filePath );
+			let text = await file.text();
+			includeNode.insertAdjacentHTML( "afterend", text );
+			// This might produce a bug with multiple include nodes?
+			includeNode.remove();
 		}
 	}
 

@@ -11,24 +11,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SmallJS - Reference</title>
 	<link rel="stylesheet" href="/Reference/Reference/default.css" type="text/css" />
+	<link id="darkCssLink" href="/Reference/Reference/dark.css" rel="stylesheet" type="text/css" disabled="true" />
 	<script src="/Reference/Reference/Script/main.js" type="module"></script>
 </head>
 
 <body>
-	<div id="titleDiv" class="title">
-		<button id="menuButton">&#8801</button>
-		<div id="tileImageAndSpanDiv">
+	<div id="titleDiv">
+		<div id="titleLeftDiv">
+			<button id="menuButton" class="titleButton">&#8801</button>
+		</div>
+		<div id="titleCenterDiv">
 			<img id="logoImage" src="/Reference/Reference/Logo.png" alt="Logo" height="40"></img>
 			<span id="titleSpan">&nbsp;&nbsp;SmallJS Reference</span>
 		</div>
+		<div id="titleRightDiv">
+			<button id="themeButton" class="titleButton">&#x25D1;</button>
+		</div>
 	</div>
+
 	<table id="formTable">
 		<tr>
 			<th>
-				<input id="searchMethodsCheckbox" type="checkbox" />
-				<label for="searchMethodsCheckbox">Search methods</label><br>
-				<input type="text" id="searchInput" placeholder="Search..." />
 				<div id="indexDiv">
+					<input id="searchMethodsCheckbox" type="checkbox" />
+					<label for="searchMethodsCheckbox">Search methods</label><br>
+					<input type="text" id="searchInput" placeholder="Search..." />
 					<include src="/Reference/Reference/Pages/Index.html"></include>
 				</div>
 			</th>

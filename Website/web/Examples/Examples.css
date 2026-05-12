@@ -1,2 +1,10 @@
 ﻿@import "../default.css";
 
+.subTitle {
+	text-align: center;
+}
+
+.exampleIframe {
+	margin-bottom: 20px;
+}
+

@@ -67,7 +67,6 @@ body {
 
 .navigationButton {
 	font-size: x-large;
-	font-size: x-large;
 }
 
 #previousButton {
@@ -101,6 +100,7 @@ details>*:not(summary) {
 }
 
 /* Hide index and show menu button on small (mobile) screen */
+
 @media (max-width: 800px) {
 	#indexDiv {
 		display: none;
@@ -170,7 +170,7 @@ details>*:not(summary) {
 	    margin-top: -3px;
 }
 
-/* ========================= Code */
+/* ==================================== Code */
 
 code {
 	font-family: monospace;

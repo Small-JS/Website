@@ -1,25 +1,46 @@
 import { DocumentedClass } from "./DocumentedClass.js";
+import { PageTheme } from "./PageTheme.js";
 
-type ClassMap = Map<string /*className*/, DocumentedClass>;
+type ClassMap = Map<string /* className */, DocumentedClass>;
 
 export class ReferenceApp
 {
 	classMap: ClassMap = new Map();
 	visibleClassMap: ClassMap = new Map();
 
+	pageTheme = new PageTheme();
+	darkCssLink!: HTMLLinkElement;
+	themeButton!: HTMLButtonElement;
+
+	indexPopup = false;
 	menuButton!: HTMLButtonElement;
+	indexDiv!: HTMLDivElement;
 	searchInput!: HTMLInputElement;
 	searchMethodsCheckbox!: HTMLInputElement;
-	indexDiv!: HTMLDivElement;
+
 	pageDiv!: HTMLDivElement;
-	indexPopup = false;
 
 	async start()
 	{
+		this.bindElements();
+		this.applyTheme();
 		await this.loadClasses();
 		await this.loadIncludes();
-		this.bindElements();
 		this.openIndexForPage();
+		this.bindEvents();
+	}
+
+	applyTheme()
+	{
+		this.pageTheme.apply( this.darkCssLink );
+		this.pageTheme.themeButtonVisible( this.themeButton );
+	}
+
+	// Toggle dark / light mode.
+
+	onThemeButton()
+	{
+		this.pageTheme.toggle( this.darkCssLink );
 	}
 
 	// Load documented classes from JSON file
@@ -54,29 +75,40 @@ export class ReferenceApp
 
 	bindElements()
 	{
-		this.menuButton = <HTMLButtonElement> document.getElementById( "menuButton" );
-		this.assertClass( this.menuButton, "HTMLButtonElement" );
-		this.menuButton.onclick = event => this.onMenuButton();
+		this.darkCssLink = this.getElement( "darkCssLink", "link" ) as HTMLLinkElement;
+		this.themeButton = this.getElement( "themeButton", "button" ) as HTMLButtonElement;
 
-		this.searchInput = <HTMLInputElement> document.getElementById( "searchInput" );
-		this.assertClass( this.searchInput, "HTMLInputElement" );
-		this.searchInput.oninput = event => this.onSearchInputChanged();
+		this.indexDiv = this.getElement( "indexDiv", "div" ) as HTMLDivElement;
+		this.menuButton = this.getElement( "menuButton", "button" ) as HTMLButtonElement;
+		this.searchInput = this.getElement( "searchInput", "input" ) as HTMLInputElement;
+		this.searchMethodsCheckbox = this.getElement( "searchMethodsCheckbox", "input" ) as HTMLInputElement;
 
-		this.searchMethodsCheckbox = <HTMLInputElement> document.getElementById( "searchMethodsCheckbox" );
-		this.assertClass( this.searchMethodsCheckbox, "HTMLInputElement" );
-		this.searchMethodsCheckbox.onchange = event => this.onSearchInputChanged();
-
-		this.indexDiv = <HTMLDivElement> document.getElementById( "indexDiv" );
-		this.assertClass( this.indexDiv, "HTMLDivElement" );
-
-		this.pageDiv = <HTMLDivElement> document.getElementById( "pageDiv" );
-		this.assertClass( this.pageDiv, "HTMLDivElement" );
+		this.pageDiv = this.getElement( "pageDiv", "div" ) as HTMLDivElement;
 	}
 
-	assertClass( object: any, className: string )
+	bindEvents()
 	{
-		if( typeof object != "object" || object.constructor.name != className )
-			throw new Error( "Class assertion failed" );
+		this.themeButton.onclick = () => this.onThemeButton();
+		this.menuButton.onclick = event => this.onMenuButton();
+		this.searchInput.oninput = event => this.onSearchInputChanged();
+		this.searchMethodsCheckbox.onchange = event => this.onSearchInputChanged();
+	}
+
+	// Get HTML element also id checking for existence and correct tag
+	// Otherwise throw an error.
+
+	getElement( id: string, tagName: string ): HTMLElement
+	{
+		let element = document.getElementById( id );
+		if( ! element )
+			throw new Error( "HTML element id not found: " + id );
+
+		tagName = tagName.toUpperCase();
+		if( element.tagName != tagName )
+			throw new Error( "HTML element tag name unexpected: " + element.tagName +
+				", expected: " + tagName );
+
+		return element;
 	}
 
 	// Open the index tree details to show the entry for the current page.
