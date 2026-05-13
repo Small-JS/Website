@@ -4,6 +4,7 @@ export class Website
 {
 	pageTheme = new PageTheme();
 	darkCssLink!: HTMLLinkElement;
+	navBarDarkCssLink!: HTMLLinkElement;
 	themeButton!: HTMLButtonElement;
 
 	async start()
@@ -30,6 +31,7 @@ export class Website
 	bindElements()
 	{
 		this.darkCssLink = this.getElement( "darkCssLink", "link" ) as HTMLLinkElement;
+		this.navBarDarkCssLink = this.getElement( "navBarDarkCssLink", "link" ) as HTMLLinkElement;
 		this.themeButton = this.getElement( "themeButton", "button" ) as HTMLButtonElement;
 	}
 
@@ -58,6 +60,7 @@ export class Website
 	applyTheme()
 	{
 		this.pageTheme.apply( this.darkCssLink );
+		this.pageTheme.apply( this.navBarDarkCssLink );
 		this.pageTheme.themeButtonVisible( this.themeButton );
 	}
 

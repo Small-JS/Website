@@ -55,6 +55,7 @@ export class TutorialApp
 	applyTheme()
 	{
 		this.pageTheme.apply( this.darkCssLink );
+		this.pageTheme.themeButtonVisible( this.themeButton )
 	}
 
 	// Toggle dark / light mode.
