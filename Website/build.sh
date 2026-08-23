@@ -63,3 +63,4 @@ cp -r ../../SmallJS/Examples/WebWorkers/web web/Examples/WebWorkers
 rm -rf web/Examples/PWA
 cp -r ../../SmallJS/Examples/PWA/web web/Examples/PWA
 
+sleep 2

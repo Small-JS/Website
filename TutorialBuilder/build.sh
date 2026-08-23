@@ -5,7 +5,7 @@ set -e
 # Set working directiry to script directory
 cd "$(dirname "$0")"
 
-echo "==== TutorialBuilder"
+echo "==== Building: TutorialBuilder"
 
 # Compile TypeScript
 

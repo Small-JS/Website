@@ -27,18 +27,46 @@
 
 		<!-- ============================ Latest development -->
 
+		<!-- ============================ Release 2.2 -->
+
 		<tr>
 			<td>
-				<div class="subTitle">Latest development
-					<span class="newsDate">12-JUL-2026</span>
+				<div class="subTitle">SmallJS release 2.2
+					<span class="newsDate">6-AUG-2026</span>
 				</div>
 
-				<p class="newsGroup">Website</p>
+				<p class="newsGroup">AI coding assistant</p>
 				<ul class="newsList">
 					<li>Now you can use an <b>AI assistant</b> to code in SmallJS!<br>
 						See the <a href="../Tutorial">Tutorial</a> home page for setting it up.</li>
 				</ul>
 
+				<p class="newsGroup">Examples</p>
+				<ul class="newsList">
+					<li>Added example app <b>RAG</b> showing AI use with <b>Research Augmented Generation</b>.<br>
+						Everyting runs locally with models in Ollama, using SQLite or Postgres as vector stores.</li>
+				</ul>
+
+				<p class="newsGroup">Contributions</p>
+				<ul class="newsList">
+					<li>Added app <b>React Counter</b> to contributions, to show to use SmallJS in <b>React</b> projects.</li>
+				</ul>
+
+				<p class="newsGroup">Smalltalk library</p>
+				<ul class="newsList">
+					<li>Added embedding functionality to AI class Ollama.</li>
+					<li>Added <code>doAwait:</code> method to class <code>Array</code> to await iterating over an async block.</li>
+					<li>Made subsystems <code>Database</code> and <code>AI</code> more modular,<br>
+						allowing projects to just install npm packages of implementations they use.</li>
+				</ul>
+
+				<p class="newsGroup">Build</p>
+				<ul class="newsList">
+					<li>All projects now support <b>TypeScript 7</b> builds.</li>
+					<li>Made build scripts more modular for example projects.<br>
+						Every project now has their own scripts for: install, build, update and clean.</li>
+					<li>Installed package updates must be at least 7 days old, for security.</li>
+				</ul>
 
 			</td>
 		</tr>
@@ -59,7 +87,7 @@
 						shows how to use it.</li>
 				</ul>
 
-				<p class="newsGroup">Smalltalk</p>
+				<p class="newsGroup">Smalltalk library</p>
 				<ul class="newsList">
 					<li>Database: Standardized SQL syntax for simpler database independent queries.</li>
 				</ul>

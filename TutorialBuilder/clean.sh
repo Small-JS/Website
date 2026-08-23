@@ -4,6 +4,6 @@
 # Change to script folder.
 cd "$(dirname "$0")"
 
-echo "Cleaning TutorialBuilder"
+echo "==== Cleaning: TutorialBuilder"
 
 rm -fr out
