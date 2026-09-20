@@ -6,8 +6,11 @@ set -e
 # Change to script folder.
 cd "$(dirname "$0")"
 
+echo "==== Cleaning..."
+
 ./TutorialBuilder/clean.sh
 ./Tutorial/clean.sh
 ./ReferenceBuilder/clean.sh
 ./Reference/clean.sh
+./AiContextBuilder/clean.sh
 ./Website/clean.sh

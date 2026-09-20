@@ -6,7 +6,7 @@ set -e
 # Set working directiry to script directory
 cd "$(dirname "$0")"
 
-echo "==== Website"
+echo "==== Building: Website"
 
 # Compile TypeScript
 
@@ -33,6 +33,13 @@ echo "Copying Reference"
 
 rm -rf web/Reference/Reference
 cp -r ../Reference/web/Reference/Reference web/Reference/Reference
+
+# AI Context
+
+echo "Copying AI Context"
+
+rm -rf web/smalljs.txt
+cp -r ../AIContextBuilder/smalljs.txt web
 
 # Playground
 

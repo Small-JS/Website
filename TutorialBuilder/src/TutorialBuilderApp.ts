@@ -1,7 +1,6 @@
 // This class builds the static HTML for the website.
 // This is done this way to allow search engines to index the site,
 
-import { TutorialAiContext } from "./TutorialAiContext.js";
 import { TutorialIndex } from "./TutorialIndex.js";
 import { TutorialPages } from "./TutorialPages.js";
 
@@ -12,7 +11,6 @@ export class TutorialBuilderApp
 	start()
 	{
 		this.generatePages();
-		this.generateAiContext();
 	}
 
 	generatePages()
@@ -29,13 +27,5 @@ export class TutorialBuilderApp
 		console.log( 'Completed.' );
 	}
 
-	async generateAiContext()
-	{
-		console.log( 'Generating AI context file...' );
-
-		new TutorialAiContext().generate();
-
-		console.log( 'Completed.' );
-	}
 }
 

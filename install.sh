@@ -8,6 +8,8 @@ set -e
 # Set working directory to script directory
 cd "$(dirname "$0")"
 
+echo "==== Installing..."
+
 echo "==== Detecting prerequisite applications"
 echo "To install them, look at Documentation/Prerequisites.md in the SmallJS repo."
 
@@ -33,5 +35,6 @@ echo "==== Installing npm packages"
 
 ./TutorialBuilder/install.sh
 ./ReferenceBuilder/install.sh
+./AiContextBuilder/install.sh
 
 echo "==== All installs successful"

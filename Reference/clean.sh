@@ -4,7 +4,7 @@
 # Change to script folder.
 cd "$(dirname "$0")"
 
-echo "Cleaning Website Reference"
+echo "==== Cleaning: Reference"
 
 rm -fr web/Reference/Reference/Pages
 rm -fr web/Reference/Reference/Script

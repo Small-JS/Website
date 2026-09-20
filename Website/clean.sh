@@ -4,7 +4,7 @@
 # Change to script folder.
 cd "$(dirname "$0")"
 
-echo "Cleaning Website"
+echo "==== Cleaning: Website"
 
 rm -fr web/Script
 rm -fr web/Playgound/Playground

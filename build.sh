@@ -12,6 +12,9 @@ echo "==== Building..."
 ./Tutorial/build.sh
 ./ReferenceBuilder/build.sh
 ./Reference/build.sh
+./AiContextBuilder/build.sh
+
+# Also copies previous build results to the website
 ./Website/build.sh
 
 echo "==== Builds successful."

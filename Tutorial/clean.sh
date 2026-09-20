@@ -4,7 +4,7 @@
 # Change to script folder.
 cd "$(dirname "$0")"
 
-echo "Cleaning Website Tutorial"
+echo "==== Cleaning: Tutorial"
 
 rm -fr web/Tutorial/Tutorial/Pages
 rm -fr web/Tutorial/Tutorial/Script

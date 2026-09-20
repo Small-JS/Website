@@ -22,6 +22,7 @@ echo "==== Updating..."
 
 ./TutorialBuilder/update.sh -y
 ./ReferenceBuilder/update.sh -y
+./AiContextBuilder/update.sh -y
 
 echo "==== Updates successful"
 echo "To update all global npm dependencies type: npm -g update"

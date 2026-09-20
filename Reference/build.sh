@@ -5,7 +5,7 @@ set -e
 # Set working directiry to script directory
 cd "$(dirname "$0")"
 
-echo "==== Reference"
+echo "==== Building: Reference"
 
 # Compile TypeScript
 
