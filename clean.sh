@@ -12,5 +12,4 @@ echo "==== Cleaning..."
 ./Tutorial/clean.sh
 ./ReferenceBuilder/clean.sh
 ./Reference/clean.sh
-./AiContextBuilder/clean.sh
 ./Website/clean.sh

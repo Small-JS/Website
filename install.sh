@@ -35,6 +35,5 @@ echo "==== Installing npm packages"
 
 ./TutorialBuilder/install.sh
 ./ReferenceBuilder/install.sh
-./AiContextBuilder/install.sh
 
 echo "==== All installs successful"

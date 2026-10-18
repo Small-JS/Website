@@ -27,18 +27,53 @@
 
 		<!-- ============================ Latest development -->
 
+		<!-- ============================ Release 2.3 -->
+
 		<tr>
 			<td>
-				<div class="subTitle">Latest development
-					<span class="newsDate">20-SEP-2026</span>
+				<div class="subTitle">Release 2.3
+					<span class="newsDate">18-OCT-2026</span>
 				</div>
+
+				<p class="newsGroup">Compiler</p>
+				<ul class="newsList">
+					<li>Debugging: Enhanced debugging in SmallJS by allowing breakpoints in more places:<br>
+						In assignments, constant statements and especially with blocks!<br>
+						Step-into debugging is now disabled for common classes like Integer and String,<br>
+						giving a nice, streamlined debugging experience.</li>
+				</ul>
+
+				<p class="newsGroup">Smalltalk library</p>
+				<ul class="newsList">
+					<li>Electron: Added full support for core Electron JS base classes.<br>
+						Updated the Electron example app to show it off.<br>
+						The example app NodeGui has been moved to contributions,<br>
+						leaving NW.js and Electron as fully supported desktop options.</li>
+
+					<li>Browser: Added functionality and tests to classes:<br>
+						Animation, FromData, History, Iframe, Permissions, Storage, WebWorker,<br>
+						Canvas, DomMatrix, Geolocation, Clipboard, MediaQuery.</li>
+
+					<li>Node: Added functionality and tests to classes:<br>
+						Fs, Fsp, NodeWorker, Buffer, NodeMessagePort.</li>
+
+					<li>Core: Added functionality and tests to classes:<br>
+						Event types, File, streams.</li>
+
+					<li>AI:  Expanded option support for Anthropic.</li>
+				</ul>
 
 				<p class="newsGroup">Tutorial</p>
 				<ul class="newsList">
-					<li>Tutorial video to create a Tic-tac-toe game in SmallJS using Claude AI!<br>
-						See the <a href="../Tutorial">Tutorial</a> home page for the link.</li>
+					<li>AI: Tutorial video to create a Tic-tac-toe game in SmallJS using Claude AI!<br>
+						See the <a href="../Tutorial">Tutorial</a> home page for the link.<br>
+						Claude writes all the SmallJS code, which is well structured and maintainable.</li>
 				</ul>
 
+				<p><b>Disclaimer:</b><br>
+					The code in this release was partially built with AI (Claude).<br>
+					Great care was taken ensure that every generated line of code<br>
+					conforms to the code quality standards of the existing project.</p>
 			</td>
 		</tr>
 
