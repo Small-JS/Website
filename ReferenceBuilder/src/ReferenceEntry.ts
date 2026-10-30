@@ -8,6 +8,7 @@ export class ReferenceEntry
 	fileName: string = '';
 	dir: string = '';
 	level: number = 0;
+	isDir = false;
 	entries: ReferenceEntry[] = [];
 
 	static baseDir = '../Reference/web/Reference/Reference/Pages';
@@ -19,13 +20,14 @@ export class ReferenceEntry
 	{
 
 		// Split directory files into directories and files
-		// to be able to process directories first.
+		// to be able to process files first.
+		// Sort the names, because the readdir order differs per platform.
 
 		let dirs: string[] = []
 		let files: string[] = [];
 
 		let dir = path.posix.join( ReferenceEntry.baseDir, subDir );
-		let dirFiles = fs.readdirSync( dir );
+		let dirFiles = fs.readdirSync( dir ).sort( ( a, b ) => a.localeCompare( b, 'en' ) );
 		for( let dirFile of dirFiles ) {
 			if( ReferenceEntry.skipFiles.includes( dirFile ) )
 				continue;
@@ -38,7 +40,7 @@ export class ReferenceEntry
 				files.push( dirFile )
 		}
 
-		// Then process files.
+		// First process files.
 
 		for( let dirFile of files )
 		{
@@ -50,7 +52,7 @@ export class ReferenceEntry
 			this.entries.push( entry );
 		}
 
-		// First process directories.
+		// Then process directories.
 
 		for( let dirFile of dirs )
 		{
@@ -60,6 +62,7 @@ export class ReferenceEntry
 			entry.fileName = dirFile;
 			entry.dir = subDir;
 			entry.level = this.level + 1;
+			entry.isDir = true;
 			this.entries.push( entry );
 
 			entry.fromDir( path.posix.join( subDir, dirFile ) )
@@ -73,10 +76,10 @@ export class ReferenceEntry
 		let html = '';
 
 		for( let entry of this.entries ) {
-			if( entry.entries.length == 0 )
-				html += entry.fileEntryHtml();
-			else
+			if( entry.isDir )
 				html += entry.detailsHtml();
+			else
+				html += entry.fileEntryHtml();
 		}
 		return html;
 	}
@@ -97,17 +100,18 @@ export class ReferenceEntry
 		let indent = '\t'.repeat( this.level - 1 );
 		return indent + '<details>\n' +
 			indent + '\t<summary>\n' +
-			'\t\t' + this.detailsEntryHtml() +
+			indent + '\t\t' + this.detailsEntryHtml() +
 			indent + '\t</summary>\n' +
 			this.toHtml() +
 			indent + '</details>\n';
 	}
 
+	// The id uses the full path, because directory names are not unique, e.g. 'Base'.
+
 	detailsEntryHtml(): string
 	{
-		let indent = '\t'.repeat( this.level - 1 );
-		return indent + '<span ' +
-			'id="' + this.title + 'Entry" ' +
+		return '<span ' +
+			'id="' + this.path().replaceAll( '/', '-' ) + 'DirEntry" ' +
 			'class="dirReferenceIndexEntry">' +
 			this.title +
 			'</span>\n';

@@ -12,7 +12,6 @@ export class ReferenceApp
 	darkCssLink!: HTMLLinkElement;
 	themeButton!: HTMLButtonElement;
 
-	indexPopup = false;
 	menuButton!: HTMLButtonElement;
 	indexDiv!: HTMLDivElement;
 	searchInput!: HTMLInputElement;
@@ -23,11 +22,11 @@ export class ReferenceApp
 	async start()
 	{
 		this.bindElements();
+		this.bindEvents();
 		this.applyTheme();
 		await this.loadClasses();
 		await this.loadIncludes();
 		this.openIndexForPage();
-		this.bindEvents();
 	}
 
 	applyTheme()
@@ -49,7 +48,7 @@ export class ReferenceApp
 	{
 		this.classMap = new Map();
 
-		let response = await fetch( '/Reference/Reference/DocumentedClasses.json' );
+		let response = await this.fetchFile( '/Reference/Reference/DocumentedClasses.json' );
 		let objects = <Object[]> await response.json();
 		if( !Array.isArray( objects ) )
 			throw new Error( "Unexpected file format in: DocumentedClasses.json" );
@@ -67,10 +66,20 @@ export class ReferenceApp
 		const includeNodes = document.getElementsByTagName( 'include' );
 		for( const includeNode of includeNodes ) {
 			let filePath = <string> includeNode.getAttribute( 'src' );
-			let file = await fetch( filePath );
+			let file = await this.fetchFile( filePath );
 			let text = await file.text();
 			includeNode.insertAdjacentHTML( 'afterend', text );
 		}
+	}
+
+	// Fetch file, throwing an error if it could not be loaded.
+
+	async fetchFile( filePath: string ): Promise<Response>
+	{
+		let response = await fetch( filePath );
+		if( !response.ok )
+			throw new Error( "Could not load file: " + filePath + ", status: " + response.status );
+		return response;
 	}
 
 	bindElements()
@@ -121,25 +130,20 @@ export class ReferenceApp
 		let url = window.location.pathname;
 		let fileName = url.substring( url.lastIndexOf( '/' ) + 1 );
 		fileName = fileName.substring( 0, fileName.lastIndexOf( '.' ) );
-		let element = document.getElementById( fileName + "Entry" );
+		let entryId = fileName + "Entry";
+		let element = document.getElementById( entryId );
 		if( !element )
-			throw new Error( "HTML element not found: " + element );
+			throw new Error( "HTML element not found: " + entryId );
 		this.showWithParents( element );
 	}
 
+	// Toggle index popup mode, showing the index instead of the page.
+	// This uses a CSS class that is only effective on small screens,
+	// so resizing the window does not leave the index or page hidden.
+
 	onMenuButton()
 	{
-		// If the index is popup mode, hide it again and show the page
-		if( this.indexPopup ) {
-			this.indexDiv.style.display = "none";
-			this.pageDiv.style.display = "block";
-			this.indexPopup = false;
-		}
-		else {
-			this.indexDiv.style.display = "block";
-			this.pageDiv.style.display = "none";
-			this.indexPopup = true;
-		}
+		document.body.classList.toggle( "indexPopup" );
 	}
 
 	// ================================ Search

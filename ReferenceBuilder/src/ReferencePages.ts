@@ -17,10 +17,12 @@ export class ReferencePages
 	{
 		this.template.load();
 
-		if( ! fs.existsSync( this.destDir ) )
-			fs.mkdirSync( this.destDir );
+		// Remove previously generated pages, so pages of moved or removed classes disappear.
+		fs.rmSync( this.destDir, { recursive: true, force: true } );
+		fs.mkdirSync( this.destDir );
 
 		this.copyHomePage();
+		this.copyClassesFile();
 
 		for( let _class of classes )
 			this.generateClass( _class, classes );
@@ -32,6 +34,15 @@ export class ReferencePages
 		let sourceDir = '../Reference/Pages';
 		let sourcePath = path.posix.join( sourceDir, fileName );
 		let destPath = path.posix.join( this.destDir, fileName );
+		fs.cpSync( sourcePath, destPath );
+	}
+
+	// Copy class info for use by the search function of the website.
+
+	copyClassesFile()
+	{
+		let sourcePath = '../Reference/Pages/DocumentedClasses.json';
+		let destPath = '../Reference/web/Reference/Reference/DocumentedClasses.json';
 		fs.cpSync( sourcePath, destPath );
 	}
 

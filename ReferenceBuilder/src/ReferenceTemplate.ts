@@ -8,7 +8,7 @@ export class ReferenceTemplate
 {
 	private path = '../Reference/Pages/Template.html';
 	private templateText = '';
-	private text = '';
+	private fields = new Map<string, string>();
 
 	load()
 	{
@@ -19,28 +19,46 @@ export class ReferenceTemplate
 
 	merge( _class: DocumentedClass, classes: DocumentedClass[] ): string
 	{
-		this.text = this.templateText;
-		this.replaceField( '{class}', _class.name );
+		this.fields.clear();
+		this.replaceField( '{class}', this.escapeHtml( _class.name ) );
 		this.replaceSuperclass( _class.superclass, classes );
-		this.replaceField( '{module}', _class.module );
-		this.replaceField( '{path}', _class.path );
-		this.replaceField( '{classVars}', _class.classVars );
-		this.replaceField( '{vars}', _class.vars );
+		this.replaceField( '{module}', this.escapeHtml( _class.module ) );
+		this.replaceField( '{path}', this.escapeHtml( _class.path ) );
+		this.replaceField( '{classVars}', this.escapeHtml( _class.classVars ) );
+		this.replaceField( '{vars}', this.escapeHtml( _class.vars ) );
 		this.replaceComment( _class.comment );
 		this.replaceMethods( '{classMethods}', _class.classMethods );
 		this.replaceMethods( '{methods}', _class.methods );
 
-		return this.text;
+		return this.mergeFields();
 	}
+
+	// Store the replacement text for a field, merged later by mergeFields().
 
 	replaceField( fieldName: string, text: string )
 	{
-		let index = this.text.indexOf( fieldName );
-		if( index < 0 )
+		if( ! this.templateText.includes( fieldName ) )
 			throw new Error( 'Fieldname not found in template: ' + fieldName );
 
-		this.text = this.text.substring( 0, index ) +
-			text + this.text.substring( index + fieldName.length );
+		this.fields.set( fieldName, text );
+	}
+
+	// Replace all fields in a single pass over the template,
+	// so field names occurring in the inserted text are not replaced.
+
+	mergeFields(): string
+	{
+		return this.templateText.replace( /\{\w+\}/g,
+			fieldName => this.fields.get( fieldName ) ?? fieldName );
+	}
+
+	// Escape text so it is shown literally, e.g. a '<' in a comment or a binary selector.
+
+	escapeHtml( text: string ): string
+	{
+		return text.replaceAll( '&', '&amp;' )
+			.replaceAll( '<', '&lt;' )
+			.replaceAll( '>', '&gt;' );
 	}
 
 	replaceSuperclass( superclassName: string, classes: DocumentedClass[] )
@@ -70,7 +88,7 @@ export class ReferenceTemplate
 
 	commentToHtml( comment: string ): string
 	{
-		return comment.replaceAll( '\r', '' )
+		return this.escapeHtml( comment ).replaceAll( '\r', '' )
 			.replaceAll( '\t', '' )
 			.replaceAll( '\n', '<br>' )
 			.replaceAll( '<br> ', '<br>' );
@@ -129,7 +147,7 @@ export class ReferenceTemplate
 		let methodsHtml = '';
 
 		for( let method of methods ) {
-			methodsHtml += '<code>' + method.header + '</code></br>\n';
+			methodsHtml += '<code>' + this.escapeHtml( method.header ) + '</code><br>\n';
 			let htmlComment = this.commentToHtml( method.comment );
 			methodsHtml += '<div class="methodComment">' + htmlComment + '</div>\n';
 		}
