@@ -19,10 +19,13 @@ export class TutorialBuilderApp
 
 		let tutorialIndex = new TutorialIndex();
 		tutorialIndex.load();
-		tutorialIndex.save();
 
+		// Convert pages before saving the index,
+		// because converting clears the destination folder.
 		let tutorialPages = new TutorialPages();
 		tutorialPages.convert();
+
+		tutorialIndex.save();
 
 		console.log( 'Completed.' );
 	}

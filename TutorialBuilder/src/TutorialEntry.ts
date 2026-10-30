@@ -14,19 +14,35 @@ export class TutorialEntry
 	fromDir( dir: string, level: number )
 	{
 		let jsonIndexPath = path.posix.join( "../Tutorial/Pages", dir, "-Index.json" );
+		if( ! fs.existsSync( jsonIndexPath ) )
+			throw new Error( "File not found: " + jsonIndexPath + ". " +
+				"A folder with the same name as a page holds its subpages, so it must contain a '-Index.json' file." );
+
 		let text = fs.readFileSync( jsonIndexPath  ).toString();
 		let objects = JSON.parse( text );
 		if( ! Array.isArray( objects ) )
-			throw new Error( "File '-Index.json': Must start with an array." );
+			throw new Error( "File " + jsonIndexPath + ": Must start with an array." );
 
+		let baseNames = new Map<string, string>();
 		for( let title of objects ) {
 			if( typeof title !== 'string' )
-				throw new Error( "File '-Index.json': Array elements must be strings." );
+				throw new Error( "File " + jsonIndexPath + ": Array elements must be strings." );
 
 			let entry = new TutorialEntry();
 			entry.title = title;
 			entry.level = level;
 			entry.dir = dir;
+
+			// Titles are reduced to word characters for file names, so different titles can clash.
+			let baseName = entry.baseName();
+			if( baseName == '' )
+				throw new Error( "File " + jsonIndexPath + ": Title '" + title + "' has no word characters for a file name." );
+			let otherTitle = baseNames.get( baseName );
+			if( otherTitle !== undefined )
+				throw new Error( "File " + jsonIndexPath + ": Titles '" + otherTitle + "' and '" + title + "' " +
+					"both have file name '" + entry.fileName() + "'." );
+			baseNames.set( baseName, title );
+
 			this.entries.push( entry );
 
 			let newDir = path.posix.join( entry.dir, entry.baseName() );
@@ -62,8 +78,16 @@ export class TutorialEntry
 		return indent + '<a ' +
 			'class="' + _class + '" ' +
 			'href="/Tutorial/Tutorial/Pages/' + this.path() + '">' +
-			this.title +
+			this.escapedTitle() +
 			'</a>\n';
+	}
+
+	escapedTitle(): string
+	{
+		return this.title
+			.replaceAll( '&', '&amp;' )
+			.replaceAll( '<', '&lt;' )
+			.replaceAll( '>', '&gt;' );
 	}
 
 	detailsHtml()

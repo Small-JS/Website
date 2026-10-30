@@ -20,8 +20,7 @@ export class TutorialIndex
 		let html = this.root.toHtml();
 
 		let destDir = path.dirname( this.destPath );
-		if( ! fs.existsSync( destDir ) )
-			fs.mkdirSync( destDir );
+		fs.mkdirSync( destDir, { recursive: true } );
 
 		fs.writeFileSync( this.destPath, html );
 	}

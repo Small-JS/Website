@@ -18,8 +18,9 @@ export class TutorialPages
 	{
 		this.template.load();
 
-		if( ! fs.existsSync( this.destDir ) )
-			fs.mkdirSync( this.destDir );
+		// Clear destination, so pages that were removed or renamed disappear.
+		fs.rmSync( this.destDir, { recursive: true, force: true } );
+		fs.mkdirSync( this.destDir, { recursive: true } );
 
 		let files = <string[]> fs.readdirSync( this.sourceDir, { recursive: true } );
 		for( let file of files )
@@ -28,20 +29,20 @@ export class TutorialPages
 
 	convertFile( file: string )
 	{
-		// Skip tempate files
-		if( file.substring( 0 , 1 ) == '-' )
-			return;
-
 		// Standardize on Unix path separators.
 		file = file.replaceAll( '\\', '/' );
+
+		// Skip template and index files, and folders, in any subfolder.
+		if( file.split( '/' ).some( part => part.startsWith( '-' ) ) )
+			return;
+
 		let sourcePath = path.posix.join( this.sourceDir, file );
 
 		// Create directory if not existing
 		let stat = fs.statSync( sourcePath );
 		if(  stat.isDirectory() ) {
 			let destDir = path.posix.join( this.destDir, file );
-			if( ! fs.existsSync( destDir ) )
-				fs.mkdirSync( destDir );
+			fs.mkdirSync( destDir, { recursive: true } );
 			return;
 		}
 
