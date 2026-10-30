@@ -7,11 +7,12 @@ cd "$(dirname "$0")"
 echo "==== Cleaning: Website"
 
 rm -fr web/Script
-rm -fr web/Playgound/Playground
+rm -fr web/Tutorial/Tutorial
+rm -fr web/Reference/Reference
+rm -fr web/Playground/Playground
 rm -fr web/Examples/Counter
 rm -fr web/Examples/Todo
 rm -fr web/Examples/Balls
 rm -fr web/Examples/Benchmark
 rm -fr web/Examples/WebWorkers
-rm -fr web/Tutorial/Pages
-rm -fr web/Reference/Pages
+rm -fr web/Examples/PWA

@@ -25,13 +25,12 @@ export class PageTheme
 		darkCssLink.disabled = ! this.darkTheme;
 	}
 
-	toggle( darkCssLink: HTMLLinkElement )
+	toggle()
 	{
 		this.darkTheme = ! this.darkTheme;
 		this.save();
-		// Force page reload, so subtites in iframes also refresh theme.
+		// Force page reload, so subsites in iframes also refresh theme.
 		window.location.reload();
-		// this.apply( darkCssLink );
 	}
 
 	// Hide theme button if running in an iframe

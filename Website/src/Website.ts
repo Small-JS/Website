@@ -9,6 +9,10 @@ export class Website
 
 	async start()
 	{
+		// Apply page theme before loading includes, to prevent a flash of the light theme.
+		this.darkCssLink = this.getElement( "darkCssLink", "link" ) as HTMLLinkElement;
+		this.pageTheme.apply( this.darkCssLink );
+
 		await this.loadIncludes();
 		this.bindElements();
 		this.applyTheme();
@@ -23,6 +27,8 @@ export class Website
 		for( let includeNode of includeNodes ) {
 			let filePath = <string> includeNode.getAttribute( 'src' );
 			let file = await fetch( filePath );
+			if( ! file.ok )
+				throw new Error( "Include file not loaded: " + filePath + ", status: " + file.status );
 			let text = await file.text();
 			includeNode.insertAdjacentHTML( 'afterend', text );
 		}
@@ -30,7 +36,6 @@ export class Website
 
 	bindElements()
 	{
-		this.darkCssLink = this.getElement( "darkCssLink", "link" ) as HTMLLinkElement;
 		this.navBarDarkCssLink = this.getElement( "navBarDarkCssLink", "link" ) as HTMLLinkElement;
 		this.themeButton = this.getElement( "themeButton", "button" ) as HTMLButtonElement;
 	}
@@ -59,7 +64,6 @@ export class Website
 
 	applyTheme()
 	{
-		this.pageTheme.apply( this.darkCssLink );
 		this.pageTheme.apply( this.navBarDarkCssLink );
 		this.pageTheme.themeButtonVisible( this.themeButton );
 	}
@@ -68,7 +72,7 @@ export class Website
 
 	onThemeButton()
 	{
-		this.pageTheme.toggle( this.darkCssLink );
+		this.pageTheme.toggle();
 	}
 
 }
