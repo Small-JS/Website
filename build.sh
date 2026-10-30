@@ -5,6 +5,8 @@
 set -e
 # Change to script folder.
 cd "$(dirname "$0")"
+# Pause on exit, also when a step fails, so the output stays readable.
+trap 'sleep 2' EXIT
 
 echo "==== Building..."
 
@@ -17,5 +19,3 @@ echo "==== Building..."
 ./Website/build.sh
 
 echo "==== Builds successful."
-
-sleep 2

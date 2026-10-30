@@ -43,6 +43,7 @@ in the `./web` folder of the Reference subsite.
 
 ## Running
 
-First build SmallJS swith `../SmallJS/buildAll.sh` including the compiler, example apps and the Playground.\
-Then run `build.sh` at root of this `Website` repo to build all dependencies and finally the containing Website.\
-Read [Website/Website.md](Website/Website.md) project to run the result.
+First build SmallJS with `../SmallJS/buildAll.sh` including the compiler, example apps and the Playground.\
+Then run `install.sh` at the root of this `Website` repo once, to check prerequisites and install npm packages.\
+Then run `build.sh` at the root of this `Website` repo to build all dependencies and finally the containing Website.\
+Read [Website/Website.md](Website/Website.md) to run the result.
