@@ -10,7 +10,6 @@ export class TutorialApp
 	nextButton!: HTMLButtonElement;
 	advanceButton!: HTMLButtonElement;
 
-	indexPopup = false;
 	menuButton!: HTMLButtonElement;
 	indexDiv!: HTMLDivElement;
 
@@ -20,10 +19,11 @@ export class TutorialApp
 	{
 		this.bindElements();
 		this.applyTheme();
+		// Bind events before loading the index, so the buttons still work if that fails.
+		this.bindEvents();
 		this.addCopyToClipboardButtons();
 		await this.loadIncludes();
 		this.openIndexForPage();
-		this.bindEvents();
 	}
 
 	bindElements()
@@ -40,8 +40,6 @@ export class TutorialApp
 
 		this.pageDiv = this.getElement( "pageDiv", "div" ) as HTMLDivElement;
 	}
-
-	// Call this after the page is completely loaded.
 
 	bindEvents()
 	{
@@ -96,7 +94,8 @@ export class TutorialApp
 			let button = document.createElement( "button" );
 			button.classList.add( "copyButton" );
 			button.append( image );
-			button.onclick = () => navigator.clipboard.writeText( element.textContent );
+			button.onclick = () => navigator.clipboard.writeText( element.textContent ?? "" )
+				.catch( error => console.error( "Copy to clipboard failed:", error ) );
 			element.after( button );
 		}
 	}
@@ -105,13 +104,15 @@ export class TutorialApp
 
 	async loadIncludes()
 	{
-		const includeNodes = document.getElementsByTagName( "include" );
+		// Copy the live collection, because removing nodes from it would skip the next one.
+		const includeNodes = Array.from( document.getElementsByTagName( "include" ) );
 		for( const includeNode of includeNodes ) {
 			let filePath = <string> includeNode.getAttribute( "src" );
 			let file = await fetch( filePath );
+			if( ! file.ok )
+				throw new Error( "Failed to load include: " + filePath + ", status: " + file.status );
 			let text = await file.text();
 			includeNode.insertAdjacentHTML( "afterend", text );
-			// This might produce a bug with multiple include nodes?
 			includeNode.remove();
 		}
 	}
@@ -145,19 +146,12 @@ export class TutorialApp
 		return element;
 	}
 
+	// Toggle showing the index instead of the page on small screens.
+	// The CSS media query does the switching, so it is undone when the screen gets wider.
+
 	onMenuButton()
 	{
-		// If the index is popup mode, hide it again and show the page
-		if( this.indexPopup ) {
-			this.indexDiv.style.display = "none";
-			this.pageDiv.style.display = "block"
-			this.indexPopup = false;
-		}
-		else {
-			this.indexDiv.style.display = "block";
-			this.pageDiv.style.display = "none";
-			this.indexPopup = true;
-		}
+		document.body.classList.toggle( "indexPopup" );
 	}
 
 	onPreviousButton()
@@ -190,9 +184,6 @@ export class TutorialApp
 
 		if( element.tagName == "SUMMARY" || element.tagName == "DETAILS" )
 			return this.navigateIntoLast( element.lastElementChild )
-
-		if( ! element )
-			throw new Error( "Failed to find last anchor element" );
 
 		if( element.tagName != "A" )
 			throw new Error( "Unexpected tag: " + element.tagName );

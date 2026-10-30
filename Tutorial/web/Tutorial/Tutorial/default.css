@@ -110,6 +110,15 @@ details>*:not(summary) {
 		display: inline;
 	}
 
+	/* Menu button toggles showing the index instead of the page */
+	body.indexPopup #indexDiv {
+		display: block;
+	}
+
+	body.indexPopup #pageDiv {
+		display: none;
+	}
+
 	#titleDiv {
 		/* Grid setup to allow left-aligning the menu button.
 	   Menu button is shown now, causing an extra column the grid. */
