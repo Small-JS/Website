@@ -27,3 +27,13 @@ code {
 	background-color: #383838;
 }
 
+
+/* ==================================== Simple Analytics badge */
+
+#simpleAnalyticsBadge .badgeBackground {
+	fill: #305090;
+}
+
+#simpleAnalyticsBadge .badgeText {
+	fill: #F0F0F0;
+}
